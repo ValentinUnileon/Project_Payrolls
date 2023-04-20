@@ -5,7 +5,7 @@ package DAO;
 import java.util.List;
 import util.HibernateUtil;
 
-import configuracion.Trabajador;
+import controlador.Trabajador;
 import org.hibernate.*;
 
 /**

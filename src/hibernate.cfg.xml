@@ -46,9 +46,9 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/nominas?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">1234</property>
-    <mapping resource="configuracion/Empresas.hbm.xml"/>
-    <mapping resource="configuracion/Nomina.hbm.xml"/>
-    <mapping resource="configuracion/Trabajador.hbm.xml"/>
-    <mapping resource="configuracion/Categorias.hbm.xml"/>
+    <mapping resource="controlador/Empresas.hbm.xml"/>
+    <mapping resource="controlador/Nomina.hbm.xml"/>
+    <mapping resource="controlador/Trabajador.hbm.xml"/>
+    <mapping resource="controlador/Categorias.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

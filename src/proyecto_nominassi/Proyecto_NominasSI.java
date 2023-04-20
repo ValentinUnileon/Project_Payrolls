@@ -11,7 +11,7 @@ import java.util.Scanner;
 import DAO.TrabajadorDAO;
 import util.HibernateUtil;
 
-import configuracion.Trabajador;
+import controlador.Trabajador;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 

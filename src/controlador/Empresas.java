@@ -1,4 +1,4 @@
-package configuracion;
+package controlador;
 // Generated 20-abr-2023 11:11:44 by Hibernate Tools 4.3.1
 
 

@@ -44,7 +44,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.w3c.dom.Attr;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-import configuracion.Trabajador;
+import controlador.Trabajador;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
