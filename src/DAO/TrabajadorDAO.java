@@ -10,7 +10,7 @@ import org.hibernate.*;
 
 /**
  *
- * @author pablo
+ * @author Torre
  */
 public class TrabajadorDAO {
     
