@@ -511,23 +511,55 @@ public class ExcelManager {
                     listaDNI_Repetidos.add(listaDNI.get(i));
                 }else{
               
-                    int comprobacion=esValidoDNI(listaDNI.get(i));
-
-                    switch(comprobacion){
-
-                        case 2:
-                            //el error se puede subsanar -> LA LETRA ESTA MAL
+                    if (listaDNI.get(i).length() > 0) {
+                        
+                        if (listaDNI.get(i).charAt(0) == 'X' || listaDNI.get(i).charAt(0) == 'Y' || listaDNI.get(i).charAt(0) == 'Z') {
                             
-                            String dniArreglado = arreglarDNI(listaDNI.get(i)); 
-                            this.modificarDatos(localizacionExcel, 0, listaDNI.get(i), dniArreglado);
-                            trabajadoresHoja1.get(i).setNifnie(dniArreglado);
-                            break;
-                        case 3:
-                            //el error no es subsanable -> ESTÁ MAL ESTRUCTURADO -> añadir al XML
+                            // ESTAMOS TRABAJANDO CON UN NIE
                             
-                           trabajadoresErrores.add(trabajadoresHoja1.get(i));
-                           break;
+                            int comprobacion=esValidoNIE(listaDNI.get(i));
+
+                            switch(comprobacion){
+
+                                case 2:
+                                    //el error se puede subsanar -> LA LETRA ESTA MAL
+
+                                    String dniArreglado = arreglarNIE(listaDNI.get(i)); 
+                                    this.modificarDatos(localizacionExcel, 0, listaDNI.get(i), dniArreglado);
+                                    trabajadoresHoja1.get(i).setNifnie(dniArreglado);
+                                    break;
+                                case 3:
+                                    //el error no es subsanable -> ESTÁ MAL ESTRUCTURADO -> añadir al XML
+
+                                   trabajadoresErrores.add(trabajadoresHoja1.get(i));
+                                   break;
+                            }
+                        } else {    // ESTAMOS TRABAJANDO CON UN DNI
+                        
+                        
+                        int comprobacion=esValidoDNI(listaDNI.get(i));
+
+                        switch(comprobacion){
+
+                            case 2:
+                                //el error se puede subsanar -> LA LETRA ESTA MAL
+
+                                String dniArreglado = arreglarDNI(listaDNI.get(i)); 
+                                this.modificarDatos(localizacionExcel, 0, listaDNI.get(i), dniArreglado);
+                                trabajadoresHoja1.get(i).setNifnie(dniArreglado);
+                                break;
+                            case 3:
+                                //el error no es subsanable -> ESTÁ MAL ESTRUCTURADO -> añadir al XML
+
+                               trabajadoresErrores.add(trabajadoresHoja1.get(i));
+                               break;
+                        }
+                        
+                        
+                        }
                     }
+                    
+                    
                 }
             
         }
@@ -561,37 +593,6 @@ public class ExcelManager {
                 
                 letra = dni.charAt(8);
                 cantidad = Integer.parseInt(dni.substring(0, dni.length()-1));
-
-                if (letra == obtenerLetraCorrectaDNI(cantidad)) {  //si la letra es la correcta, el dni es valido
-
-                    esValido = 1;
-                } else {    // si la letra no es la correcta, el dni es erroneo pero subsanable
-                
-                    esValido = 2;
-                }
-            } 
-        }
-
-        return esValido;
-    }
-    
-    public static int esValidoNIE(String nie) {     //SIN TERMINAR
-        
-        // RETURN:
-        // 1 - VALIDO
-        // 2 - ERROR SUBSANABLE
-        // 3 - ERROR NO SUBSANABLE
-    
-        int esValido = 3;
-        char letra;
-        int cantidad;
-
-        if (nie.length() == 9) {   //el dni tiene longitud 9
-                  
-            if (estaBienEstructurado(nie)) {
-                
-                letra = nie.charAt(8);
-                cantidad = Integer.parseInt(nie.substring(0, nie.length()-1));
 
                 if (letra == obtenerLetraCorrectaDNI(cantidad)) {  //si la letra es la correcta, el dni es valido
 
@@ -662,8 +663,133 @@ public class ExcelManager {
         return nuevoDNI;
     }
     
+    public static String arreglarNIE(String nie){
+
+        String nuevoNIE = String.copyValueOf(nie.toCharArray());
+        
+        String nieAux = "";
+                
+        if (nie.charAt(0) == 'X') {                    
+            nieAux = "0";
+            nieAux = nieAux.concat(nie.substring(1));                   
+                    
+        } else if (nie.charAt(0) == 'Y') {
+            nieAux = "1";
+            nieAux = nieAux.concat(nie.substring(1));
+        } else if (nie.charAt(0) == 'Z'){
+        
+            nieAux = "2";
+            nieAux = nieAux.concat(nie.substring(1));
+        }
+        
+        int cantidad = Integer.parseInt(nieAux.substring(0, nieAux.length()-1));
+
+        char letra = obtenerLetraCorrectaDNI(cantidad);
+        nuevoNIE = (nie.substring(0, nie.length()-1)+ letra);
+        
+        System.out.println("EL NUEVO NIE SERIA: "+ nuevoNIE);
+        return nuevoNIE;
+    }
     
+    public static int esValidoNIE(String nie) {
+        
+        // 1 - VALIDO
+        // 2 - ERROR SUBSANABLE
+        // 3 - ERROR NO SUBSANABLE
     
+        int esValido = 3;
+        char letra;
+        int cantidad;
+
+        if (nie.length() == 9) {
+                  
+            if (estaBienEstructuradoNIE(nie)) {
+                
+                letra = nie.charAt(8);
+                String nieAux = "";
+                
+                if (nie.charAt(0) == 'X') {                    
+                    nieAux = "0";
+                    nieAux = nieAux.concat(nie.substring(1));                   
+                    
+                } else if (nie.charAt(0) == 'Y') {
+                    nieAux = "1";
+                    nieAux = nieAux.concat(nie.substring(1));
+                } else if (nie.charAt(0) == 'Z'){
+                
+                    nieAux = "2";
+                    nieAux = nieAux.concat(nie.substring(1));
+                }
+                
+                cantidad = Integer.parseInt(nieAux.substring(0, nieAux.length()-1));
+                
+                if (letra == obtenerLetraCorrectaDNI(cantidad)) {
+
+                    esValido = 1;
+                } else {
+                
+                    esValido = 2;
+                }
+            } 
+        }
+
+        return esValido;
+    }
+    
+    public static boolean estaBienEstructuradoNIE(String nie) {
+    
+        boolean estaBien = true;
+        boolean encontrado = false;
+        char letra;
+
+        for (int i=0; i<9; i++) {
+            
+            if (i == 0) {
+            
+                if (nie.charAt(i) == 'X' || nie.charAt(i) == 'Y' || nie.charAt(i) == 'Z') {
+                
+                    // LETRA CORRECTA
+                } else {
+                
+                    estaBien = false;
+                }
+            }
+            
+            if (i<8 && i>0) {    // PARA LOS 7 SIGUIENTES DIGITOS SE COMPRUEBA QUE SEAN NUMEROS
+                
+                encontrado = false;
+                letra = nie.charAt(i);
+
+                if (letra == '1' || letra == '2'|| letra == '3' || letra == '4' || letra == '5' || letra == '6' || letra == '7' || letra == '8' || letra == '9' || letra == '0') {
+                    
+                    encontrado = true;
+                }
+
+                if (!encontrado) {
+                    
+                    estaBien = false;
+                }
+                
+            } 
+            
+            if (i == 8) {// PARA EL ULTIMO DIGITO SE COMPRUEBA QUE SEA UNA DE LAS LETRAS VALIDAS
+
+                encontrado = false;
+                
+                for (int j=0; j<letras.size(); j++) {
+                    if (nie.charAt(8) == letras.get(j)) {
+                        
+                        encontrado = true;
+                    }
+                }
+                
+                if (!encontrado) {
+                    estaBien = false;
+                }
+            }
+        }
+        return estaBien;
+    }
     
     public void agregarTrabajadoresAXML(List<Trabajador> trabajadores) throws ParserConfigurationException, IOException, SAXException, TransformerException, org.xml.sax.SAXException {
 

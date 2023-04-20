@@ -5,6 +5,15 @@
  */
 package proyecto_nominassi;
 
+import controlador.Categorias;
+import DAO.CategoriasDAO;
+
+import controlador.Empresas;
+import DAO.EmpresaDAO;
+
+import controlador.Nomina;
+import DAO.NominasDAO;
+
 import java.sql.Connection;
 import java.util.Scanner;
 
@@ -46,7 +55,30 @@ public class Proyecto_NominasSI {
             System.out.println("Apellidos trabajador: " + trabajador.getApellido1() + " " + trabajador.getApellido2());
             System.out.println("NIF trabajador: " + trabajador.getNifnie());
 
+            //Datos Empresa
+            Empresas empresa = trabajador.getEmpresas();
+            System.out.println("Nombre Empresa: " + empresa.getNombre());
+            System.out.println("Nombre Empresa: " + empresa.getCif());
+
+            //Numero de trabajadores
+            int numTrabajadores = empresa.getTrabajadors().size();
+            System.out.println("Numero de trabajadores en " + empresa.getNombre() + ": " + numTrabajadores);
+
+            //Actualizar salario categorias
+            CategoriasDAO categoriaDAO = new CategoriasDAO();
+            categoriaDAO.setConector(session);
+            categoriaDAO.actualizarSalario(trabajador.getCategorias());
             
+            //Cambiar nombre
+            EmpresaDAO empresaDAO = new EmpresaDAO();
+            empresaDAO.setConector(session);
+            empresaDAO.actualizarNombreEmpresa(trabajador.getEmpresas());
+            
+            //Eliminar nominas en base al IRPF maximo
+            NominasDAO nominaDAO = new NominasDAO();
+            nominaDAO.setConector(session);
+            nominaDAO.eliminarNominas_IRPF_MAX();
+            //
             //
             HibernateUtil.shutdown();
         }
