@@ -53,6 +53,7 @@ import org.apache.poi.ss.usermodel.CellType;
 import org.w3c.dom.Text;
 
 import controlador.Empresas;
+import java.math.BigInteger;
 
 /**
  *
@@ -61,8 +62,8 @@ import controlador.Empresas;
 public class ExcelManager {
     
     //Ubicacion excel
-    private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
-    //RUTA DAVID private String localizacionExcel ="C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/SistemasInformacionII.xlsx";
+     // private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
+    private String localizacionExcel ="C:/Users/w10/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
     // RUTA VALENTIN private final String localizacionExcel ="C:/Users/Torre/Documents/GitHub/Practica_SI/NominasSI/src/resources/SistemasInformacionII.xlsx";
     
     //Datos de las hojas del excel
@@ -80,7 +81,10 @@ public class ExcelManager {
     
     //
     
-    private static List<Character> letras = new ArrayList<Character>();
+    private static final List<Character> letras = new ArrayList<Character>();
+    private static final List<Character> letrasPais = new ArrayList<Character>();
+    private static final List<String> numerosPais = new ArrayList<String>();
+    private static final List<Integer> numerosMultiplicarCCC = new ArrayList<Integer>();
     
     
     //Metodos para guardar la hojas del excel
@@ -125,7 +129,8 @@ public class ExcelManager {
  
                 */
 
-                Trabajador aux = new Trabajador(this.obtenerNumFila(localizacionExcel, codigoCuenta.get(i)), codigoCuenta.get(i)
+                Trabajador aux = new Trabajador(this.obtenerNumFila(localizacionExcel, codigoCuenta.get(i))
+                        , codigoCuenta.get(i)
                         , iban.get(i)
                         , email.get(i)
                         , null
@@ -134,7 +139,8 @@ public class ExcelManager {
                         , nombre.get(i)
                         , dnis.get(i)
                         , null
-                        , null); 
+                        , null
+                        , paisOrigen.get(i)); 
                 
                 // EMPRESA TIENE ID -> NOMBRE -> CIF
                 
@@ -802,8 +808,8 @@ public class ExcelManager {
             try{
             // cargamos el archivo XML existente en un objeto Document
 
-            // RUTA DAVID String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
-            String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
+            String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
+            // String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
             //Ruta valentinString rutaXML = "C:/Users/Torre/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
 
 
@@ -1025,8 +1031,175 @@ public class ExcelManager {
         return resultado;
     }
     
+    public void generarIBANTrabajadores() throws IOException {
+        
+        //RELLENAMOS LAS LISTAS DE LETRAS Y NUMEROS NECESARIAS PARA HACER LOS CALCULOS
+        
+        char[] listaLetrasAux = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
+
+        for(int i=0; i<listaLetrasAux.length; i++) {
+            letrasPais.add(listaLetrasAux[i]);
+        }
+        
+        String[] listaNumerosAux = new String[]{"10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35"};
+
+        for(int i=0; i<listaNumerosAux.length; i++) {
+            numerosPais.add(listaNumerosAux[i]);
+        }
     
+        for(int i=0; i<trabajadoresHoja1.size(); i++){
+            
+            if(trabajadoresHoja1.get(i).getIban().equals("")){
+                
+                //OBTENEMOS EL NUMERO DE CUENTA Y PAIS DEL TRABAJADOR
+                
+                String numeroCuenta = trabajadoresHoja1.get(i).getCodigoCuenta();
+                String paisOrigen = trabajadoresHoja1.get(i).getPaisOrigen();
+                
+                //OBTENEMOS LOS DIGITOS DE CONTROL DEL IBAN
+                
+                String numerosIBAN = obtenerNumerosIBAN(paisOrigen, numeroCuenta);
+                
+                String ibanFinal = paisOrigen + numerosIBAN + numeroCuenta;
+                
+                // System.out.println(ibanFinal);
+                
+                
+                this.escribirCeldaColumna("IBAN", ibanFinal, i+1, 0);
+            }
+               
+        }
     
+    }
     
+    public String obtenerNumerosIBAN(String paisOrigen, String numeroCuenta) {
+        
+        String numerosLetra= "";
+        
+        for (int i=0; i<paisOrigen.length(); i++) {
+            for (int j=0; j<letrasPais.size(); j++) {
+                if (paisOrigen.charAt(i) == letrasPais.get(j)) {  
+                    numerosLetra = numerosLetra + numerosPais.get(j);
+                }
+            }
+        }
+        
+        String numeroTotal = numeroCuenta +""+ numerosLetra+ "00";
+        
+        BigInteger numeroTotalAux = new BigInteger(numeroTotal);
+        BigInteger numeroDivision = new BigInteger("97");
+        
+        BigInteger resto = numeroTotalAux.mod(numeroDivision);
+        
+        int numeroFinal = 98-resto.intValue();
+        
+        return numeroFinal+"";
+    }
+    
+    public void comprobarCCCTrabajadores() throws IOException {
+    
+        Integer[] listaMultiplicacionesAux = new Integer[]{1, 2, 4, 8, 5, 10, 9, 7, 3, 6};
+
+        for(int i=0; i<listaMultiplicacionesAux.length; i++) {
+            numerosMultiplicarCCC.add(listaMultiplicacionesAux[i]);
+        }
+        
+        for(int i=0; i<trabajadoresHoja1.size(); i++){
+            
+            String numeroCuenta = trabajadoresHoja1.get(i).getCodigoCuenta();
+
+            if (!esCorrectoCCC(numeroCuenta)) {
+            
+                String numeroCuentaCorregido = corregirCCC(numeroCuenta);
+                
+                this.escribirCeldaColumna("CodigoCuenta", numeroCuentaCorregido, i+1, 0);
+
+            }
+        }
+     
+    }
+    
+    public boolean esCorrectoCCC(String numeroCuenta) {
+    
+        boolean esCorrecto = true;
+        
+        String primeraCadena = numeroCuenta.substring(0, 8);
+        primeraCadena = "00"+primeraCadena;
+        
+        String segundaCadena = numeroCuenta.substring(10);
+        
+        int primeraCantidad=0;
+        int segundaCantidad=0;
+        for (int i=0; i<10; i++) {
+        
+            primeraCantidad = primeraCantidad + numerosMultiplicarCCC.get(i)*Character.getNumericValue(primeraCadena.charAt(i));
+            segundaCantidad = segundaCantidad + numerosMultiplicarCCC.get(i)*Character.getNumericValue(segundaCadena.charAt(i));
+        }
+        
+        int primerDigito = 11-(primeraCantidad%11);
+        int segundoDigito = 11-(segundaCantidad%11);
+        
+        if (primerDigito == 10) {
+            primerDigito = 1;
+        } else if (primerDigito == 11) {
+            primerDigito = 0;
+        }
+        
+        if (segundoDigito == 10) {
+            segundoDigito = 1;
+        } else if (segundoDigito == 11) {
+            segundoDigito = 0;
+        }
+        
+        if (Character.getNumericValue(numeroCuenta.charAt(8)) == primerDigito && Character.getNumericValue(numeroCuenta.charAt(9)) == segundoDigito) {
+        
+            esCorrecto = true;
+        
+        } else {
+
+            esCorrecto = false;
+        }
+        
+        return esCorrecto;
+    }
+    
+    public String corregirCCC(String numeroCuenta) {
+    
+        String primeraAux = numeroCuenta.substring(0, 8);
+        String primeraCadena = "00"+primeraAux;
+        
+        String segundaCadena = numeroCuenta.substring(10);
+        
+        // 20960043 01 3468900000
+        // 20960043 11 103468900000
+        
+        
+        int primeraCantidad=0;
+        int segundaCantidad=0;
+        for (int i=0; i<10; i++) {
+        
+            primeraCantidad = primeraCantidad + numerosMultiplicarCCC.get(i)*Character.getNumericValue(primeraCadena.charAt(i));
+            segundaCantidad = segundaCantidad + numerosMultiplicarCCC.get(i)*Character.getNumericValue(segundaCadena.charAt(i));
+        }
+        
+        int primerDigito = 11-(primeraCantidad%11);
+        int segundoDigito = 11-(segundaCantidad%11);
+        
+        if (primerDigito == 10) {
+            primerDigito = 1;
+        } else if (primerDigito == 11) {
+            primerDigito = 0;
+        }
+        
+        if (segundoDigito == 10) {
+            segundoDigito = 1;
+        } else if (segundoDigito == 11) {
+            segundoDigito = 0;
+        }
+        
+        String numeroCorregido = primeraAux + primerDigito + segundoDigito + segundaCadena;
+        
+        return numeroCorregido;
+    }
     
 }

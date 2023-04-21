@@ -111,8 +111,11 @@ public class Proyecto_NominasSI {
              //resolverEjercicio.mapearHoja4();
              //resolverEjercicio.escribirCeldaColumna("CodigoCuenta", "QUE PASOOOOOOOOOOOOOOOOOOOOOOOOO", 1, 0);  // SE LE PASA LA POSICION DE LA COLUMNA SIN CONTAR EL NOMBRE DE LA COLUMNA (DESDE 1 HASTA N)
              resolverEjercicio.generarGmailTrabajadores();
+             resolverEjercicio.comprobarCCCTrabajadores();
+             resolverEjercicio.generarIBANTrabajadores();
              
              // resolverEjercicio.escribirCeldaColumna("IBAN","DIABLddddO LOCO", 10, 0);
+             
              
              
              
