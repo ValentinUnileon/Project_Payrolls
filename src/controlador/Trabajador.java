@@ -23,10 +23,28 @@ public class Trabajador  implements java.io.Serializable {
      private Date altaLaboral;
      private int idEmpresa;
      private int idCategoria;
+     
+     private Empresas empresa;
+     private Categorias categoria;
 
     public Trabajador() {
     }
 
+    //CONSTRUCTOR PARA MAPEAR TRABAJADORES DEL EXCEL
+    
+    public Trabajador (int idTrabajador, String codigoCuenta, String iban, String email, Date fechaAlta,  String apellido1, String apellido2, String nombre, String nifnie, Date bajaLaboral, Date altaLaboral) {
+        this.idTrabajador = idTrabajador;
+        this.codigoCuenta = codigoCuenta;
+        this.iban = iban;
+        this.email = email;
+        this.fechaAlta = fechaAlta;
+        this.apellido1 = apellido1;
+        this.apellido2 = apellido2;
+        this.nombre = nombre;
+        this.nifnie = nifnie;
+        this.bajaLaboral = bajaLaboral;
+        this.altaLaboral = altaLaboral; 
+    }
 	
     public Trabajador(int idTrabajador, String nombre, String apellido1, String nifnie, int idEmpresa, int idCategoria) {
         this.idTrabajador = idTrabajador;
@@ -52,6 +70,22 @@ public class Trabajador  implements java.io.Serializable {
        this.idCategoria = idCategoria;
     }
    
+    public Categorias getCategoria() {
+        return this.categoria;
+    }
+    
+    public void setCategoria(Categorias categoria) {
+        this.categoria = categoria;
+    }
+    
+    public Empresas getEmpresa(){
+        return this.empresa;
+    }
+    
+    public void setEmpresa(Empresas empresa){
+        this.empresa=empresa;
+    }
+    
     public int getIdTrabajador() {
         return this.idTrabajador;
     }

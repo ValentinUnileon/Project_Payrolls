@@ -52,6 +52,8 @@ import java.util.Locale;
 import org.apache.poi.ss.usermodel.CellType;
 import org.w3c.dom.Text;
 
+import controlador.Empresas;
+
 /**
  *
  * @author David
@@ -59,9 +61,9 @@ import org.w3c.dom.Text;
 public class ExcelManager {
     
     //Ubicacion excel
-    // ruta laptop private String localizacionExcel ="C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/SistemasInformacionII.xlsx";
+    private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
     //RUTA DAVID private String localizacionExcel ="C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/SistemasInformacionII.xlsx";
-    private final String localizacionExcel ="C:/Users/Torre/Documents/GitHub/Practica_SI/NominasSI/src/resources/SistemasInformacionII.xlsx";
+    // RUTA VALENTIN private final String localizacionExcel ="C:/Users/Torre/Documents/GitHub/Practica_SI/NominasSI/src/resources/SistemasInformacionII.xlsx";
     
     //Datos de las hojas del excel
     
@@ -79,8 +81,6 @@ public class ExcelManager {
     //
     
     private static List<Character> letras = new ArrayList<Character>();
-    private Trabajador trabajadorAux= new Trabajador();
-
     
     
     //Metodos para guardar la hojas del excel
@@ -129,15 +129,20 @@ public class ExcelManager {
                         , iban.get(i)
                         , email.get(i)
                         , null
-                        , cifEmpresa.get(i)
-                        , categoria.get(i)
                         , apellido1.get(i)
                         , apellido2.get(i)
                         , nombre.get(i)
                         , dnis.get(i)
                         , null
                         , null); 
-
+                
+                // EMPRESA TIENE ID -> NOMBRE -> CIF
+                
+                Empresas EmpresaAux = new Empresas(nombreEmpresa.get(i), cifEmpresa.get(i));
+                
+                aux.setEmpresa(EmpresaAux);
+                
+                
                 trabajadoresHoja1.add(aux);
      
             }
@@ -846,11 +851,11 @@ public class ExcelManager {
 
 
                 Element empresa = doc.createElement("Empresa");
-                empresa.appendChild(doc.createTextNode(trabajadores.get(i).getEmpresa()));
+                empresa.appendChild(doc.createTextNode(trabajadores.get(i).getEmpresa().getNombre()));
                 xmlTrabajador.appendChild(empresa);
 
                 Element categoria = doc.createElement("Categoria");
-                categoria.appendChild(doc.createTextNode(trabajadores.get(i).getCategoria()));
+                categoria.appendChild(doc.createTextNode(trabajadores.get(i).getCategoria().getNombreCategoria()));
                 xmlTrabajador.appendChild(categoria);
 
                 // añadimos el elemento del trabajador a la raíz del documento
@@ -938,6 +943,9 @@ public class ExcelManager {
          try{
             FileOutputStream output_file = new FileOutputStream(new File(localizacionExcel));
             libroExcel.write(output_file);
+            
+             System.out.println("ME LLAMO IKER");
+            
             output_file.close(); 
             libroExcel.close();
             
@@ -967,7 +975,7 @@ public class ExcelManager {
                 }
                 
                 String correGeneradoDominio= digitoRepeticion(correoGeneradoCuerpo) +
-                                        "@"+ trabajadoresHoja1.get(i).getEmpresa()+"ESTA MAL.com";
+                                        "@"+ trabajadoresHoja1.get(i).getEmpresa().getNombre()+".com";
                 
                 System.out.println("que "+correoGeneradoCuerpo+correGeneradoDominio);
                 

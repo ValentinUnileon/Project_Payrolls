@@ -15,6 +15,12 @@ public class Empresas  implements java.io.Serializable {
 
     public Empresas() {
     }
+    
+    public Empresas(String nombre, String cif){
+        
+        this.nombre = nombre;
+        this.cif = cif;
+    } 
 
     public Empresas(int idEmpresa, String nombre, String cif) {
        this.idEmpresa = idEmpresa;
