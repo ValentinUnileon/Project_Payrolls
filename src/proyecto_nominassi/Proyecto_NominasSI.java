@@ -91,30 +91,28 @@ public class Proyecto_NominasSI {
         //////////////////////////////////////////////////////////////////////////////////////////
         
          //Ejercicio 2
-    
-        String rutaDavid, rutaValentin;
-        rutaDavid = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/SistemasInformacionII.xlsx";
-        rutaValentin="C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/SistemasInformacionII.xlsx";
 
-        
-
-        
         ExcelManager resolverEjercicio = new ExcelManager();
         
 
          try {
   
              //resolverEjercicio.procesarDNI(rutaExcel);
-             resolverEjercicio.mapearHoja1();
+             
+             //resolverEjercicio.mapearHoja1();
+             
              //resolverEjercicio.procesarDNI();
              
              //resolverEjercicio.mapearHoja4();
              //resolverEjercicio.escribirCeldaColumna("CodigoCuenta", "QUE PASOOOOOOOOOOOOOOOOOOOOOOOOO", 1, 0);  // SE LE PASA LA POSICION DE LA COLUMNA SIN CONTAR EL NOMBRE DE LA COLUMNA (DESDE 1 HASTA N)
-             resolverEjercicio.generarGmailTrabajadores();
-             resolverEjercicio.comprobarCCCTrabajadores();
-             resolverEjercicio.generarIBANTrabajadores();
+             
+             //resolverEjercicio.generarGmailTrabajadores();
+             
+             //esolverEjercicio.generarIBANTrabajadores();
              
              // resolverEjercicio.escribirCeldaColumna("IBAN","DIABLddddO LOCO", 10, 0);
+             
+             resolverEjercicio.escribirCeldaColumna("Email", "ASDF-sdfasdfasdf-", 78, 0);
              
              
              

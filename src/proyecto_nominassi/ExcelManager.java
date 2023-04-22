@@ -62,9 +62,9 @@ import java.math.BigInteger;
 public class ExcelManager {
     
     //Ubicacion excel
-     // private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
-    private String localizacionExcel ="C:/Users/w10/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
-    // RUTA VALENTIN private final String localizacionExcel ="C:/Users/Torre/Documents/GitHub/Practica_SI/NominasSI/src/resources/SistemasInformacionII.xlsx";
+     // valentin laptop private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
+   // david  private String localizacionExcel ="C:/Users/w10/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
+    private final String localizacionExcel ="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
     
     //Datos de las hojas del excel
     
@@ -129,7 +129,7 @@ public class ExcelManager {
  
                 */
 
-                Trabajador aux = new Trabajador(this.obtenerNumFila(localizacionExcel, codigoCuenta.get(i))
+                Trabajador aux = new Trabajador(this.obtenerNumFila(localizacionExcel, codigoCuenta.get(i), apellido1.get(i))
                         , codigoCuenta.get(i)
                         , iban.get(i)
                         , email.get(i)
@@ -155,6 +155,7 @@ public class ExcelManager {
 
         }
         //System.out.println("FINAL "+trabajadoresHoja1.get(0).getNombre()+" locura longitud "+ trabajadoresHoja1.size());
+       
 
     }
     
@@ -451,7 +452,7 @@ public class ExcelManager {
         return map;
     }
     
-    public int obtenerNumFila(String localizacionExcel, String elemFila) throws FileNotFoundException, IOException{    //devuelve una lista con los elementos de una fila. La fila sera en la que se encuentre elemFila
+    public int obtenerNumFila(String localizacionExcel, String codigoCuenta, String apellido1) throws FileNotFoundException, IOException{    //devuelve una lista con los elementos de una fila. La fila sera en la que se encuentre elemFila
     
         File archivoExcel = new File(localizacionExcel);                
         InputStream flujoEntrada = new FileInputStream(archivoExcel);
@@ -459,22 +460,37 @@ public class ExcelManager {
         XSSFSheet hojaExcel = libroExcel.getSheetAt(0); 
 
         Iterator<Row> iteradorFilas = hojaExcel.iterator(); 
-        boolean encontrado=false;
+        boolean encontrado1=false;
+        boolean encontrado2=false;
         int num=-1;
         
-        while(iteradorFilas.hasNext() && encontrado==false) 
+        while(iteradorFilas.hasNext() && (encontrado1==false || encontrado2==false) ) 
         {
+            
             XSSFRow fila = (XSSFRow) iteradorFilas.next(); 
-            Iterator<Cell> iteradorCeldas = fila.cellIterator();          
+            Iterator<Cell> iteradorCeldas = fila.cellIterator();      
+            
+            encontrado1=false;
+            encontrado2=false;        
 
             while(iteradorCeldas.hasNext())
             {
                 XSSFCell celda = (XSSFCell) iteradorCeldas.next();
                 
-                if(celda.toString().equals(elemFila)) {
-                    encontrado=true;
-                    num=fila.getRowNum()+1;
+                if(celda.toString().equals(codigoCuenta)) {
+                    encontrado1=true;       
                 }
+                
+                if(celda.toString().equals(apellido1)) {
+                    encontrado2=true;
+                    
+                    if(encontrado1 && encontrado2){
+                        num=fila.getRowNum()+1;
+                    }
+                            
+                }
+                
+                    
             }
         }
         return num;
@@ -808,9 +824,9 @@ public class ExcelManager {
             try{
             // cargamos el archivo XML existente en un objeto Document
 
-            String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
-            // String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
-            //Ruta valentinString rutaXML = "C:/Users/Torre/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
+            // david String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
+            // valentin laptop String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
+            String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/Errores.xml";
 
 
 
@@ -909,7 +925,9 @@ public class ExcelManager {
             XSSFRow fila = (XSSFRow) iteradorFilas.next();     
             Iterator iteradorCeldas = fila.cellIterator();   
             
-             posColumna--;
+             //posColumna--;        CUIDAO
+             
+             System.out.println("La fila en la que estamos es "+fila.getRowNum()+ " y el posColumna es "+posColumna);
 
             while(iteradorCeldas.hasNext())
             {
@@ -917,23 +935,27 @@ public class ExcelManager {
                 
                 if(celda.toString().equals(nombreColumna) && bloqueo == 0)
                 {
-                    System.out.println("FILAS " + contadorFilas);
                     tope = contadorFilas;
                     bloqueo = 1;
                 }   
                 
+                if(fila.getRowNum()==12){
+                    
+                    fila.getCell(tope-1).setCellValue(contenido);
+                }
+                
                 if(bloqueo == 1 && filaActual == 1)
                 {
                     
-                    if(posColumna==0 && celdaActual == 0){
-                        System.out.println("CONTENIDO " + contenido);
+                    if(fila.getRowNum()==posColumna  && celdaActual == 0){ // cambiado posColumna ==0
      
                         if(fila.getCell(tope-1)!=null){                            
-                            fila.getCell(tope-1).setCellValue(contenido);                            
-                            celdaActual = 1;                            
+                            //fila.getCell(tope-1).setCellValue(contenido);                            
+                            celdaActual = 1;   
+                            break;
                             
                         }else{                           
-                            fila.createCell(tope-1);
+                            //fila.createCell(tope-1);
                             fila.getCell(tope-1).setCellValue(contenido);
                             break;
                         } 
@@ -950,8 +972,7 @@ public class ExcelManager {
             FileOutputStream output_file = new FileOutputStream(new File(localizacionExcel));
             libroExcel.write(output_file);
             
-             System.out.println("ME LLAMO IKER");
-            
+          
             output_file.close(); 
             libroExcel.close();
             
@@ -965,10 +986,14 @@ public class ExcelManager {
     
     public void generarGmailTrabajadores() throws IOException{
         
-        System.out.println("que ");
+        
         for(int i=0; i<trabajadoresHoja1.size(); i++){
+            //System.out.println("TE HE PILLADO "+trabajadoresHoja1.get(i).getIdTrabajador());
+            if(trabajadoresHoja1.get(i).getIdTrabajador()==1){
+               System.out.println("TE HE PILLADO "+trabajadoresHoja1.get(i).getApellido2()); 
+            }
             
-            if(trabajadoresHoja1.get(i).getEmail().equals("")){
+            if(trabajadoresHoja1.get(i).getEmail().equals("")){                     //solo lo genera cuando el trabajador no tiene email 
                 
                 //generar email y cambiarlo en el trabjador y en el excel//COMPROBAR SI HAY SEGUNDO APELLIDO
                 
@@ -983,9 +1008,9 @@ public class ExcelManager {
                 String correGeneradoDominio= digitoRepeticion(correoGeneradoCuerpo) +
                                         "@"+ trabajadoresHoja1.get(i).getEmpresa().getNombre()+".com";
                 
-                System.out.println("que "+correoGeneradoCuerpo+correGeneradoDominio);
-                
-                this.escribirCeldaColumna("Email", correoGeneradoCuerpo+correGeneradoDominio, i+1, 0);
+
+                this.trabajadoresHoja1.get(i).setEmail(correoGeneradoCuerpo+correGeneradoDominio);
+                this.escribirCeldaColumna("Email", correoGeneradoCuerpo+correGeneradoDominio, trabajadoresHoja1.get(i).getIdTrabajador()-1, 0);
             }
             
             
@@ -1035,6 +1060,7 @@ public class ExcelManager {
         
         //RELLENAMOS LAS LISTAS DE LETRAS Y NUMEROS NECESARIAS PARA HACER LOS CALCULOS
         
+        
         char[] listaLetrasAux = new char[]{'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'};
 
         for(int i=0; i<listaLetrasAux.length; i++) {
@@ -1047,6 +1073,8 @@ public class ExcelManager {
             numerosPais.add(listaNumerosAux[i]);
         }
     
+        this.comprobarCCCTrabajadores();
+        
         for(int i=0; i<trabajadoresHoja1.size(); i++){
             
             if(trabajadoresHoja1.get(i).getIban().equals("")){
@@ -1064,8 +1092,11 @@ public class ExcelManager {
                 
                 // System.out.println(ibanFinal);
                 
+                trabajadoresHoja1.get(i).setIban(ibanFinal);
+                System.out.println("CUIDAO QUE LO TENGO "+ trabajadoresHoja1.get(i).getIdTrabajador()+ "el iban es "+trabajadoresHoja1.get(i).getIban()+ " el nombre "+ trabajadoresHoja1.get(i).getApellido1());
                 
-                this.escribirCeldaColumna("IBAN", ibanFinal, i+1, 0);
+                this.escribirCeldaColumna("IBAN", ibanFinal, trabajadoresHoja1.get(i).getIdTrabajador()-1, 0); 
+                
             }
                
         }
@@ -1111,11 +1142,15 @@ public class ExcelManager {
             if (!esCorrectoCCC(numeroCuenta)) {
             
                 String numeroCuentaCorregido = corregirCCC(numeroCuenta);
-                
-                this.escribirCeldaColumna("CodigoCuenta", numeroCuentaCorregido, i+1, 0);
+                trabajadoresHoja1.get(i).setCodigoCuenta(numeroCuentaCorregido);
+                this.escribirCeldaColumna("CodigoCuenta", numeroCuentaCorregido, trabajadoresHoja1.get(i).getIdTrabajador()-1, 0);
 
+                //AÑADIR TRABAJADORES A LA LISTA DE TRABAJADORES ERRONEOS POR CODIGO DE CUENTA
             }
         }
+        
+        //Añadir codigos de cuenta erroneos a ErroresCCC.xml
+        
      
     }
     
@@ -1201,5 +1236,97 @@ public class ExcelManager {
         
         return numeroCorregido;
     }
+    
+    public void agregarErroresCCCXML(List<Trabajador> trabajadores) throws ParserConfigurationException, IOException, SAXException, TransformerException, org.xml.sax.SAXException {
+
+
+            try{
+            // cargamos el archivo XML existente en un objeto Document
+
+            // david String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
+            // valentin laptop String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
+            String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/Errores.xml";
+
+
+
+            File archivoXML = new File(rutaXML);
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+
+            DocumentBuilder db = dbf.newDocumentBuilder();
+
+            Document doc = db.newDocument();
+            Element rootElement = doc.createElement("Trabajadores");
+            doc.appendChild(rootElement);
+
+            // obtenemos la raíz del documento existente
+            Element eRaiz = doc.getDocumentElement();
+
+            // creamos un nuevo elemento para cada trabajador
+            for (int i = 0; i < trabajadores.size(); i++) {
+
+                Element xmlTrabajador = doc.createElement("Trabajador");
+
+
+                Attr atributoID = doc.createAttribute("id");
+                atributoID.setValue(""+trabajadores.get(i).getIdTrabajador());
+                xmlTrabajador.setAttributeNode(atributoID);
+
+                Element nif = doc.createElement("NIF_NIE");
+                nif.appendChild(doc.createTextNode(trabajadores.get(i).getNifnie()));
+                xmlTrabajador.appendChild(nif);
+
+
+                Element nombre = doc.createElement("Nombre");
+                nombre.appendChild(doc.createTextNode(trabajadores.get(i).getNombre()));
+                xmlTrabajador.appendChild(nombre);
+
+
+
+                Element apellido1 = doc.createElement("PrimerApellido");
+                apellido1.appendChild(doc.createTextNode(trabajadores.get(i).getApellido1()));
+                xmlTrabajador.appendChild(apellido1);
+
+                Element apellido2 = doc.createElement("SegundoApellido");
+                apellido2.appendChild(doc.createTextNode(trabajadores.get(i).getApellido2()));
+                xmlTrabajador.appendChild(apellido2);
+
+
+                Element empresa = doc.createElement("Empresa");
+                empresa.appendChild(doc.createTextNode(trabajadores.get(i).getEmpresa().getNombre()));
+                xmlTrabajador.appendChild(empresa);
+
+                Element categoria = doc.createElement("Categoria");
+                categoria.appendChild(doc.createTextNode(trabajadores.get(i).getCategoria().getNombreCategoria()));
+                xmlTrabajador.appendChild(categoria);
+
+                // añadimos el elemento del trabajador a la raíz del documento
+                eRaiz.appendChild(xmlTrabajador);
+            }
+
+            // actualizamos el archivo XML
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes"); // configuramos la propiedad para que se escriba en varias líneas
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(archivoXML);
+            transformer.transform(source, result);
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
