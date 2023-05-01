@@ -539,6 +539,8 @@ public class ExcelManager {
                     List<Integer> numTrabajadoresRepetidos = obtenerRepetidos(listaDNI.get(i));                
                     
                     for(int j=0; j< numTrabajadoresRepetidos.size(); j++){ 
+                        
+                        System.out.println("trabajador repetito "+ trabajadoresHoja1.get(numTrabajadoresRepetidos.get(j)).getApellido1());
                        
                         trabajadoresErrores.add(trabajadoresHoja1.get(numTrabajadoresRepetidos.get(j)));
                         
@@ -563,11 +565,14 @@ public class ExcelManager {
                                     String dniArreglado = arreglarNIE(listaDNI.get(i)); 
                                     this.modificarDatos(localizacionExcel, 0, listaDNI.get(i), dniArreglado);
                                     trabajadoresHoja1.get(i).setNifnie(dniArreglado);
+                                                                       
+                                    
                                     break;
                                 case 3:
                                     //el error no es subsanable -> ESTÁ MAL ESTRUCTURADO -> añadir al XML
 
                                    trabajadoresErrores.add(trabajadoresHoja1.get(i));
+                                    System.out.println("Nie averiado"+ trabajadoresHoja1.get(i).getApellido1() +" " +trabajadoresHoja1.get(i).getNifnie() );
                                    break;
                             }
                         } else {    // ESTAMOS TRABAJANDO CON UN DNI
@@ -588,11 +593,15 @@ public class ExcelManager {
                                 //el error no es subsanable -> ESTÁ MAL ESTRUCTURADO -> añadir al XML
 
                                trabajadoresErrores.add(trabajadoresHoja1.get(i));
+                               System.out.println("Nif averiado"+ trabajadoresHoja1.get(i).getApellido1() +" " +trabajadoresHoja1.get(i).getNifnie() );
+
                                break;
                         }
                         
                         
                         }
+                    }else{
+                        trabajadoresErrores.add(trabajadoresHoja1.get(i));
                     }
                     
                     
