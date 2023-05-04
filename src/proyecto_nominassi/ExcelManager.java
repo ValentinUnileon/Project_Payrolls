@@ -135,7 +135,17 @@ public class ExcelManager {
  
                 */
                            
-                Date fecha_fechaAltaEmpresa = formatoFecha.parse(fechaAltaEmpresa.get(i));   
+                Date fecha_fechaAltaEmpresa = formatoFecha.parse(fechaAltaEmpresa.get(i));
+                Date fecha_fechaAltaLaboral = null;
+                Date fecha_fechaBajaLaboral = null;
+                
+                if (fechaBajaLaboral.get(i).length() > 0) {              
+                    fecha_fechaBajaLaboral = formatoFecha.parse(fechaBajaLaboral.get(i));  
+                }
+                 
+                if (fechaAltaLaboral.get(i).length() > 0) {              
+                    fecha_fechaAltaLaboral = formatoFecha.parse(fechaAltaLaboral.get(i));   
+                }
                 
                 boolean prorrataAux = true;
                 
@@ -154,8 +164,8 @@ public class ExcelManager {
                         , apellido2.get(i)
                         , nombre.get(i)
                         , dnis.get(i)
-                        , null
-                        , null
+                        , fecha_fechaBajaLaboral
+                        , fecha_fechaAltaLaboral
                         , paisOrigen.get(i)
                         , prorrataAux); 
                 
@@ -1298,7 +1308,7 @@ public class ExcelManager {
             }
     }
     
-    public void generarNominasTrabajadores(String fecha) throws IOException {
+    public void generarNominasTrabajadores(String fecha) throws IOException, ParseException {
     
         this.mapearHoja3();
         
@@ -1308,7 +1318,13 @@ public class ExcelManager {
         
         String fechaAux = dia+"/"+mes+"/"+anio;
         
-        System.out.println("FEHA: "+ fechaAux);
+        
+        
+        SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
+        Date fechaActual = formatoFecha.parse(fechaAux);
+
+       
+        System.out.println("FECHA ACTUAL: "+ fechaActual.getDay() + "/" + fechaActual.getMonth() +"/"+ fechaActual.getYear());
     
         for(int i=0; i<trabajadoresHoja1.size(); i++){ 
         
