@@ -27,13 +27,15 @@ public class Trabajador  implements java.io.Serializable {
      
      private Empresas empresa;
      private Categorias categoria;
+     
+     private boolean prorrata;
 
     public Trabajador() {
     }
 
     //CONSTRUCTOR PARA MAPEAR TRABAJADORES DEL EXCEL
     
-    public Trabajador (int idTrabajador, String codigoCuenta, String iban, String email, Date fechaAlta,  String apellido1, String apellido2, String nombre, String nifnie, Date bajaLaboral, Date altaLaboral, String paisOrigen) {
+    public Trabajador (int idTrabajador, String codigoCuenta, String iban, String email, Date fechaAlta,  String apellido1, String apellido2, String nombre, String nifnie, Date bajaLaboral, Date altaLaboral, String paisOrigen, boolean prorrata) {
         this.idTrabajador = idTrabajador;
         this.codigoCuenta = codigoCuenta;
         this.iban = iban;
@@ -47,6 +49,8 @@ public class Trabajador  implements java.io.Serializable {
         this.altaLaboral = altaLaboral; 
         
         this.paisOrigen = paisOrigen;
+        
+        this.prorrata = prorrata;
     }
 	
     public Trabajador(int idTrabajador, String nombre, String apellido1, String nifnie, int idEmpresa, int idCategoria) {
@@ -73,6 +77,14 @@ public class Trabajador  implements java.io.Serializable {
        this.idCategoria = idCategoria;
     }
    
+    public boolean getProrrata() {
+        return this.prorrata;
+    }
+    
+    public void setProrrata(boolean prorrata) {
+        this.prorrata = prorrata;
+    }
+    
     public Categorias getCategoria() {
         return this.categoria;
     }

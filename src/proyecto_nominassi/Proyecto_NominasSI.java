@@ -21,8 +21,8 @@ import DAO.TrabajadorDAO;
 import util.HibernateUtil;
 
 import controlador.Trabajador;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
+//import org.hibernate.Session;
+//import org.hibernate.SessionFactory;
 
 /**
  *
@@ -106,7 +106,14 @@ public class Proyecto_NominasSI {
            ex.printStackTrace();
         
         }
-            
+         
+        // Ejercicio 4
+        
+        System.out.println("Introduce mes y año de la nomina (MM/AAAA): ");
+        Scanner scan2 = new Scanner(System.in);
+        String fecha = scan2.nextLine();
+        
+        resolverEjercicio.generarNominasTrabajadores(fecha);
  
     }
     

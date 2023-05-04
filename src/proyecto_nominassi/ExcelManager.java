@@ -65,8 +65,8 @@ public class ExcelManager {
     
     //Ubicacion excel
      // valentin laptop private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
-   // david  private String localizacionExcel ="C:/Users/w10/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
-    private final String localizacionExcel ="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
+   private String localizacionExcel ="C:/Users/w10/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
+    // private final String localizacionExcel ="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
     
     //Datos de las hojas del excel
     
@@ -134,6 +134,19 @@ public class ExcelManager {
                 Date fecha_fechaAltaLaboral = formatoFecha.parse(fechaAltaLaboral.get(i));
  
                 */
+                
+                Date fecha_fechaAltaEmpresa = formatoFechaNuevo.parse(fechaAltaEmpresa.get(i));
+                
+                
+                //System.out.println(fecha_fechaAltaEmpresa.getYear()+"/" + fecha_fechaAltaEmpresa.getMonth() +"/" + fecha_fechaAltaEmpresa.getDay());
+                
+                boolean prorrataAux = true;
+                
+                if (prorrata.get(i) == "SI") {
+                    prorrataAux = true;
+                } else {
+                    prorrataAux = false;
+                }
 
                 Trabajador aux = new Trabajador(this.obtenerNumFila(localizacionExcel, codigoCuenta.get(i), apellido1.get(i))
                         , codigoCuenta.get(i)
@@ -146,7 +159,8 @@ public class ExcelManager {
                         , dnis.get(i)
                         , null
                         , null
-                        , paisOrigen.get(i)); 
+                        , paisOrigen.get(i)
+                        , prorrataAux); 
                 
                 // EMPRESA TIENE ID -> NOMBRE -> CIF
                 
@@ -842,9 +856,9 @@ public class ExcelManager {
             try{
             // cargamos el archivo XML existente en un objeto Document
 
-            // david String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
+            String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
             // valentin laptop String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
-            String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/Errores.xml";
+            // String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/Errores.xml";
 
 
 
@@ -1218,9 +1232,9 @@ public class ExcelManager {
             try{
             // cargamos el archivo XML existente en un objeto Document
 
-            // david String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
+            String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
             // valentin laptop String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
-            String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/ErroresCCC.xml";
+            // String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/ErroresCCC.xml";
 
 
 
@@ -1287,17 +1301,52 @@ public class ExcelManager {
             }
     }
     
+    public void generarNominasTrabajadores(String fecha) {
     
+        String mes = fecha.substring(0, 2);
+        String anio = fecha.substring(3);
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
+        for(int i=0; i<trabajadoresHoja1.size(); i++){ 
+        
+            String categoriaTrabajador = trabajadoresHoja1.get(i).getCategoria().getNombreCategoria();
+            Date fechaAltaTrabajador = trabajadoresHoja1.get(i).getFechaAlta();
+            boolean prorrata = trabajadoresHoja1.get(i).getProrrata();
+            
+            String salarioBase = categoria_SalarioBase.get(categoriaTrabajador);
+            String complementos = categoria_Complementos.get(categoriaTrabajador);
+            
+            
+            
+            
+            // HAY QUE CALCULAR EL NUMERO DE TRIENIOS QUE LLEVA EN LA EMPRESA
+            // CUANDO FUNCIONEN LAS FECHAS SE DEJA ARREGLADO, DE MOMENTO ESTO
+            
+            float numeroTrienios = 2; //ESTO ES LO QUE HAY QUE CAMBIAR
+            
+            float importeBrutoTrienios = this.trienios.get(numeroTrienios);
+            
+            int numeroPagos = 0;
+            
+            if (prorrata) {
+                numeroPagos = 12;
+            } else {
+                numeroPagos = 14;
+            }
+            
+            
+            //TENIENDO TODOS ESTOS DATOS SE CALCULA EL BRUTO ANUAL
+            // HAY QUE TENER EN CUENTA TODO LO QUE VA A GANAR ESTE AÑO, TENIENDO EN CUENTA TODO
+            // SI ES SU PRIMER AÑO, SI CAMBIA JUSTO DE TRIENIO EN ESTE AÑO
+            // SI ES UNA NOMINA NORMAL SIN CAMBIO DE TRIENIO, SI TIENE BAJAS
+            
+            // se puede hacer con un switch y hacer 4 apartados diferentes
+            
+            
+            
+            
+        }
+        
+    }
     
     
 }
