@@ -134,11 +134,8 @@ public class ExcelManager {
                 Date fecha_fechaAltaLaboral = formatoFecha.parse(fechaAltaLaboral.get(i));
  
                 */
-                
-                Date fecha_fechaAltaEmpresa = formatoFechaNuevo.parse(fechaAltaEmpresa.get(i));
-                
-                
-                //System.out.println(fecha_fechaAltaEmpresa.getYear()+"/" + fecha_fechaAltaEmpresa.getMonth() +"/" + fecha_fechaAltaEmpresa.getDay());
+                           
+                Date fecha_fechaAltaEmpresa = formatoFecha.parse(fechaAltaEmpresa.get(i));   
                 
                 boolean prorrataAux = true;
                 
@@ -152,7 +149,7 @@ public class ExcelManager {
                         , codigoCuenta.get(i)
                         , iban.get(i)
                         , email.get(i)
-                        , null
+                        , fecha_fechaAltaEmpresa
                         , apellido1.get(i)
                         , apellido2.get(i)
                         , nombre.get(i)
@@ -1301,10 +1298,17 @@ public class ExcelManager {
             }
     }
     
-    public void generarNominasTrabajadores(String fecha) {
+    public void generarNominasTrabajadores(String fecha) throws IOException {
     
+        this.mapearHoja3();
+        
+        String dia = "01";
         String mes = fecha.substring(0, 2);
         String anio = fecha.substring(3);
+        
+        String fechaAux = dia+"/"+mes+"/"+anio;
+        
+        System.out.println("FEHA: "+ fechaAux);
     
         for(int i=0; i<trabajadoresHoja1.size(); i++){ 
         
@@ -1321,9 +1325,10 @@ public class ExcelManager {
             // HAY QUE CALCULAR EL NUMERO DE TRIENIOS QUE LLEVA EN LA EMPRESA
             // CUANDO FUNCIONEN LAS FECHAS SE DEJA ARREGLADO, DE MOMENTO ESTO
             
-            float numeroTrienios = 2; //ESTO ES LO QUE HAY QUE CAMBIAR
+            float numeroTrienios = 2; //ESTO ES LO QUE HAY QUE borrar cuando funcionen las fechas
+            //float numeroTrienios = calcularNumeroTrienios(i, fechaAltaTrabajador, fechaActual);
             
-            float importeBrutoTrienios = this.trienios.get(numeroTrienios);
+            float importeBrutoTrienios = trienios.get(numeroTrienios);
             
             int numeroPagos = 0;
             
@@ -1346,7 +1351,46 @@ public class ExcelManager {
             
         }
         
+        
+        
     }
     
+    public int calcularTipoNomina(int index, Date fechaInicio, Date fechaActual){
+    
+        int tipoNomina = 0;
+        
+        
+        
+        return tipoNomina;
+    }
+    
+    
+    public float calcularNumeroTrienios(Date fechaInicio, Date fechaActual) {
+    
+        float numeroTrienios = 0;
+        
+        boolean trienioExtra = false;
+        
+        int aniosDiferencia;
+        
+        aniosDiferencia = fechaActual.getYear() - fechaInicio.getYear();
+        
+        if (aniosDiferencia%3==0) {
+        
+            if (fechaActual.getMonth() >= fechaInicio.getMonth()) {
+                
+                trienioExtra = true;
+            }
+        }
+        
+        numeroTrienios = aniosDiferencia/3;
+        
+        if (trienioExtra) {
+        
+            numeroTrienios++;
+        }
+        
+        return numeroTrienios;
+    }
     
 }
