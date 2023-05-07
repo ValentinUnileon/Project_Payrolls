@@ -7,6 +7,7 @@ package proyecto_nominassi;
 
 import com.sun.org.apache.xml.internal.serialize.OutputFormat;
 import controlador.Categorias;
+import controlador.Nomina;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -1308,6 +1309,9 @@ public class ExcelManager {
             }
     }
     
+    //---------------------------------------PRACTICA 4--------------------------------------------------
+    
+    
     public void generarNominasTrabajadores(String fecha) throws IOException, ParseException {
     
         this.mapearHoja3();
@@ -1408,5 +1412,112 @@ public class ExcelManager {
         
         return numeroTrienios;
     }
+ 
+    
+    public void generarNominasXML (List<Trabajador> trabajadores, List<Nomina> nominas){
+        
+            try{
+            // cargamos el archivo XML existente en un objeto Document
+
+            String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Nominas.xml";
+            // valentin laptop String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
+            // String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/ErroresCCC.xml";
+
+
+
+            File archivoXML = new File(rutaXML);
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+
+            DocumentBuilder db = dbf.newDocumentBuilder();
+
+            Document doc = db.newDocument();
+            Element rootElement = doc.createElement("Nominas");
+            doc.appendChild(rootElement);
+
+            // obtenemos la raíz del documento existente
+            Element eRaiz = doc.getDocumentElement();
+
+            // creamos un nuevo elemento para cada trabajador
+            for (int i = 0; i < trabajadores.size(); i++) {
+
+                Element xmlTrabajador = doc.createElement("idFilaExcel");
+
+
+                Attr atributoID = doc.createAttribute("id");
+                atributoID.setValue(""+trabajadores.get(i).getIdTrabajador());
+                xmlTrabajador.setAttributeNode(atributoID);
+
+                Element nombre = doc.createElement("Nombre");
+                nombre.appendChild(doc.createTextNode(trabajadores.get(i).getNombre()));
+                xmlTrabajador.appendChild(nombre);
+
+                Element nif = doc.createElement("NIF");
+                nif.appendChild(doc.createTextNode(trabajadores.get(i).getNifnie() ));
+                xmlTrabajador.appendChild(nif);
+
+                Element iban = doc.createElement("IBAN");
+                iban.appendChild(doc.createTextNode(trabajadores.get(i).getIban()));
+                xmlTrabajador.appendChild(iban);
+
+                Element categoria = doc.createElement("Categoria");
+                categoria.appendChild(doc.createTextNode(trabajadores.get(i).getCategoria().getNombreCategoria()));
+                xmlTrabajador.appendChild(categoria);
+
+                Element brutoAnual = doc.createElement("BrutoAnual");
+                brutoAnual.appendChild(doc.createTextNode(Double.toString(nominas.get(i).getBrutoAnual()))); 
+                xmlTrabajador.appendChild(brutoAnual);
+                
+                Element importeIrpf = doc.createElement("ImporteIrpf");
+                importeIrpf.appendChild(doc.createTextNode(Double.toString(nominas.get(i).getImporteIrpf())));
+                xmlTrabajador.appendChild(importeIrpf);
+                
+                Element baseEmpresario = doc.createElement("BaseEmpresario");
+                baseEmpresario.appendChild(doc.createTextNode(Double.toString(nominas.get(i).getBaseEmpresario())));
+                xmlTrabajador.appendChild(baseEmpresario);
+                
+                Element brutoNomina = doc.createElement("BrutoNomina");
+                brutoNomina.appendChild(doc.createTextNode(Double.toString(nominas.get(i).getBrutoNomina())));
+                xmlTrabajador.appendChild(brutoNomina);
+                
+                Element liquidoNomina = doc.createElement("LiquidoNomina");
+                liquidoNomina.appendChild(doc.createTextNode(Double.toString(nominas.get(i).getLiquidoNomina())));
+                xmlTrabajador.appendChild(liquidoNomina);
+                
+                Element costeTotal = doc.createElement("CosteTotalEmpresario");
+                costeTotal.appendChild(doc.createTextNode(Double.toString(nominas.get(i).getCosteTotalEmpresario())));
+                xmlTrabajador.appendChild(costeTotal);
+
+                // añadimos el elemento del trabajador a la raíz del documento
+                eRaiz.appendChild(xmlTrabajador);
+            }
+
+            // actualizamos el archivo XML
+            TransformerFactory transformerFactory = TransformerFactory.newInstance();
+            Transformer transformer = transformerFactory.newTransformer();
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes"); // configuramos la propiedad para que se escriba en varias líneas
+            DOMSource source = new DOMSource(doc);
+            StreamResult result = new StreamResult(archivoXML);
+            transformer.transform(source, result);
+
+            }catch(Exception e){
+                e.printStackTrace();
+            }     
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
