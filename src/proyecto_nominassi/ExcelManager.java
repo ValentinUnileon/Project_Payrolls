@@ -1345,8 +1345,8 @@ public class ExcelManager {
             // HAY QUE CALCULAR EL NUMERO DE TRIENIOS QUE LLEVA EN LA EMPRESA
             // CUANDO FUNCIONEN LAS FECHAS SE DEJA ARREGLADO, DE MOMENTO ESTO
             
-            float numeroTrienios = 2; //ESTO ES LO QUE HAY QUE borrar cuando funcionen las fechas
-            //float numeroTrienios = calcularNumeroTrienios(i, fechaAltaTrabajador, fechaActual);
+            
+            float numeroTrienios = calcularNumeroTrienios(fechaAltaTrabajador, fechaActual);
             
             float importeBrutoTrienios = trienios.get(numeroTrienios);
             
@@ -1414,6 +1414,8 @@ public class ExcelManager {
     }
  
     
+    
+    
     public void generarNominasXML (List<Trabajador> trabajadores, List<Nomina> nominas){
         
             try{
@@ -1442,9 +1444,8 @@ public class ExcelManager {
 
                 Element xmlTrabajador = doc.createElement("idFilaExcel");
 
-
                 Attr atributoID = doc.createAttribute("id");
-                atributoID.setValue(""+trabajadores.get(i).getIdTrabajador());
+                atributoID.setValue(""+nominas.get(i).getIdNomina());
                 xmlTrabajador.setAttributeNode(atributoID);
 
                 Element nombre = doc.createElement("Nombre");
@@ -1487,7 +1488,7 @@ public class ExcelManager {
                 costeTotal.appendChild(doc.createTextNode(Double.toString(nominas.get(i).getCosteTotalEmpresario())));
                 xmlTrabajador.appendChild(costeTotal);
 
-                // añadimos el elemento del trabajador a la raíz del documento
+                // añadimos el elemento de la nomina a la raíz del documento
                 eRaiz.appendChild(xmlTrabajador);
             }
 
