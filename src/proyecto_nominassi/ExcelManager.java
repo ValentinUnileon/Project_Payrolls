@@ -93,6 +93,8 @@ public class ExcelManager {
     private static final List<String> numerosPais = new ArrayList<String>();
     private static final List<Integer> numerosMultiplicarCCC = new ArrayList<Integer>();
     
+    private static final List<Nomina> nominasTrabajadores = new ArrayList<Nomina>();
+    
     
     //Metodos para guardar la hojas del excel
     
@@ -1348,7 +1350,14 @@ public class ExcelManager {
             
             float numeroTrienios = calcularNumeroTrienios(fechaAltaTrabajador, fechaActual);
             
-            float importeBrutoTrienios = trienios.get(numeroTrienios);
+            System.out.println("NUMERO TRIENIOS DE "+ trabajadoresHoja1.get(i).getNombre() + ": "+ numeroTrienios);
+            
+            float importeBrutoTrienios = 0;
+            
+            if (numeroTrienios >0) {
+                
+                importeBrutoTrienios = trienios.get(numeroTrienios);
+            }
             
             int numeroPagos = 0;
             
@@ -1375,40 +1384,37 @@ public class ExcelManager {
         
     }
     
-    public int calcularTipoNomina(int index, Date fechaInicio, Date fechaActual){
-    
-        int tipoNomina = 0;
+    public float calcularBrutoAnual(int index, Date fechaInicio, Date fechaActual){
+        
+        String categoriaTrabajador = trabajadoresHoja1.get(index).getCategoria().getNombreCategoria();
+        Date fechaAltaTrabajador = trabajadoresHoja1.get(index).getFechaAlta();
+        boolean prorrata = trabajadoresHoja1.get(index).getProrrata();
+            
+        String salarioBase = categoria_SalarioBase.get(categoriaTrabajador);
+        String complementos = categoria_Complementos.get(categoriaTrabajador);
+        
+        float brutoAnual = 0;
+        
+        if (fechaInicio.getYear() == fechaActual.getYear()) {
+            
+          
+                   
+        }
         
         
         
-        return tipoNomina;
+        
+        return brutoAnual;
     }
     
     
     public float calcularNumeroTrienios(Date fechaInicio, Date fechaActual) {
     
-        float numeroTrienios = 0;
-        
-        boolean trienioExtra = false;
-        
+        float numeroTrienios = 0;        
         int aniosDiferencia;
         
         aniosDiferencia = fechaActual.getYear() - fechaInicio.getYear();
-        
-        if (aniosDiferencia%3==0) {
-        
-            if (fechaActual.getMonth() >= fechaInicio.getMonth()) {
-                
-                trienioExtra = true;
-            }
-        }
-        
         numeroTrienios = aniosDiferencia/3;
-        
-        if (trienioExtra) {
-        
-            numeroTrienios++;
-        }
         
         return numeroTrienios;
     }
@@ -1424,8 +1430,6 @@ public class ExcelManager {
             String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Nominas.xml";
             // valentin laptop String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
             // String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/ErroresCCC.xml";
-
-
 
             File archivoXML = new File(rutaXML);
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
