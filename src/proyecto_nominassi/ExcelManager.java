@@ -1334,29 +1334,31 @@ public class ExcelManager {
     
         for(int i=0; i<trabajadoresHoja1.size(); i++){ 
         
-            String categoriaTrabajador = trabajadoresHoja1.get(i).getCategoria().getNombreCategoria();
+            String categoriaTrabajador_s = trabajadoresHoja1.get(i).getCategoria().getNombreCategoria();
+            float categoriaTrabajador = Float.parseFloat(categoriaTrabajador_s);
+            
             Date fechaAltaTrabajador = trabajadoresHoja1.get(i).getFechaAlta();
             boolean prorrata = trabajadoresHoja1.get(i).getProrrata();
             
-            String salarioBase = categoria_SalarioBase.get(categoriaTrabajador);
-            String complementos = categoria_Complementos.get(categoriaTrabajador);
+            String salarioBase_s = categoria_SalarioBase.get(categoriaTrabajador);
+            float salarioBase = Float.parseFloat(salarioBase_s);
+            String complementos_s = categoria_Complementos.get(categoriaTrabajador);
+            float complementos = Float.parseFloat(complementos_s);
             
-            
-            
-            
+
             // HAY QUE CALCULAR EL NUMERO DE TRIENIOS QUE LLEVA EN LA EMPRESA
-            // CUANDO FUNCIONEN LAS FECHAS SE DEJA ARREGLADO, DE MOMENTO ESTO
-            
-            
+  
             float numeroTrienios = calcularNumeroTrienios(fechaAltaTrabajador, fechaActual);
             
             System.out.println("NUMERO TRIENIOS DE "+ trabajadoresHoja1.get(i).getNombre() + ": "+ numeroTrienios);
+            
             
             float importeBrutoTrienios = 0;
             
             if (numeroTrienios >0) {
                 
-                importeBrutoTrienios = trienios.get(numeroTrienios);
+                importeBrutoTrienios = trienios.get(numeroTrienios);    
+                //CUIDADO LE ESTAS PASANDO UN NUMERO NO UNA STRING, SEGURAMENTE NO FUNCION PERO ME DA PEREZA CAMBIARLO 
             }
             
             int numeroPagos = 0;
@@ -1365,6 +1367,51 @@ public class ExcelManager {
                 numeroPagos = 12;
             } else {
                 numeroPagos = 14;
+            }
+            
+            //Calculamos bruto anual
+            
+            float brutoAnual = 0;
+            float nominaMensual = 0; 
+            
+            //FALTA POR TENER EN CUENTA LOS DIAS DE BAJA DIABLO 
+            
+            
+            if(fechaAltaTrabajador.getYear() == fechaActual.getYear()){
+                
+                
+                
+            }else if(fechaAltaTrabajador.getYear() < fechaActual.getYear()){
+                
+                //Calulamos bruto anual con su salario anual, complemento e importe de trienios
+                
+                brutoAnual = salarioBase + complementos + (importeBrutoTrienios*14);
+                
+                if(prorrata){
+                    
+                    if(fechaActual.getMonth()== 6 || fechaActual.getMonth()== 12  ){
+                        
+                        nominaMensual = brutoAnual / 14;
+                        
+                        //añadimos prorrateo
+                        
+                        nominaMensual = nominaMensual + (nominaMensual/6);
+                        
+                    }else{
+                        
+                    }
+                    
+                }else{
+                    
+                    
+                }
+                
+                
+                
+            }else if(fechaAltaTrabajador.getYear() > fechaActual.getYear()){
+                
+                // no se genera nada
+                
             }
             
             
@@ -1399,6 +1446,8 @@ public class ExcelManager {
             
           
                    
+        }else{
+            
         }
         
         
