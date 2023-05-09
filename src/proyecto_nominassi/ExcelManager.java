@@ -1389,7 +1389,7 @@ public class ExcelManager {
                 
                 if(prorrata){
                     
-                    if(fechaActual.getMonth()== 6 || fechaActual.getMonth()== 12  ){
+                     //cuidado esta mal 
                         
                         nominaMensual = brutoAnual / 14;
                         
@@ -1398,7 +1398,8 @@ public class ExcelManager {
                         nominaMensual = nominaMensual + (nominaMensual/6);
                         
                     }else{
-                        
+                       if(fechaActual.getMonth()== 6 || fechaActual.getMonth()== 12  ) {
+                           
                     }
                     
                 }else{
