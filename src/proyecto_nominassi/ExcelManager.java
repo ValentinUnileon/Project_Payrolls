@@ -232,7 +232,18 @@ public class ExcelManager {
             retencion.put(Float.parseFloat(brutoAnual.get(i)), Float.parseFloat(columnaRetencion.get(i)));
         }
         
-        List<String> accidentesTrabajo = this.obtenerColumnasDatos(localizacionExcel, "Accidentes trabajo EMPRESARIO", 3);
+        
+        //obtenemos el nombre la columna de las coasas
+        
+        FileInputStream archivo = new FileInputStream(localizacionExcel);
+        XSSFWorkbook libro = new XSSFWorkbook(archivo);
+        Sheet hoja = libro.getSheetAt(3); 
+        Row fila = hoja.getRow(0); 
+        Cell celda = fila.getCell(5); 
+        String nombreColum = celda.getStringCellValue();
+        libro.close();
+        
+        List<String> accidentesTrabajo = this.obtenerColumnasDatos(localizacionExcel, nombreColum, 3);
         List<String> valores = this.obtenerColumnasDatos(localizacionExcel, "1", 3);
         
         for(int j=0; j<accidentesTrabajo.size(); j++ ){
@@ -1358,15 +1369,7 @@ public class ExcelManager {
             if (numeroTrienios >0) {
                 
                 importeBrutoTrienios = trienios.get(numeroTrienios);    
-                //CUIDADO LE ESTAS PASANDO UN NUMERO NO UNA STRING, SEGURAMENTE NO FUNCION PERO ME DA PEREZA CAMBIARLO 
-            }
-            
-            int numeroPagos = 0;
-            
-            if (prorrata) {
-                numeroPagos = 12;
-            } else {
-                numeroPagos = 14;
+         
             }
             
             //Calculamos bruto anual
@@ -1386,28 +1389,106 @@ public class ExcelManager {
                 //Calulamos bruto anual con su salario anual, complemento e importe de trienios
                 
                 brutoAnual = salarioBase + complementos + (importeBrutoTrienios*14);
+
+                //Impuestos y gastos trabajador y empresario
                 
+                Nomina nomina = new Nomina();
+                
+                float irpf=calcularIRPF(brutoAnual);
+                float desempleoTrabajador = datosEmpresa.get("Cuota desempleo TRABAJADOR");
+                float meiTrabajador = datosEmpresa.get("MEI TRABAJADOR");            
+                float seguridadSocialTrabajador = datosEmpresa.get("Cuota obrera general TRABAJADOR");
+                float formacionTrabajador = datosEmpresa.get("Cuota formación TRABAJADOR");
+                
+                
+                float accidentesTrabajo = datosEmpresa.get("Accidentes trabajo EMRPESARIO");
+                float meiEmpresario = datosEmpresa.get("MEI EMPRESARIO");
+                float seguridadSocialEmpresario = datosEmpresa.get("Contingencias comunes EMPRESARIO");
+                float desempleoEmpresario = datosEmpresa.get("Desempleo EMPRESARIO");
+                float formacionEmpresario = datosEmpresa.get("Formacion EMPRESARIO");  
+                float fogasa = datosEmpresa.get("Fogasa EMPRESARIO");
+ 
                 if(prorrata){
+ 
+                        
+                    nominaMensual = brutoAnual / 14;
+
                     
-                     //cuidado esta mal 
-                        
-                        nominaMensual = brutoAnual / 14;
-                        
-                        //añadimos prorrateo
-                        
-                        nominaMensual = nominaMensual + (nominaMensual/6);
-                        
-                    }else{
-                       if(fechaActual.getMonth()== 6 || fechaActual.getMonth()== 12  ) {
+                    nominaMensual = nominaMensual + (nominaMensual/6);  //añadimos prorrateo 
+                    
+                                        
+                    //Impuestos
+                    
+                    nomina.setSeguridadSocialTrabajador(seguridadSocialTrabajador);
+                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialTrabajador);
+                    
+                    nomina.setFormacionTrabajador(formacionTrabajador);
+                    nomina.setImporteFormacionTrabajador(nominaMensual*formacionTrabajador);
+                    
+                    nomina.setMeiTrabajador(Double.parseDouble(""+meiTrabajador));
+                    nomina.setImporteMeiTrabajador(Double.parseDouble(""+(nominaMensual*meiTrabajador)));
+                    
+                    nomina.setDesempleoTrabajador(desempleoTrabajador);
+                    nomina.setImporteDesempleoTrabajador(nominaMensual*desempleoTrabajador);
+                    
+                    nomina.setIrpf(irpf);
+                    nomina.setImporteIrpf(nominaMensual*irpf);
+                                      
+                    
+                    float liquidoMensual = nominaMensual - Float.parseFloat(""+(nomina.getImporteSeguridadSocialTrabajador()
+                            -nomina.getImporteFormacionTrabajador()
+                            -nomina.getImporteMeiTrabajador()
+                            -nomina.getImporteDesempleoTrabajador()
+                            -nomina.getImporteIrpf()
+                    ));
+                    
+                    nomina.toString();
+                    System.out.println("El liquido de la nomina mensual es: "+nominaMensual);  
+                    
+                    
+                    //Costes empresario
+                    
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
+                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    
+                    nomina.setFormacionTrabajador(formacionEmpresario);
+                    nomina.setImporteFormacionTrabajador(nominaMensual*formacionEmpresario);
+                    
+                    nomina.setMeiTrabajador(Double.parseDouble(""+meiEmpresario));
+                    nomina.setImporteMeiTrabajador(Double.parseDouble(""+(nominaMensual*meiEmpresario)));
+                    
+                    nomina.setDesempleoTrabajador(desempleoEmpresario);
+                    nomina.setImporteDesempleoTrabajador(nominaMensual*desempleoEmpresario);
+                    
+                    nomina.setAccidentesTrabajoEmpresario(accidentesTrabajo);
+                    nomina.setImporteAccidentesTrabajoEmpresario(nominaMensual*accidentesTrabajo);
+                    
+                    nomina.setFogasaempresario(fogasa);
+                    nomina.setImporteFogasaempresario(nominaMensual*fogasa);
+                            
+                    
+                    float costeEmpresa = nominaMensual + Float.parseFloat(""+(nomina.getImporteSeguridadSocialEmpresario()
+                            +nomina.getImporteFormacionEmpresario()
+                            +nomina.getImporteMeiEmpresario()
+                            +nomina.getImporteDesempleoEmpresario()
+                            +nomina.getImporteAccidentesTrabajoEmpresario()
+                            +nomina.getImporteFogasaempresario()
+                            
+                    ));
+                    
+                    
+                    
+
+                    
+                }else{  // no tiene prorrata, cobra
+                    
+                    if(fechaActual.getMonth()== 6 || fechaActual.getMonth()== 12  ) {
                            
                     }
                     
-                }else{
-                    
-                    
                 }
                 
-                
+           
                 
             }else if(fechaAltaTrabajador.getYear() > fechaActual.getYear()){
                 
@@ -1432,30 +1513,24 @@ public class ExcelManager {
         
     }
     
-    public float calcularBrutoAnual(int index, Date fechaInicio, Date fechaActual){
+    public float calcularIRPF(float brutoAnual){
         
-        String categoriaTrabajador = trabajadoresHoja1.get(index).getCategoria().getNombreCategoria();
-        Date fechaAltaTrabajador = trabajadoresHoja1.get(index).getFechaAlta();
-        boolean prorrata = trabajadoresHoja1.get(index).getProrrata();
-            
-        String salarioBase = categoria_SalarioBase.get(categoriaTrabajador);
-        String complementos = categoria_Complementos.get(categoriaTrabajador);
-        
-        float brutoAnual = 0;
-        
-        if (fechaInicio.getYear() == fechaActual.getYear()) {
-            
-          
-                   
+        float irpf=0;
+
+        if(brutoAnual<12000){
+           irpf=0;
+        }else if(brutoAnual<60000){
+           irpf=Float.parseFloat("26,22");
         }else{
-            
+          float aux = (brutoAnual / 1000) * 1000; 
+          irpf= retencion.get(aux);
         }
-        
-        
-        
-        
-        return brutoAnual;
-    }
+
+        return irpf;
+
+    }    
+    
+    
     
     
     public float calcularNumeroTrienios(Date fechaInicio, Date fechaActual) {

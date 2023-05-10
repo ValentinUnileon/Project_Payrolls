@@ -396,6 +396,48 @@ public class Nomina  implements java.io.Serializable {
         this.importeMeiEmpresario = importeMeiEmpresario;
     }
 
+    
+    public String toString() {
+        return "Nomina: " + 
+                "\nId Nomina: " + idNomina + 
+                "\nMes: " + mes + 
+                "\nAnio: " + anio + 
+                "\nNúmero Trienios: " + numeroTrienios + 
+                "\nImporte Trienios: " + importeTrienios + 
+                "\nImporte Salario Mes: " + importeSalarioMes + 
+                "\nImporte Complemento Mes: " + importeComplementoMes + 
+                "\nValor Prorrateo: " + valorProrrateo + 
+                "\nBruto Anual: " + brutoAnual + 
+                "\nIRPF: " + irpf + 
+                "\nImporte IRPF: " + importeIrpf + 
+                "\nBase Empresario: " + baseEmpresario + 
+                "\nSeguridad Social Empresario: " + seguridadSocialEmpresario + 
+                "\nImporte Seguridad Social Empresario: " + importeSeguridadSocialEmpresario + 
+                "\nDesempleo Empresario: " + desempleoEmpresario + 
+                "\nImporte Desempleo Empresario: " + importeDesempleoEmpresario + 
+                "\nFormación Empresario: " + formacionEmpresario + 
+                "\nImporte Formación Empresario: " + importeFormacionEmpresario + 
+                "\nAccidentes Trabajo Empresario: " + accidentesTrabajoEmpresario + 
+                "\nImporte Accidentes Trabajo Empresario: " + importeAccidentesTrabajoEmpresario + 
+                "\nFOGASA Empresario: " + fogasaempresario + 
+                "\nImporte FOGASA Empresario: " + importeFogasaempresario + 
+                "\nSeguridad Social Trabajador: " + seguridadSocialTrabajador + 
+                "\nImporte Seguridad Social Trabajador: " + importeSeguridadSocialTrabajador + 
+                "\nDesempleo Trabajador: " + desempleoTrabajador + 
+                "\nImporte Desempleo Trabajador: " + importeDesempleoTrabajador + 
+                "\nFormación Trabajador: " + formacionTrabajador + 
+                "\nImporte Formación Trabajador: " + importeFormacionTrabajador + 
+                "\nBruto Nómina: " + brutoNomina + 
+                "\nLíquido Nómina: " + liquidoNomina + 
+                "\nCoste Total Empresario: " + costeTotalEmpresario + 
+                "\nDías Baja: " + diasBaja + 
+                "\nImporte Descuento Baja: " + importeDescuentoBaja + 
+                "\nId Trabajador: " + idTrabajador + 
+                "\nMEI Trabajador: " + meiTrabajador + 
+                "\nMEI Empresario: " + meiEmpresario + 
+                "\nImporte MEI Trabajador: " + importeMeiTrabajador + 
+                "\nImporte MEI Empresario: " + importeMeiEmpresario;
+    }
 
 
 
