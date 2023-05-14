@@ -1345,6 +1345,8 @@ public class ExcelManager {
     
         for(int i=0; i<trabajadoresHoja1.size(); i++){ 
         
+        if () {
+
             String categoriaTrabajador_s = trabajadoresHoja1.get(i).getCategoria().getNombreCategoria();
             float categoriaTrabajador = Float.parseFloat(categoriaTrabajador_s);
             
@@ -1389,6 +1391,8 @@ public class ExcelManager {
                 //Calulamos bruto anual con su salario anual, complemento e importe de trienios
                 
                 brutoAnual = salarioBase + complementos + (importeBrutoTrienios*14);
+
+                nomina.setBrutoAnual(brutoAnual);
 
                 //Impuestos y gastos trabajador y empresario
                 
@@ -1443,7 +1447,7 @@ public class ExcelManager {
                     ));
                     
                     nomina.toString();
-                    System.out.println("El liquido de la nomina mensual es: "+nominaMensual);  
+                    System.out.println("El liquido de la nomina mensual es: "+ liquidoMensual);  
                     
                     
                     //Costes empresario
@@ -1476,7 +1480,10 @@ public class ExcelManager {
                             
                     ));
                     
-                    
+                    nomina.setBrutoNomina(nominaMensual);
+                    nomina.setLiquidoNomina(liquidoMensual);
+                    nomina.setCosteTotalEmpresario(costeEmpresa);
+
                     
 
                     
@@ -1509,10 +1516,31 @@ public class ExcelManager {
             
         }
         
+        }
         
         
     }
     
+    public boolean trabajadorYaHaEntradoEnLaEmpresa(Date fechaInicio, Date fechaActual) {
+
+        boolean haEntrado = false;
+
+        if (fechaInicio.getYear() < fechaActual.getYear()) {
+
+            haEntrado = true;
+
+        } else if (fechaInicio.getYear() == fechaActual.getYear()) {
+
+            if (fechaInicio.getMonth() <= fechaActual.getMonth()) {
+
+                haEntrado = true;
+            }
+
+        }
+
+        return haEntrado;
+    }
+
     public float calcularIRPF(float brutoAnual){
         
         float irpf=0;
