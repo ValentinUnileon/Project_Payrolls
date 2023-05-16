@@ -21,6 +21,10 @@ import DAO.TrabajadorDAO;
 import util.HibernateUtil;
 
 import controlador.Trabajador;
+import java.io.IOException;
+import java.text.ParseException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 //import org.hibernate.Session;
 //import org.hibernate.SessionFactory;
 
@@ -98,6 +102,9 @@ public class Proyecto_NominasSI {
          try {
 
              resolverEjercicio.mapearHoja1(); 
+             resolverEjercicio.mapearHoja2(); 
+             resolverEjercicio.mapearHoja3(); 
+             resolverEjercicio.mapearHoja4(); 
              resolverEjercicio.procesarDNI();
              resolverEjercicio.generarGmailTrabajadores();         
              resolverEjercicio.generarIBANTrabajadores();
@@ -113,7 +120,13 @@ public class Proyecto_NominasSI {
         Scanner scan2 = new Scanner(System.in);
         String fecha = scan2.nextLine();
         
-        resolverEjercicio.generarNominasTrabajadores(fecha);
+        try {
+            resolverEjercicio.generarNominasTrabajadores(fecha);
+        } catch (IOException ex) {
+            Logger.getLogger(Proyecto_NominasSI.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ParseException ex) {
+            Logger.getLogger(Proyecto_NominasSI.class.getName()).log(Level.SEVERE, null, ex);
+        }
  
     }
     

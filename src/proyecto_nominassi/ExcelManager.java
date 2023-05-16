@@ -65,8 +65,8 @@ import java.math.BigInteger;
 public class ExcelManager {
     
     //Ubicacion excel
-     // valentin laptop private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
-   private String localizacionExcel ="C:/Users/w10/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
+     private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
+  //  private String localizacionExcel ="C:/Users/w10/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
     // private final String localizacionExcel ="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
     
     //Datos de las hojas del excel
@@ -240,11 +240,19 @@ public class ExcelManager {
         Sheet hoja = libro.getSheetAt(3); 
         Row fila = hoja.getRow(0); 
         Cell celda = fila.getCell(5); 
-        String nombreColum = celda.getStringCellValue();
+        //String nombreColum = celda.getStringCellValue();
         libro.close();
         
-        List<String> accidentesTrabajo = this.obtenerColumnasDatos(localizacionExcel, nombreColum, 3);
+        //System.out.println("NOMBRE COLUMNA ES: "+ nombreColum);
+        
+        List<String> accidentesTrabajo = this.obtenerColumnasDatos(localizacionExcel, "Accidentes trabajo EMPRESARIO", 3);
         List<String> valores = this.obtenerColumnasDatos(localizacionExcel, "1", 3);
+        
+        System.out.println("HA FUNCIONADO ");
+        
+        System.out.println("ACCIDENTES: "+ accidentesTrabajo.toString());
+        System.out.println("VALORES: "+ valores.toString());
+
         
         for(int j=0; j<accidentesTrabajo.size(); j++ ){
             datosEmpresa.put(accidentesTrabajo.get(j), Float.parseFloat(valores.get(j)));
@@ -877,8 +885,8 @@ public class ExcelManager {
             try{
             // cargamos el archivo XML existente en un objeto Document
 
-            String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
-            // valentin laptop String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
+            // String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
+            String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
             // String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/Errores.xml";
 
 
@@ -1253,8 +1261,8 @@ public class ExcelManager {
             try{
             // cargamos el archivo XML existente en un objeto Document
 
-            String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
-            // valentin laptop String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
+            // String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
+            String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
             // String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/ErroresCCC.xml";
 
 
@@ -1344,18 +1352,21 @@ public class ExcelManager {
         System.out.println("FECHA ACTUAL: "+ fechaActual.getDay() + "/" + fechaActual.getMonth() +"/"+ fechaActual.getYear());
     
         for(int i=0; i<trabajadoresHoja1.size(); i++){ 
-        
-        if () {
-
-            String categoriaTrabajador_s = trabajadoresHoja1.get(i).getCategoria().getNombreCategoria();
-            float categoriaTrabajador = Float.parseFloat(categoriaTrabajador_s);
             
             Date fechaAltaTrabajador = trabajadoresHoja1.get(i).getFechaAlta();
+            
+        if (trabajadorYaHaEntradoEnLaEmpresa(fechaAltaTrabajador, fechaActual)) {
+
+            String categoriaTrabajador_s = trabajadoresHoja1.get(i).getCategoria().getNombreCategoria();            
+            
             boolean prorrata = trabajadoresHoja1.get(i).getProrrata();
             
-            String salarioBase_s = categoria_SalarioBase.get(categoriaTrabajador);
+            String salarioBase_s = categoria_SalarioBase.get(categoriaTrabajador_s);
+            
+            System.out.println("EL SALARIO BASE ES: "+ salarioBase_s);
+            
             float salarioBase = Float.parseFloat(salarioBase_s);
-            String complementos_s = categoria_Complementos.get(categoriaTrabajador);
+            String complementos_s = categoria_Complementos.get(categoriaTrabajador_s);
             float complementos = Float.parseFloat(complementos_s);
             
 
@@ -1392,11 +1403,13 @@ public class ExcelManager {
                 
                 brutoAnual = salarioBase + complementos + (importeBrutoTrienios*14);
 
-                nomina.setBrutoAnual(brutoAnual);
+               
 
                 //Impuestos y gastos trabajador y empresario
                 
                 Nomina nomina = new Nomina();
+                nomina.setBrutoAnual(brutoAnual);
+                
                 
                 float irpf=calcularIRPF(brutoAnual);
                 float desempleoTrabajador = datosEmpresa.get("Cuota desempleo TRABAJADOR");
@@ -1580,8 +1593,8 @@ public class ExcelManager {
             try{
             // cargamos el archivo XML existente en un objeto Document
 
-            String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Nominas.xml";
-            // valentin laptop String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
+            // String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Nominas.xml";
+            String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
             // String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/ErroresCCC.xml";
 
             File archivoXML = new File(rutaXML);
