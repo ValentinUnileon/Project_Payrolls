@@ -104,7 +104,7 @@ public class Proyecto_NominasSI {
              resolverEjercicio.mapearHoja1(); 
              resolverEjercicio.mapearHoja2(); 
              resolverEjercicio.mapearHoja3(); 
-             resolverEjercicio.mapearHoja4(); 
+             // resolverEjercicio.mapearHoja4(); 
              resolverEjercicio.procesarDNI();
              resolverEjercicio.generarGmailTrabajadores();         
              resolverEjercicio.generarIBANTrabajadores();

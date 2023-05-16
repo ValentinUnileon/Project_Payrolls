@@ -1504,6 +1504,9 @@ public class ExcelManager {
                     
                     if(fechaActual.getMonth()== 6 || fechaActual.getMonth()== 12  ) {
                            
+                        
+                        
+                        
                     }
                     
                 }
