@@ -57,6 +57,7 @@ import org.w3c.dom.Text;
 import controlador.Empresas;
 import controlador.Categorias;
 import java.math.BigInteger;
+import java.util.Calendar;
 
 /**
  *
@@ -65,9 +66,9 @@ import java.math.BigInteger;
 public class ExcelManager {
     
     //Ubicacion excel
-     private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
+     //portatil private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
   //  private String localizacionExcel ="C:/Users/w10/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
-    // private final String localizacionExcel ="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
+    private final String localizacionExcel ="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
     
     //Datos de las hojas del excel
     
@@ -152,7 +153,7 @@ public class ExcelManager {
                 
                 boolean prorrataAux = true;
                 
-                if (prorrata.get(i) == "SI") {
+                if (prorrata.get(i).equals("SI")) {
                     prorrataAux = true;
                 } else {
                     prorrataAux = false;
@@ -172,6 +173,7 @@ public class ExcelManager {
                         , paisOrigen.get(i)
                         , prorrataAux); 
                 
+
                 // EMPRESA TIENE ID -> NOMBRE -> CIF
                 
                 Empresas EmpresaAux = new Empresas(nombreEmpresa.get(i), cifEmpresa.get(i));
@@ -229,36 +231,35 @@ public class ExcelManager {
         List<String> columnaRetencion = this.obtenerColumnasDatos(localizacionExcel, "Retención", 3);
         
         for(int i=0; i<brutoAnual.size(); i++ ){
-            retencion.put(Float.parseFloat(brutoAnual.get(i)), Float.parseFloat(columnaRetencion.get(i)));
+            retencion.put(Float.parseFloat(brutoAnual.get(i)), Float.parseFloat(columnaRetencion.get(i))/100 );
         }
         
-        
-        //obtenemos el nombre la columna de las coasas
+     
+        //obtenemos el nombre la columna
         
         FileInputStream archivo = new FileInputStream(localizacionExcel);
         XSSFWorkbook libro = new XSSFWorkbook(archivo);
         Sheet hoja = libro.getSheetAt(3); 
         Row fila = hoja.getRow(0); 
         Cell celda = fila.getCell(5); 
-        //String nombreColum = celda.getStringCellValue();
+        String nombreColum1 = celda.getStringCellValue();
+        Cell celda2 = fila.getCell(6);
+        Double nombreColum2 = celda2.getNumericCellValue();
         libro.close();
+       
         
-        //System.out.println("NOMBRE COLUMNA ES: "+ nombreColum);
-        
-        List<String> accidentesTrabajo = this.obtenerColumnasDatos(localizacionExcel, "Accidentes trabajo EMPRESARIO", 3);
-        List<String> valores = this.obtenerColumnasDatos(localizacionExcel, "1", 3);
-        
-        System.out.println("HA FUNCIONADO ");
-        
-        System.out.println("ACCIDENTES: "+ accidentesTrabajo.toString());
-        System.out.println("VALORES: "+ valores.toString());
+        List<String> accidentesTrabajo = this.obtenerColumnasDatosAux(nombreColum1, 3);
+        List<String> valores = this.obtenerColumnasDatosAux( nombreColum2+"", 3);
 
-        
+        //System.out.println("ACCIDENTES: "+ accidentesTrabajo.toString());
+        //System.out.println("VALORES: "+ valores.toString());
+        datosEmpresa.put(nombreColum1, Float.parseFloat(nombreColum2+"")/100);
+
         for(int j=0; j<accidentesTrabajo.size(); j++ ){
-            datosEmpresa.put(accidentesTrabajo.get(j), Float.parseFloat(valores.get(j)));
+            datosEmpresa.put(accidentesTrabajo.get(j), Float.parseFloat(valores.get(j))/100);
         }
         
-        System.out.println(datosEmpresa);
+
         
     }
 
@@ -279,6 +280,7 @@ public class ExcelManager {
 
         Iterator<Row> iteradorFilas = hojaExcel.iterator(); 
         List<String> listaResultado = new ArrayList<>();
+        
 
         while(iteradorFilas.hasNext()) 
         {
@@ -313,6 +315,54 @@ public class ExcelManager {
 
         return listaResultado;
     }
+    
+    public List<String> obtenerColumnasDatosAux(String nombreColumna, int numHoja) {
+    
+        List<String> lista = new ArrayList<>();
+        try {
+            FileInputStream archivoExcel = new FileInputStream(localizacionExcel); 
+            XSSFWorkbook libroExcel = new XSSFWorkbook(archivoExcel); 
+            XSSFSheet hojaExcel = libroExcel.getSheetAt(numHoja);
+
+            int numColumna = -1;
+            Row filaColumnas = hojaExcel.getRow(0); 
+
+            for (Cell celda : filaColumnas) {
+                XSSFCell celdaS = (XSSFCell) celda;
+
+                if (celdaS.toString().equals(nombreColumna)) {
+                    numColumna = celda.getColumnIndex();
+                    break;
+                }
+            }
+
+            boolean terminar=false;
+            int i=1;
+            
+            while(!terminar){
+                Row fila = hojaExcel.getRow(i);
+                XSSFCell celda = (XSSFCell) fila.getCell(numColumna);
+                
+                if(fila!=null && celda!=null){
+                    lista.add(celda.toString());
+                }else{
+                    terminar = true;
+                }
+                i++;
+            }
+
+            FileOutputStream archivoSalida = new FileOutputStream(localizacionExcel); 
+            libroExcel.write(archivoSalida);
+            archivoSalida.close();
+
+            libroExcel.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
+        return lista;
+    }    
     
     
     
@@ -402,7 +452,7 @@ public class ExcelManager {
                         
                         listaResultado.add(celdaFila.toString());
                         
-                        System.out.println(celdaFila.toString());
+
                         
                         
                     }
@@ -582,9 +632,7 @@ public class ExcelManager {
                     List<Integer> numTrabajadoresRepetidos = obtenerRepetidos(listaDNI.get(i));                
                     
                     for(int j=0; j< numTrabajadoresRepetidos.size(); j++){ 
-                        
-                        System.out.println("trabajador repetito "+ trabajadoresHoja1.get(numTrabajadoresRepetidos.get(j)).getApellido1());
-                       
+
                         trabajadoresErrores.add(trabajadoresHoja1.get(numTrabajadoresRepetidos.get(j)));
                         
                     }
@@ -615,7 +663,6 @@ public class ExcelManager {
                                     //el error no es subsanable -> ESTÁ MAL ESTRUCTURADO -> añadir al XML
 
                                    trabajadoresErrores.add(trabajadoresHoja1.get(i));
-                                    System.out.println("Nie averiado"+ trabajadoresHoja1.get(i).getApellido1() +" " +trabajadoresHoja1.get(i).getNifnie() );
                                    break;
                             }
                         } else {    // ESTAMOS TRABAJANDO CON UN DNI
@@ -636,7 +683,6 @@ public class ExcelManager {
                                 //el error no es subsanable -> ESTÁ MAL ESTRUCTURADO -> añadir al XML
 
                                trabajadoresErrores.add(trabajadoresHoja1.get(i));
-                               System.out.println("Nif averiado"+ trabajadoresHoja1.get(i).getApellido1() +" " +trabajadoresHoja1.get(i).getNifnie() );
 
                                break;
                         }
@@ -775,7 +821,7 @@ public class ExcelManager {
         char letra = obtenerLetraCorrectaDNI(cantidad);
         nuevoNIE = (nie.substring(0, nie.length()-1)+ letra);
         
-        System.out.println("EL NUEVO NIE SERIA: "+ nuevoNIE);
+
         return nuevoNIE;
     }
     
@@ -886,8 +932,8 @@ public class ExcelManager {
             // cargamos el archivo XML existente en un objeto Document
 
             // String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
-            String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
-            // String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/Errores.xml";
+            // portatil String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
+            String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/Errores.xml";
 
 
 
@@ -1262,8 +1308,8 @@ public class ExcelManager {
             // cargamos el archivo XML existente en un objeto Document
 
             // String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
-            String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
-            // String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/ErroresCCC.xml";
+            //String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
+            String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/ErroresCCC.xml";
 
 
 
@@ -1335,6 +1381,8 @@ public class ExcelManager {
     
     public void generarNominasTrabajadores(String fecha) throws IOException, ParseException {
     
+        
+        //AÑADIR EXCEPCION POR SI LA NOMINA SOLICITADA COINCIDE CON LA EL MES DE LA ENTRADA DEL TRABAJADOR
         this.mapearHoja3();
         
         String dia = "01";
@@ -1355,7 +1403,6 @@ public class ExcelManager {
             
             Date fechaAltaTrabajador = trabajadoresHoja1.get(i).getFechaAlta();
             
-        if (trabajadorYaHaEntradoEnLaEmpresa(fechaAltaTrabajador, fechaActual)) {
 
             String categoriaTrabajador_s = trabajadoresHoja1.get(i).getCategoria().getNombreCategoria();            
             
@@ -1363,7 +1410,7 @@ public class ExcelManager {
             
             String salarioBase_s = categoria_SalarioBase.get(categoriaTrabajador_s);
             
-            System.out.println("EL SALARIO BASE ES: "+ salarioBase_s);
+
             
             float salarioBase = Float.parseFloat(salarioBase_s);
             String complementos_s = categoria_Complementos.get(categoriaTrabajador_s);
@@ -1374,7 +1421,7 @@ public class ExcelManager {
   
             float numeroTrienios = calcularNumeroTrienios(fechaAltaTrabajador, fechaActual);
             
-            System.out.println("NUMERO TRIENIOS DE "+ trabajadoresHoja1.get(i).getNombre() + ": "+ numeroTrienios);
+
             
             
             float importeBrutoTrienios = 0;
@@ -1390,50 +1437,38 @@ public class ExcelManager {
             float brutoAnual = 0;
             float nominaMensual = 0; 
             
-            //FALTA POR TENER EN CUENTA LOS DIAS DE BAJA DIABLO 
-            
-            
-            if(fechaAltaTrabajador.getYear() == fechaActual.getYear()){
-                
-                
-                
-            }else if(fechaAltaTrabajador.getYear() < fechaActual.getYear()){
-                
-                //Calulamos bruto anual con su salario anual, complemento e importe de trienios
-                
-                brutoAnual = salarioBase + complementos + (importeBrutoTrienios*14);
 
+            
+            Nomina nomina = new Nomina();
+            nomina.setBrutoAnual(brutoAnual);
+                
+            System.out.println("----------------------------------------------");  
+
+            float desempleoTrabajador = datosEmpresa.get("Cuota desempleo TRABAJADOR");
+            float meiTrabajador = datosEmpresa.get("MEI TRABAJADOR");            
+            float seguridadSocialTrabajador = datosEmpresa.get("Cuota obrera general TRABAJADOR");
+            float formacionTrabajador = datosEmpresa.get("Cuota formación TRABAJADOR");
+
+            float accidentesTrabajo = datosEmpresa.get("Accidentes trabajo EMPRESARIO");
+            float meiEmpresario = datosEmpresa.get("MEI EMPRESARIO");
+            float seguridadSocialEmpresario = datosEmpresa.get("Contingencias comunes EMPRESARIO");
+            float desempleoEmpresario = datosEmpresa.get("Desempleo EMPRESARIO");
+            float formacionEmpresario = datosEmpresa.get("Formacion EMPRESARIO");  
+            float fogasa = datosEmpresa.get("Fogasa EMPRESARIO");
+
+            
+            if(fechaAltaTrabajador.getYear() == fechaActual.getYear() && fechaAltaTrabajador.compareTo(fechaActual)<0 ){
                
 
-                //Impuestos y gastos trabajador y empresario
+                int numMeses = 12- fechaAltaTrabajador.getMonth();
                 
-                Nomina nomina = new Nomina();
-                nomina.setBrutoAnual(brutoAnual);
-                
-                
+                brutoAnual=(numMeses/14) * (salarioBase + complementos + (importeBrutoTrienios*14));
                 float irpf=calcularIRPF(brutoAnual);
-                float desempleoTrabajador = datosEmpresa.get("Cuota desempleo TRABAJADOR");
-                float meiTrabajador = datosEmpresa.get("MEI TRABAJADOR");            
-                float seguridadSocialTrabajador = datosEmpresa.get("Cuota obrera general TRABAJADOR");
-                float formacionTrabajador = datosEmpresa.get("Cuota formación TRABAJADOR");
-                
-                
-                float accidentesTrabajo = datosEmpresa.get("Accidentes trabajo EMRPESARIO");
-                float meiEmpresario = datosEmpresa.get("MEI EMPRESARIO");
-                float seguridadSocialEmpresario = datosEmpresa.get("Contingencias comunes EMPRESARIO");
-                float desempleoEmpresario = datosEmpresa.get("Desempleo EMPRESARIO");
-                float formacionEmpresario = datosEmpresa.get("Formacion EMPRESARIO");  
-                float fogasa = datosEmpresa.get("Fogasa EMPRESARIO");
- 
                 if(prorrata){
- 
-                        
-                    nominaMensual = brutoAnual / 14;
-
                     
-                    nominaMensual = nominaMensual + (nominaMensual/6);  //añadimos prorrateo 
+                    nominaMensual = brutoAnual/numMeses;
+                    nominaMensual=nominaMensual + nominaMensual/6;
                     
-                                        
                     //Impuestos
                     
                     nomina.setSeguridadSocialTrabajador(seguridadSocialTrabajador);
@@ -1448,19 +1483,17 @@ public class ExcelManager {
                     nomina.setDesempleoTrabajador(desempleoTrabajador);
                     nomina.setImporteDesempleoTrabajador(nominaMensual*desempleoTrabajador);
                     
-                    nomina.setIrpf(irpf);
-                    nomina.setImporteIrpf(nominaMensual*irpf);
+
                                       
                     
                     float liquidoMensual = nominaMensual - Float.parseFloat(""+(nomina.getImporteSeguridadSocialTrabajador()
                             -nomina.getImporteFormacionTrabajador()
                             -nomina.getImporteMeiTrabajador()
                             -nomina.getImporteDesempleoTrabajador()
-                            -nomina.getImporteIrpf()
+  
                     ));
                     
-                    nomina.toString();
-                    System.out.println("El liquido de la nomina mensual es: "+ liquidoMensual);  
+                    
                     
                     
                     //Costes empresario
@@ -1468,14 +1501,14 @@ public class ExcelManager {
                     nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
                     nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
                     
-                    nomina.setFormacionTrabajador(formacionEmpresario);
-                    nomina.setImporteFormacionTrabajador(nominaMensual*formacionEmpresario);
+                    nomina.setFormacionEmpresario(formacionEmpresario);
+                    nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
                     
-                    nomina.setMeiTrabajador(Double.parseDouble(""+meiEmpresario));
-                    nomina.setImporteMeiTrabajador(Double.parseDouble(""+(nominaMensual*meiEmpresario)));
+                    nomina.setMeiEmpresario(Double.parseDouble(""+meiEmpresario));
+                    nomina.setImporteMeiEmpresario(Double.parseDouble(""+(nominaMensual*meiEmpresario)));
                     
-                    nomina.setDesempleoTrabajador(desempleoEmpresario);
-                    nomina.setImporteDesempleoTrabajador(nominaMensual*desempleoEmpresario);
+                    nomina.setDesempleoEmpresario(desempleoEmpresario);
+                    nomina.setImporteDesempleoEmpresario(nominaMensual*desempleoEmpresario);
                     
                     nomina.setAccidentesTrabajoEmpresario(accidentesTrabajo);
                     nomina.setImporteAccidentesTrabajoEmpresario(nominaMensual*accidentesTrabajo);
@@ -1496,28 +1529,522 @@ public class ExcelManager {
                     nomina.setBrutoNomina(nominaMensual);
                     nomina.setLiquidoNomina(liquidoMensual);
                     nomina.setCosteTotalEmpresario(costeEmpresa);
+                    nomina.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
 
                     
 
+                }else {  //no es prorrata
                     
-                }else{  // no tiene prorrata, cobra
+                    nominaMensual = brutoAnual/numMeses;
+
+                    float nominaExtra=0;
                     
-                    if(fechaActual.getMonth()== 6 || fechaActual.getMonth()== 12  ) {
-                           
+                    if(fechaActual.getMonth()==11 && fechaActual.getMonth()==5){
+                        
+                        //diciembre 
+                        if(fechaActual.getMonth()==11){                          
+                            if(numMeses<7){ //EFMAMJJASOND
+                                nominaExtra= (nominaMensual/6)*(numMeses-1);
+                            }else{
+                                //se le suma toda la paga extra
+                                nominaExtra = nominaMensual;
+                            }
+                        }
+                        
+                        //junio
+                        if(fechaActual.getMonth()==5){
+
+                            int auxMeses = numMeses-7;
+
+                            nominaExtra= (nominaMensual/6)*auxMeses;                   
+                        }
                         
                         
+                        Nomina nominaEX = new Nomina();
                         
+                        nominaEX.setSeguridadSocialTrabajador(seguridadSocialTrabajador);
+                        nominaEX.setImporteSeguridadSocialTrabajador(nominaExtra*seguridadSocialTrabajador);
+
+                        nominaEX.setFormacionTrabajador(formacionTrabajador);
+                        nominaEX.setImporteFormacionTrabajador(nominaExtra*formacionTrabajador);
+
+                        nominaEX.setMeiTrabajador(Double.parseDouble(""+meiTrabajador));
+                        nominaEX.setImporteMeiTrabajador(Double.parseDouble(""+(nominaExtra*meiTrabajador)));
+
+                        nominaEX.setDesempleoTrabajador(desempleoTrabajador);
+                        nominaEX.setImporteDesempleoTrabajador(nominaExtra*desempleoTrabajador);
+
+                        nominaEX.setIrpf(irpf);
+                        nominaEX.setImporteIrpf(nominaExtra*irpf);
+
+
+                        float liquidoMensual = nominaExtra - Float.parseFloat(""+(nominaEX.getImporteSeguridadSocialTrabajador()
+                                -nominaEX.getImporteFormacionTrabajador()
+                                -nominaEX.getImporteMeiTrabajador()
+                                -nominaEX.getImporteDesempleoTrabajador()
+                                -nominaEX.getImporteIrpf()
+                        ));
+                    
+                        nominaEX.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
+                        nominaEX.esExtra=true;
+                        nominasTrabajadores.add(nominaEX);
+                        
+                     
+                        
+                        
+
                     }
                     
-                }
+
+                    //Impuestos
+                    
+                    nomina.setSeguridadSocialTrabajador(seguridadSocialTrabajador);
+                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialTrabajador);
+                    
+                    nomina.setFormacionTrabajador(formacionTrabajador);
+                    nomina.setImporteFormacionTrabajador(nominaMensual*formacionTrabajador);
+                    
+                    nomina.setMeiTrabajador(Double.parseDouble(""+meiTrabajador));
+                    nomina.setImporteMeiTrabajador(Double.parseDouble(""+(nominaMensual*meiTrabajador)));
+                    
+                    nomina.setDesempleoTrabajador(desempleoTrabajador);
+                    nomina.setImporteDesempleoTrabajador(nominaMensual*desempleoTrabajador);
+                    
+
+                                      
+                    
+                    float liquidoMensual = nominaMensual - Float.parseFloat(""+(nomina.getImporteSeguridadSocialTrabajador()
+                            -nomina.getImporteFormacionTrabajador()
+                            -nomina.getImporteMeiTrabajador()
+                            -nomina.getImporteDesempleoTrabajador()
+
+                    ));
+                    
+                    
+
+                    
+                    
+                    //Costes empresario
+                    
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
+                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    
+                    nomina.setFormacionEmpresario(formacionEmpresario);
+                    nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
+                    
+                    nomina.setMeiEmpresario(Double.parseDouble(""+meiEmpresario));
+                    nomina.setImporteMeiEmpresario(Double.parseDouble(""+(nominaMensual*meiEmpresario)));
+                    
+                    nomina.setDesempleoEmpresario(desempleoEmpresario);
+                    nomina.setImporteDesempleoEmpresario(nominaMensual*desempleoEmpresario);
+                    
+                    nomina.setAccidentesTrabajoEmpresario(accidentesTrabajo);
+                    nomina.setImporteAccidentesTrabajoEmpresario(nominaMensual*accidentesTrabajo);
+                    
+                    nomina.setFogasaempresario(fogasa);
+                    nomina.setImporteFogasaempresario(nominaMensual*fogasa);
+                            
+                    
+                    float costeEmpresa = nominaMensual + Float.parseFloat(""+(nomina.getImporteSeguridadSocialEmpresario()
+                            +nomina.getImporteFormacionEmpresario()
+                            +nomina.getImporteMeiEmpresario()
+                            +nomina.getImporteDesempleoEmpresario()
+                            +nomina.getImporteAccidentesTrabajoEmpresario()
+                            +nomina.getImporteFogasaempresario()
+                            
+                    ));
+                    
+                    nomina.setBrutoNomina(nominaMensual);
+                    nomina.setLiquidoNomina(liquidoMensual);
+                    nomina.setCosteTotalEmpresario(costeEmpresa);
+                    nomina.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
+                            
+
+  
+                }                
+               
                 
+                
+            }else if(fechaAltaTrabajador.getYear() < fechaActual.getYear()){
+                
+
+                //cuando el año en el que ha entrado el trabajador es anterior al año actual de la nomina a calcular
+                
+                //Calulamos bruto anual con su salario anual, complemento e importe de trienios
+                
+                brutoAnual = salarioBase + complementos + (importeBrutoTrienios*14);
+                float irpf=calcularIRPF(brutoAnual);
+                //Impuestos y gastos trabajador y empresario
+
+                if(prorrata){
+ 
+                        
+                    nominaMensual = brutoAnual / 14;
+
+                    float nominaMensualAux = brutoAnual /12;
+                    
+                    
+                                        
+                    //Impuestos
+                    
+                    nomina.setSeguridadSocialTrabajador(seguridadSocialTrabajador);
+                    nomina.setImporteSeguridadSocialTrabajador(nominaMensualAux*seguridadSocialTrabajador);
+                    
+                    nomina.setFormacionTrabajador(formacionTrabajador);
+                    nomina.setImporteFormacionTrabajador(nominaMensualAux*formacionTrabajador);
+                    if(fechaActual.getYear()>=123){
+                        nomina.setMeiTrabajador(Double.parseDouble(""+meiTrabajador));
+                        nomina.setImporteMeiTrabajador(Double.parseDouble(""+(nominaMensualAux*meiTrabajador)));
+                    }else{
+                        nomina.setMeiTrabajador(0.0);
+                        nomina.setImporteMeiTrabajador(0.0); 
+                    }
+                    nomina.setDesempleoTrabajador(desempleoTrabajador);
+                    nomina.setImporteDesempleoTrabajador(nominaMensualAux*desempleoTrabajador);
+                    
+
+                                      
+                    
+                    float liquidoMensual = nominaMensualAux - Float.parseFloat(""+(nomina.getImporteSeguridadSocialTrabajador()
+                            +nomina.getImporteFormacionTrabajador()
+                            +nomina.getImporteMeiTrabajador()
+                            +nomina.getImporteDesempleoTrabajador()
+
+                    ));
+                    
+                    System.out.println("bruto anual "+ brutoAnual);
+                    System.out.println("bruto mensual "+ nominaMensualAux);
+                    System.out.println("contingen ss "+ nomina.getImporteSeguridadSocialTrabajador()+" % "+nomina.getSeguridadSocialTrabajador());
+                    System.out.println("desempleo "+nomina.getImporteDesempleoTrabajador()+" % "+nomina.getDesempleoTrabajador());
+                    System.out.println("formacion "+ nomina.getImporteFormacionTrabajador()+" % "+nomina.getFormacionTrabajador());
+
+                    
+                    
+                    //Costes empresario
+                    
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
+                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    
+                    nomina.setFormacionEmpresario(formacionEmpresario);
+                    nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
+                    
+                    nomina.setMeiEmpresario(Double.parseDouble(""+meiEmpresario));
+                    nomina.setImporteMeiEmpresario(Double.parseDouble(""+(nominaMensual*meiEmpresario)));
+                    
+                    nomina.setDesempleoEmpresario(desempleoEmpresario);
+                    nomina.setImporteDesempleoEmpresario(nominaMensual*desempleoEmpresario);
+                    
+                    nomina.setAccidentesTrabajoEmpresario(accidentesTrabajo);
+                    nomina.setImporteAccidentesTrabajoEmpresario(nominaMensual*accidentesTrabajo);
+                    
+                    nomina.setFogasaempresario(fogasa);
+                    nomina.setImporteFogasaempresario(nominaMensual*fogasa);
+                            
+                    
+                    float costeEmpresa = nominaMensual + Float.parseFloat(""+(nomina.getImporteSeguridadSocialEmpresario()
+                            +nomina.getImporteFormacionEmpresario()
+                            +nomina.getImporteMeiEmpresario()
+                            +nomina.getImporteDesempleoEmpresario()
+                            +nomina.getImporteAccidentesTrabajoEmpresario()
+                            +nomina.getImporteFogasaempresario()
+                            
+                    ));
+                    
+                    nomina.setBrutoNomina(nominaMensual);
+                    nomina.setLiquidoNomina(liquidoMensual);
+                    nomina.setCosteTotalEmpresario(costeEmpresa);
+                    nomina.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
+                    
+
+
+       
+
+                }else{  // no tiene prorrata, cobra vito
+                    
+                    float nominaExtra=0;
+                    nominaMensual = brutoAnual / 14; //--------------------------------
+                    
+                    
+                    if(fechaActual.getMonth()== 5 && fechaActual.getMonth()==11){
+                        //tenemos nomina extra
+                        
+                        nominaExtra=nominaMensual;
+                        
+                        Nomina nominaEX = new Nomina();
+                        
+                        nominaEX.setSeguridadSocialTrabajador(seguridadSocialTrabajador);
+                        nominaEX.setImporteSeguridadSocialTrabajador(nominaExtra*seguridadSocialTrabajador);
+
+                        nominaEX.setFormacionTrabajador(formacionTrabajador);
+                        nominaEX.setImporteFormacionTrabajador(nominaExtra*formacionTrabajador);
+
+                        nominaEX.setMeiTrabajador(Double.parseDouble(""+meiTrabajador));
+                        nominaEX.setImporteMeiTrabajador(Double.parseDouble(""+(nominaExtra*meiTrabajador)));
+
+                        nominaEX.setDesempleoTrabajador(desempleoTrabajador);
+                        nominaEX.setImporteDesempleoTrabajador(nominaExtra*desempleoTrabajador);
+
+                        nominaEX.setIrpf(irpf);
+                        nominaEX.setImporteIrpf(nominaExtra*irpf);
+
+
+                        float liquidoMensual = nominaExtra - Float.parseFloat(""+(nominaEX.getImporteSeguridadSocialTrabajador()
+                                -nominaEX.getImporteFormacionTrabajador()
+                                -nominaEX.getImporteMeiTrabajador()
+                                -nominaEX.getImporteDesempleoTrabajador()
+                                -nominaEX.getImporteIrpf()
+                        ));
+                    
+                        nominaEX.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
+                        nominaEX.esExtra=true;
+                        nominasTrabajadores.add(nominaEX);
+                        
+
+                        
+                        //fin de paga extra  
+                    }
+                    
+                    
+                    //Impuestos
+                    
+                    nomina.setSeguridadSocialTrabajador(seguridadSocialTrabajador);
+                    nomina.setImporteSeguridadSocialTrabajador((brutoAnual/12)*seguridadSocialTrabajador);
+
+                    
+                    nomina.setFormacionTrabajador(formacionTrabajador);
+                    nomina.setImporteFormacionTrabajador((brutoAnual/12)*formacionTrabajador);
+             
+                    
+                    if(fechaActual.getYear()>=123){
+                        nomina.setMeiTrabajador(Double.parseDouble(""+meiTrabajador));
+                        nomina.setImporteMeiTrabajador(Double.parseDouble(""+((brutoAnual/12)*meiTrabajador)));
+
+                    }else{
+                        nomina.setMeiTrabajador(0.0);
+                        nomina.setImporteMeiTrabajador(0.0);
+                    }
+                    
+                    
+                    nomina.setDesempleoTrabajador(desempleoTrabajador);
+                    nomina.setImporteDesempleoTrabajador((brutoAnual/12)*desempleoTrabajador);
+
+                                      
+                    
+                    float liquidoMensual = nominaMensual - Float.parseFloat(""+(nomina.getImporteSeguridadSocialTrabajador()
+                            +nomina.getImporteFormacionTrabajador()
+                            +nomina.getImporteMeiTrabajador()
+                            +nomina.getImporteDesempleoTrabajador()
+
+                    ));
+                    
+
+                    //Costes empresario
+                    
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
+                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    
+                    nomina.setFormacionEmpresario(formacionEmpresario);
+                    nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
            
+                    if(fechaActual.getYear()>=123){
+                        nomina.setMeiEmpresario(Double.parseDouble(""+meiEmpresario));
+                        nomina.setImporteMeiEmpresario(Double.parseDouble(""+(nominaMensual*meiEmpresario))); 
+                    }else{
+                        nomina.setMeiEmpresario(0.0);
+                        nomina.setImporteMeiEmpresario(0.0);                         
+                    }
+                    
+
+                    
+                    nomina.setDesempleoEmpresario(desempleoEmpresario);
+                    nomina.setImporteDesempleoEmpresario(nominaMensual*desempleoEmpresario);
+                    
+                    nomina.setAccidentesTrabajoEmpresario(accidentesTrabajo);
+                    nomina.setImporteAccidentesTrabajoEmpresario(nominaMensual*accidentesTrabajo);
+                    
+                    nomina.setFogasaempresario(fogasa);
+                    nomina.setImporteFogasaempresario(nominaMensual*fogasa);
+                            
+                    
+                    float costeEmpresa = nominaMensual + Float.parseFloat(""+(nomina.getImporteSeguridadSocialEmpresario()
+                            +nomina.getImporteFormacionEmpresario()
+                            +nomina.getImporteMeiEmpresario()
+                            +nomina.getImporteDesempleoEmpresario()
+                            +nomina.getImporteAccidentesTrabajoEmpresario()
+                            +nomina.getImporteFogasaempresario()
+                            
+                    ));
+
+                    nomina.setBrutoNomina(nominaMensual);
+                    nomina.setLiquidoNomina(liquidoMensual);
+                    nomina.setCosteTotalEmpresario(costeEmpresa);
+                    nomina.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
+                    //fin
+                }
+
+
                 
-            }else if(fechaAltaTrabajador.getYear() > fechaActual.getYear()){
-                
+            }else if(fechaAltaTrabajador.compareTo(fechaActual)>0){
+
                 // no se genera nada
                 
             }
+            
+            
+            //CUANDO HAY BAJA LABORAL
+            
+            if(trabajadoresHoja1.get(i).getBajaLaboral()!=null){
+                
+                float descuentoBaja=0;
+                int diasDeBaja=0;
+                
+                if(trabajadoresHoja1.get(i).getAltaLaboral()!=null){
+                    
+                    if(trabajadoresHoja1.get(i).getBajaLaboral().compareTo(trabajadoresHoja1.get(i).getAltaLaboral())>0 || ( (trabajadoresHoja1.get(i).getAltaLaboral().getMonth()==fechaActual.getMonth() && trabajadoresHoja1.get(i).getAltaLaboral().getYear()==fechaActual.getYear() ))){
+                       //nos incumbe la baja laboral y tiene fecha de alta
+                       
+                       diasDeBaja = calcularDiasEntreFechas(trabajadoresHoja1.get(i).getBajaLaboral(), trabajadoresHoja1.get(i).getAltaLaboral());
+                       
+                       Date auxFecha=(Date)trabajadoresHoja1.get(i).getBajaLaboral().clone();
+                       
+                       for(int f=0; f<diasDeBaja; f++){
+                           
+                           if(auxFecha.getMonth()==fechaActual.getMonth() && auxFecha.getYear()==fechaActual.getYear() ){
+                               
+                                if(f<=3){
+                                    descuentoBaja= descuentoBaja+ (nominaMensual/30);
+                                }
+
+                                if(f>3 && f<=21){
+                                    descuentoBaja= descuentoBaja+ ((nominaMensual/30)*(float)0.40);                                       
+                                }
+
+                                if(f>=22){
+                                    descuentoBaja= descuentoBaja+ ((nominaMensual/30)*(float)0.25);                                        
+                                }
+
+                           }    
+                           
+                           auxFecha=aumentarDia(auxFecha);
+                           
+                       }
+                       
+                       
+                    }
+                }else{ //no tenemos alta laboral
+                   
+                   
+                   if((trabajadoresHoja1.get(i).getBajaLaboral().getMonth()<= fechaActual.getMonth() && trabajadoresHoja1.get(i).getBajaLaboral().getYear()==fechaActual.getYear() )){
+                       //la baja se calcula porque es anterior a la fecha actual - nos incumbe
+                       
+                       
+                       if(trabajadoresHoja1.get(i).getBajaLaboral().getMonth()!= fechaActual.getMonth()){
+                           //la baja comenzó antes de nuestro mes
+                           diasDeBaja = calcularDiasEntreFechas(trabajadoresHoja1.get(i).getBajaLaboral(), fechaActual);
+
+                           for(int h=1; h<diasDeBaja+31; h++){
+                               
+                               if(h>=diasDeBaja){
+                                   
+                                   if(h<=3){
+                                      descuentoBaja= descuentoBaja+ (nominaMensual/30);
+                                   }
+                                   
+                                   if(h>3 && h<=21){
+                                      descuentoBaja= descuentoBaja+ ((nominaMensual/30)*(float)0.40);                                       
+                                   }
+                                   
+                                   if(h>=22){
+                                      descuentoBaja= descuentoBaja+ ((nominaMensual/30)*(float)0.25);                                        
+                                   }
+                               }
+                           }
+
+                       }else{
+                           //la baja comenzó en nuestro mes
+                           int diasBaja= obtenerDiasMes(fechaActual) - trabajadoresHoja1.get(i).getBajaLaboral().getDay();
+                           
+                            for(int h=1; h<diasBaja; h++){
+                               
+                               if(h>=diasBaja){
+                                   
+                                   if(h<=3){
+                                      descuentoBaja= descuentoBaja+ (nominaMensual/30);
+                                   }
+                                   
+                                   if(h>3 && h<=21){
+                                      descuentoBaja= descuentoBaja+ ((nominaMensual/30)*(float)0.40);                                       
+                                   }
+                                   
+                                   if(h>=22){
+                                      descuentoBaja= descuentoBaja+ ((nominaMensual/30)*(float)0.25);                                        
+                                   }
+                               }
+                           }
+                       }
+                       
+                   }
+
+                }
+                
+                if((trabajadoresHoja1.get(i).getBajaLaboral().compareTo(fechaActual)<0 )){
+                   //si la baja se produce antes de la fecha
+                   float irpf=calcularIRPF(brutoAnual);
+                   nomina.setDiasBaja(diasDeBaja);
+                   nomina.setImporteDescuentoBaja(descuentoBaja);
+                   nomina.setIrpf(irpf);
+                   nomina.setImporteIrpf((nominaMensual-descuentoBaja)*irpf);
+                   nomina.setLiquidoNomina(nomina.getLiquidoNomina()-nomina.getImporteIrpf()-descuentoBaja);
+                }
+                
+            }else{
+                //no tiene baja laboral
+                
+                if(prorrata){
+                    float irpf=calcularIRPF(brutoAnual);
+                    nomina.setIrpf(irpf);         
+                    nomina.setImporteIrpf((brutoAnual/12)*irpf);
+                    nomina.setLiquidoNomina(nomina.getLiquidoNomina()-nomina.getImporteIrpf());                    
+                    
+                }else{
+                    float irpf=calcularIRPF(brutoAnual);
+                    nomina.setIrpf(irpf);         
+                    nomina.setImporteIrpf((brutoAnual/14)*irpf);
+                    nomina.setLiquidoNomina(nomina.getLiquidoNomina()-nomina.getImporteIrpf());
+                }
+
+                                                                                
+               
+ 
+            }
+            
+            
+            
+            
+            
+            if(fechaAltaTrabajador.compareTo(fechaActual)<0){
+                nomina.toString();  
+                
+                
+                
+                System.out.println("nombre "+trabajadoresHoja1.get(i).getNombre() + " apellido " +trabajadoresHoja1.get(i).getApellido1());
+                System.out.println("liquido nomina "+nomina.getLiquidoNomina());
+                System.out.println("irpf "+nomina.getImporteIrpf()+ " % "+ nomina.getImporteIrpf());
+                
+                nominasTrabajadores.add(nomina);
+                
+            }
+                         
+            
+            
+            
+
+
+            // El valor de comparacion será:
+            // 0 si las fechas son iguales
+            // un número negativo si fecha1 es anterior a fecha2
+            // un número positivo si fecha1 es posterior a fecha2
+            
             
             
             //TENIENDO TODOS ESTOS DATOS SE CALCULA EL BRUTO ANUAL
@@ -1526,16 +2053,32 @@ public class ExcelManager {
             // SI ES UNA NOMINA NORMAL SIN CAMBIO DE TRIENIO, SI TIENE BAJAS
             
             // se puede hacer con un switch y hacer 4 apartados diferentes
-            
-            
-            
-            
-        }
-        
+            //generarNominasXML(trabajadoresHoja1, nominasTrabajadores);
         }
         
         
     }
+    
+    public static int obtenerDiasMes(Date fecha) {
+       Calendar calendar = Calendar.getInstance();
+       calendar.setTime(fecha);
+       return calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+    }
+    
+    public static Date aumentarDia(Date fecha) {
+       Calendar calendar = Calendar.getInstance();
+       calendar.setTime(fecha);
+       calendar.add(Calendar.DAY_OF_YEAR, 1);
+       return calendar.getTime();
+    }
+    public  int calcularDiasEntreFechas(Date fechaInicio, Date fechaFin) {
+        long diferenciaEnMilisegundos = fechaFin.getTime() - fechaInicio.getTime();
+        long milisegundosPorDia = 24 * 60 * 60 * 1000;
+        return (int) (diferenciaEnMilisegundos / milisegundosPorDia);
+    }
+    
+    
+    //no vale para nada - eliminar 
     
     public boolean trabajadorYaHaEntradoEnLaEmpresa(Date fechaInicio, Date fechaActual) {
 
@@ -1563,11 +2106,13 @@ public class ExcelManager {
 
         if(brutoAnual<12000){
            irpf=0;
-        }else if(brutoAnual<60000){
+        }else if(brutoAnual>60000){
            irpf=Float.parseFloat("26,22");
         }else{
-          float aux = (brutoAnual / 1000) * 1000; 
-          irpf= retencion.get(aux);
+          int aux = (int)(brutoAnual / 1000) * 1000; 
+          aux=aux+1000;
+
+          irpf= retencion.get(Float.parseFloat(aux+""));
         }
 
         return irpf;

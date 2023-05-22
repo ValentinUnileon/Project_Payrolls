@@ -37,7 +37,7 @@ public class Proyecto_NominasSI {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException, ParseException {
        
         
         // TODO code application logic here
@@ -97,14 +97,14 @@ public class Proyecto_NominasSI {
          //Ejercicio 3
 
         ExcelManager resolverEjercicio = new ExcelManager();
-        
+
 
          try {
 
              resolverEjercicio.mapearHoja1(); 
              resolverEjercicio.mapearHoja2(); 
              resolverEjercicio.mapearHoja3(); 
-             // resolverEjercicio.mapearHoja4(); 
+             resolverEjercicio.mapearHoja4(); 
              resolverEjercicio.procesarDNI();
              resolverEjercicio.generarGmailTrabajadores();         
              resolverEjercicio.generarIBANTrabajadores();
@@ -121,12 +121,15 @@ public class Proyecto_NominasSI {
         String fecha = scan2.nextLine();
         
         try {
-            resolverEjercicio.generarNominasTrabajadores(fecha);
+            resolverEjercicio.generarNominasTrabajadores("04/2017");
+
         } catch (IOException ex) {
             Logger.getLogger(Proyecto_NominasSI.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ParseException ex) {
             Logger.getLogger(Proyecto_NominasSI.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        
  
     }
     

@@ -47,6 +47,7 @@ public class Nomina  implements java.io.Serializable {
      private Double meiEmpresario;
      private Double importeMeiTrabajador;
      private Double importeMeiEmpresario;
+     public boolean esExtra;
 
     public Nomina() {
     }
