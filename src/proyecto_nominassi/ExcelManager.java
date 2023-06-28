@@ -1463,6 +1463,7 @@ public class ExcelManager {
                 int numMeses = 12- fechaAltaTrabajador.getMonth();
                 
                 brutoAnual=(numMeses/14) * (salarioBase + complementos + (importeBrutoTrienios*14));
+                nomina.setBrutoAnual(brutoAnual);
                 float irpf=calcularIRPF(brutoAnual);
                 if(prorrata){
                     
@@ -1673,6 +1674,7 @@ public class ExcelManager {
                 //Calulamos bruto anual con su salario anual, complemento e importe de trienios
                 
                 brutoAnual = salarioBase + complementos + (importeBrutoTrienios*14);
+                nomina.setBrutoAnual(brutoAnual);
                 float irpf=calcularIRPF(brutoAnual);
                 //Impuestos y gastos trabajador y empresario
 
@@ -1759,7 +1761,7 @@ public class ExcelManager {
 
        
 
-                }else{  // no tiene prorrata, cobra vito
+                }else{  // no tiene prorrata, cobra vito, ha entrado a la empresa antes de este año
                     
                     float nominaExtra=0;
                     nominaMensual = brutoAnual / 14; //--------------------------------
@@ -1898,13 +1900,14 @@ public class ExcelManager {
                 float descuentoBaja=0;
                 int diasDeBaja=0;
                 
-                if(trabajadoresHoja1.get(i).getAltaLaboral()!=null){
+                if(trabajadoresHoja1.get(i).getAltaLaboral()!=null){        //si ha terminado su baja
                     
-                    if(trabajadoresHoja1.get(i).getBajaLaboral().compareTo(trabajadoresHoja1.get(i).getAltaLaboral())>0 || ( (trabajadoresHoja1.get(i).getAltaLaboral().getMonth()==fechaActual.getMonth() && trabajadoresHoja1.get(i).getAltaLaboral().getYear()==fechaActual.getYear() ))){
-                       //nos incumbe la baja laboral y tiene fecha de alta
-                       
+                    if(trabajadoresHoja1.get(i).getBajaLaboral().compareTo(trabajadoresHoja1.get(i).getAltaLaboral())<0 || ( (trabajadoresHoja1.get(i).getAltaLaboral().getMonth()==fechaActual.getMonth() && trabajadoresHoja1.get(i).getAltaLaboral().getYear()==fechaActual.getYear() ))){
+                        // se comprueba que la fecha de baja laboral es posterior a la de alta, esta mal?
+                        //nos incumbe la baja laboral y tiene fecha de alta
+                        
                        diasDeBaja = calcularDiasEntreFechas(trabajadoresHoja1.get(i).getBajaLaboral(), trabajadoresHoja1.get(i).getAltaLaboral());
-                       
+                        System.out.println("aaa dias de baja lol "+diasDeBaja);
                        Date auxFecha=(Date)trabajadoresHoja1.get(i).getBajaLaboral().clone();
                        
                        for(int f=0; f<diasDeBaja; f++){
@@ -1931,20 +1934,20 @@ public class ExcelManager {
                        
                        
                     }
-                }else{ //no tenemos alta laboral
+                }else{ //no tenemos alta laboral -- su baja no ha terminado aun 
                    
                    
                    if((trabajadoresHoja1.get(i).getBajaLaboral().getMonth()<= fechaActual.getMonth() && trabajadoresHoja1.get(i).getBajaLaboral().getYear()==fechaActual.getYear() )){
                        //la baja se calcula porque es anterior a la fecha actual - nos incumbe
                        
-                       
+                  
                        if(trabajadoresHoja1.get(i).getBajaLaboral().getMonth()!= fechaActual.getMonth()){
                            //la baja comenzó antes de nuestro mes
                            diasDeBaja = calcularDiasEntreFechas(trabajadoresHoja1.get(i).getBajaLaboral(), fechaActual);
 
                            for(int h=1; h<diasDeBaja+31; h++){
                                
-                               if(h>=diasDeBaja){
+                               if(h<=diasDeBaja){
                                    
                                    if(h<=3){
                                       descuentoBaja= descuentoBaja+ (nominaMensual/30);
@@ -1963,10 +1966,10 @@ public class ExcelManager {
                        }else{
                            //la baja comenzó en nuestro mes
                            int diasBaja= obtenerDiasMes(fechaActual) - trabajadoresHoja1.get(i).getBajaLaboral().getDay();
-                           
+                           System.out.println("me llamo "+trabajadoresHoja1.get(i).getNombre()+ "dias baja loko "+diasBaja);
                             for(int h=1; h<diasBaja; h++){
                                
-                               if(h>=diasBaja){
+                               if(h<=diasBaja){
                                    
                                    if(h<=3){
                                       descuentoBaja= descuentoBaja+ (nominaMensual/30);
@@ -1987,7 +1990,7 @@ public class ExcelManager {
 
                 }
                 
-                if((trabajadoresHoja1.get(i).getBajaLaboral().compareTo(fechaActual)<0 )){
+                if((trabajadoresHoja1.get(i).getBajaLaboral().compareTo(fechaActual)<=0 ) ){
                    //si la baja se produce antes de la fecha
                    float irpf=calcularIRPF(brutoAnual);
                    nomina.setDiasBaja(diasDeBaja);
@@ -1995,6 +1998,9 @@ public class ExcelManager {
                    nomina.setIrpf(irpf);
                    nomina.setImporteIrpf((nominaMensual-descuentoBaja)*irpf);
                    nomina.setLiquidoNomina(nomina.getLiquidoNomina()-nomina.getImporteIrpf()-descuentoBaja);
+                    System.out.println("cataplau  "+ nomina.getImporteDescuentoBaja());
+                   System.out.println("Liquido nomina contando la baja  "+nomina.getLiquidoNomina());
+                    System.out.println("");
                 }
                 
             }else{
@@ -2053,8 +2059,10 @@ public class ExcelManager {
             // SI ES UNA NOMINA NORMAL SIN CAMBIO DE TRIENIO, SI TIENE BAJAS
             
             // se puede hacer con un switch y hacer 4 apartados diferentes
-            //generarNominasXML(trabajadoresHoja1, nominasTrabajadores);
+
         }
+        
+        generarNominasXML(trabajadoresHoja1, nominasTrabajadores);
         
         
     }
@@ -2132,18 +2140,36 @@ public class ExcelManager {
         
         return numeroTrienios;
     }
+    
+    public Trabajador encontrarTrabajadorPorID(int id){
+        
+        boolean encontrado = false;
+        Trabajador trabajador=null;
+        int i=0;
+        
+        while(!encontrado){
+            
+            if(trabajadoresHoja1.get(i).getIdTrabajador()==id){               
+                trabajador=trabajadoresHoja1.get(i);
+                encontrado = true; 
+            }         
+            i++;    
+        }
+    
+        return trabajador;
+    }
  
     
     
     
-    public void generarNominasXML (List<Trabajador> trabajadores, List<Nomina> nominas){
+    public void generarNominasXML(List<Trabajador> trabajadores, List<Nomina> nominas){
         
             try{
             // cargamos el archivo XML existente en un objeto Document
 
             // String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Nominas.xml";
-            String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
-            // String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/ErroresCCC.xml";
+            //String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Nominas.xml";
+            String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/Nominas.xml";
 
             File archivoXML = new File(rutaXML);
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -2156,30 +2182,40 @@ public class ExcelManager {
 
             // obtenemos la raíz del documento existente
             Element eRaiz = doc.getDocumentElement();
+            
+                System.out.println("la longiytud es : "+trabajadores.size());
 
             // creamos un nuevo elemento para cada trabajador
-            for (int i = 0; i < trabajadores.size(); i++) {
-
-                Element xmlTrabajador = doc.createElement("idFilaExcel");
-
-                Attr atributoID = doc.createAttribute("id");
+            for (int i = 0; i < nominas.size(); i++) { 
+                
+                //obtengo id del trabajador de la nomina
+                
+                int idTrabajador = nominas.get(i).getIdTrabajador();
+                               
+                Element xmlTrabajador = doc.createElement("Nomina");
+          
+                Attr atributoID = doc.createAttribute("idNomina");
                 atributoID.setValue(""+nominas.get(i).getIdNomina());
-                xmlTrabajador.setAttributeNode(atributoID);
+                xmlTrabajador.setAttributeNode(atributoID); 
+               
+                Element idFilaExcel = doc.createElement("idFilaExcel");
+                idFilaExcel.appendChild(doc.createTextNode(""+encontrarTrabajadorPorID(idTrabajador).getIdTrabajador()));
+                xmlTrabajador.appendChild(idFilaExcel);
 
                 Element nombre = doc.createElement("Nombre");
-                nombre.appendChild(doc.createTextNode(trabajadores.get(i).getNombre()));
+                nombre.appendChild(doc.createTextNode(encontrarTrabajadorPorID(idTrabajador).getNombre()));
                 xmlTrabajador.appendChild(nombre);
 
                 Element nif = doc.createElement("NIF");
-                nif.appendChild(doc.createTextNode(trabajadores.get(i).getNifnie() ));
+                nif.appendChild(doc.createTextNode(encontrarTrabajadorPorID(idTrabajador).getNifnie() ));
                 xmlTrabajador.appendChild(nif);
 
                 Element iban = doc.createElement("IBAN");
-                iban.appendChild(doc.createTextNode(trabajadores.get(i).getIban()));
+                iban.appendChild(doc.createTextNode(encontrarTrabajadorPorID(idTrabajador).getIban()));
                 xmlTrabajador.appendChild(iban);
 
                 Element categoria = doc.createElement("Categoria");
-                categoria.appendChild(doc.createTextNode(trabajadores.get(i).getCategoria().getNombreCategoria()));
+                categoria.appendChild(doc.createTextNode(encontrarTrabajadorPorID(idTrabajador).getCategoria().getNombreCategoria()));
                 xmlTrabajador.appendChild(categoria);
 
                 Element brutoAnual = doc.createElement("BrutoAnual");

@@ -39,6 +39,7 @@ public class Proyecto_NominasSI {
      */
     public static void main(String[] args) throws IOException, ParseException {
        
+
         
         // TODO code application logic here
         
@@ -108,6 +109,7 @@ public class Proyecto_NominasSI {
              resolverEjercicio.procesarDNI();
              resolverEjercicio.generarGmailTrabajadores();         
              resolverEjercicio.generarIBANTrabajadores();
+             
     
         } catch (Exception ex) {
            ex.printStackTrace();
@@ -119,9 +121,11 @@ public class Proyecto_NominasSI {
         System.out.println("Introduce mes y año de la nomina (MM/AAAA): ");
         Scanner scan2 = new Scanner(System.in);
         String fecha = scan2.nextLine();
-        
+         
         try {
             resolverEjercicio.generarNominasTrabajadores("04/2017");
+            PDFManager lol = new PDFManager();
+            lol.crear();
 
         } catch (IOException ex) {
             Logger.getLogger(Proyecto_NominasSI.class.getName()).log(Level.SEVERE, null, ex);

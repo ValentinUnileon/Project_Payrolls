@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Trabajadores>
+    <Trabajador id="7">
+        <NIF_NIE/>
+        <Nombre>Soledad</Nombre>
+        <PrimerApellido>Diez</PrimerApellido>
+        <SegundoApellido>Orejas</SegundoApellido>
+        <Empresa>TecnoLeonSL</Empresa>
+        <Categoria>Administrativo</Categoria>
+    </Trabajador>
     <Trabajador id="20">
         <NIF_NIE>09548150E</NIF_NIE>
         <Nombre>Pilar</Nombre>
@@ -8,28 +16,36 @@
         <Empresa>TecnoLeonSL</Empresa>
         <Categoria>Auxiliar</Categoria>
     </Trabajador>
-    <Trabajador id="42">
-        <NIF_NIE>09785530L</NIF_NIE>
-        <Nombre>Herminia</Nombre>
-        <PrimerApellido>Almanzar</PrimerApellido>
-        <SegundoApellido>Robles</SegundoApellido>
-        <Empresa>TecnoProyectSL</Empresa>
-        <Categoria>Cocinero</Categoria>
+    <Trabajador id="13">
+        <NIF_NIE>09632539</NIF_NIE>
+        <Nombre>Gabriel</Nombre>
+        <PrimerApellido>Moral</PrimerApellido>
+        <SegundoApellido>Molina</SegundoApellido>
+        <Empresa>TecnoLeonSL</Empresa>
+        <Categoria>Administrativo</Categoria>
     </Trabajador>
     <Trabajador id="14">
-        <NIF_NIE>19898Y</NIF_NIE>
-        <Nombre>Armando</Nombre>
-        <PrimerApellido>García</PrimerApellido>
-        <SegundoApellido>Prieto</SegundoApellido>
-        <Empresa>PBlankSA</Empresa>
+        <NIF_NIE>09632539</NIF_NIE>
+        <Nombre>Gabriel</Nombre>
+        <PrimerApellido>Moral</PrimerApellido>
+        <SegundoApellido>Molina</SegundoApellido>
+        <Empresa>TecnoLeonSL</Empresa>
         <Categoria>Programador</Categoria>
     </Trabajador>
-    <Trabajador id="39">
-        <NIF_NIE>01234567L</NIF_NIE>
-        <Nombre>Sara</Nombre>
-        <PrimerApellido>Flórez</PrimerApellido>
-        <SegundoApellido>Prieto</SegundoApellido>
-        <Empresa>TecnoProyectSL</Empresa>
+    <Trabajador id="13">
+        <NIF_NIE>09632539</NIF_NIE>
+        <Nombre>Gabriel</Nombre>
+        <PrimerApellido>Moral</PrimerApellido>
+        <SegundoApellido>Molina</SegundoApellido>
+        <Empresa>TecnoLeonSL</Empresa>
+        <Categoria>Administrativo</Categoria>
+    </Trabajador>
+    <Trabajador id="14">
+        <NIF_NIE>09632539</NIF_NIE>
+        <Nombre>Gabriel</Nombre>
+        <PrimerApellido>Moral</PrimerApellido>
+        <SegundoApellido>Molina</SegundoApellido>
+        <Empresa>TecnoLeonSL</Empresa>
         <Categoria>Programador</Categoria>
     </Trabajador>
     <Trabajador id="67">
@@ -56,29 +72,21 @@
         <Empresa>PBlankSA</Empresa>
         <Categoria>Coordinador</Categoria>
     </Trabajador>
-    <Trabajador id="54">
-        <NIF_NIE>ss738010V</NIF_NIE>
-        <Nombre>Alencar</Nombre>
-        <PrimerApellido>Pasado</PrimerApellido>
-        <SegundoApellido>Guerra</SegundoApellido>
-        <Empresa>APhonSA</Empresa>
-        <Categoria>Auxiliar</Categoria>
+    <Trabajador id="39">
+        <NIF_NIE>1234</NIF_NIE>
+        <Nombre>Sara</Nombre>
+        <PrimerApellido>Flórez</PrimerApellido>
+        <SegundoApellido>Prieto</SegundoApellido>
+        <Empresa>TecnoProyectSL</Empresa>
+        <Categoria>Programador</Categoria>
     </Trabajador>
-    <Trabajador id="77">
-        <NIF_NIE>X3387K</NIF_NIE>
-        <Nombre>Federico</Nombre>
-        <PrimerApellido>Díez</PrimerApellido>
-        <SegundoApellido>Laiz</SegundoApellido>
+    <Trabajador id="48">
+        <NIF_NIE>abc</NIF_NIE>
+        <Nombre>Germán</Nombre>
+        <PrimerApellido>Martínez</PrimerApellido>
+        <SegundoApellido>García</SegundoApellido>
         <Empresa>Asoftware</Empresa>
         <Categoria>Coordinador</Categoria>
-    </Trabajador>
-    <Trabajador id="83">
-        <NIF_NIE>w9314602Q</NIF_NIE>
-        <Nombre>Melisa</Nombre>
-        <PrimerApellido>Marín</PrimerApellido>
-        <SegundoApellido>Melcón</SegundoApellido>
-        <Empresa>APhonSA</Empresa>
-        <Categoria>Jefe división</Categoria>
     </Trabajador>
     <Trabajador id="90">
         <NIF_NIE>Y1337652D</NIF_NIE>
@@ -104,13 +112,13 @@
         <Empresa>Asoftware</Empresa>
         <Categoria>Operador</Categoria>
     </Trabajador>
-    <Trabajador id="105">
-        <NIF_NIE>0945</NIF_NIE>
-        <Nombre>Federico</Nombre>
-        <PrimerApellido>Gomez</PrimerApellido>
-        <SegundoApellido>Diez</SegundoApellido>
-        <Empresa>TecnoProyectSL</Empresa>
-        <Categoria>Jefe división</Categoria>
+    <Trabajador id="106">
+        <NIF_NIE>09458455G</NIF_NIE>
+        <Nombre>Gabriel</Nombre>
+        <PrimerApellido>Moncada</PrimerApellido>
+        <SegundoApellido>Martinez</SegundoApellido>
+        <Empresa>TecnoLeonSL</Empresa>
+        <Categoria>Ordenanza</Categoria>
     </Trabajador>
     <Trabajador id="130">
         <NIF_NIE>Y0806930N</NIF_NIE>
