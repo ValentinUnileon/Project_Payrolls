@@ -28,13 +28,15 @@ import java.net.MalformedURLException;
 public class PDFManager {
     
             
-    public final static String imagen = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/nominas/img.JPG";
+    //public final static String imagen = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/nominas/img.JPG";
+    public final static String imagen  = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/nominas/img.JPG";
 
     
     public void crear() throws FileNotFoundException, MalformedURLException {
         
-        String ruta="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/nominas/archivo.pdf";
-        
+        //ruta torre String ruta="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/nominas/archivo.pdf";
+        String ruta ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/nominas/archivo.pdf";
+
         PdfWriter writer = new PdfWriter(ruta); 
         PdfDocument pdfDoc = new PdfDocument(writer); 
         Document doc = new Document(pdfDoc, PageSize.LETTER);
@@ -77,12 +79,12 @@ public class PDFManager {
         
         Table tabla2 = new Table(2);
         tabla2.setWidth(500);
-        Image img = new Image(ImageDataFactory.create(imagen));
-        img.setBorder(null);
-        img.setPadding(10);
+        //Image img = new Image(ImageDataFactory.create(imagen));
+        //img.setBorder(null);
+        //img.setPadding(10);
         
         Cell cell3 = new Cell();
-        cell3.add(img);
+        //cell3.add(img);
         cell3.setBorder(null);
 
         cell3.setPaddingLeft(23);
@@ -110,68 +112,104 @@ public class PDFManager {
         
         //Tabla de datos del trabajador 
         
-        Table tablaDatosTrabajador = new Table(2); 
-        Table tablaCantidad  = new Table(1); 
+        Table tablaDatosTrabajador = new Table(3); 
+       
         
         Cell cellT = new Cell();
         Cell cellC = new Cell();
+        Cell cellI = new Cell();
         
         
-        cellT, CELLC.setBorder(com.itextpdf.layout.borders.Border.NO_BORDER);
+        cellT.setBorder(com.itextpdf.layout.borders.Border.NO_BORDER);
         cellT.setPadding(50);
-        cellT.setWidth(200);
+        cellT.setWidth(100);
         cellT.setTextAlignment(TextAlignment.CENTER);
         
         cellC.setBorder(com.itextpdf.layout.borders.Border.NO_BORDER);
         cellC.setPadding(50);
-        cellC.setWidth(200);
+        cellC.setWidth(100);
         cellC.setTextAlignment(TextAlignment.CENTER);
+        
+        cellI.setBorder(com.itextpdf.layout.borders.Border.NO_BORDER);
+        cellI.setPadding(50);
+        cellI.setWidth(100);
+        cellI.setTextAlignment(TextAlignment.CENTER);
         
         
         
         cellT.add(new Paragraph("CONCEPTOS "));
+        cellC.add(new Paragraph("CANTIDAD "));
+        cellI.add(new Paragraph("Imp. Unitario "));
+        
         
         cellT.add(new Paragraph("Salario base: "));
-        cellC.add(new Paragraph("30 DIAS "));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         cellT.add(new Paragraph("Prorrateo: "));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Complemento: "));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
+        
         
         
         cellT.add(new Paragraph("Antigüedad: "));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Seguridad social: "));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Desempleo: " ));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Cuota de formación: "));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("MEI: "));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("IRPF: "));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Descuento baja: "));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Total deducciones: "));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Total devengos: " ));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Liquido a percibir: "));
+        cellC.add(new Paragraph("valor "));
+        cellI.add(new Paragraph("valor "));
         
         
         tablaDatosTrabajador.addCell(cellT);
         tablaDatosTrabajador.addCell(cellC);
+        tablaDatosTrabajador.addCell(cellI);
         //tablaCantidad.addCell(cellC);
         
         
