@@ -101,14 +101,18 @@ public class Proyecto_NominasSI {
 
 
          try {
-
+ /*
              resolverEjercicio.mapearHoja1(); 
+            
              resolverEjercicio.mapearHoja2(); 
              resolverEjercicio.mapearHoja3(); 
              resolverEjercicio.mapearHoja4(); 
              resolverEjercicio.procesarDNI();
              resolverEjercicio.generarGmailTrabajadores();         
              resolverEjercicio.generarIBANTrabajadores();
+*/
+
+            
              
     
         } catch (Exception ex) {
@@ -123,17 +127,17 @@ public class Proyecto_NominasSI {
         String fecha = scan2.nextLine();
          
         try {
-            resolverEjercicio.generarNominasTrabajadores("04/2017");
+            //resolverEjercicio.generarNominasTrabajadores("04/2017");
             PDFManager lol = new PDFManager();
             lol.crear();
 
         } catch (IOException ex) {
             Logger.getLogger(Proyecto_NominasSI.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ParseException ex) {
-            Logger.getLogger(Proyecto_NominasSI.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        //} catch (ParseException ex) {
+        //    Logger.getLogger(Proyecto_NominasSI.class.getName()).log(Level.SEVERE, null, ex);
+        //}
 
-        
+        }
  
     }
     
