@@ -66,8 +66,8 @@ import java.util.Calendar;
 public class ExcelManager {
     
     //Ubicacion excel
-    private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
-    //private String localizacionExcel ="C:/Users/w10/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
+    //private String localizacionExcel ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
+    private String localizacionExcel ="C:/Users/david/OneDrive/Documentos/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
     //private final String localizacionExcel ="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/SistemasInformacionII.xlsx";
     
     //Datos de las hojas del excel
@@ -931,8 +931,8 @@ public class ExcelManager {
             try{
             // cargamos el archivo XML existente en un objeto Document
 
-            // String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Errores.xml";
-            String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
+            String rutaXML = "C:/Users/david/OneDrive/Documentos/GitHub/Proyecto_NominasSI/src/Errores.xml";
+            //String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Errores.xml";
             // torre String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/Errores.xml";
 
 
@@ -1308,7 +1308,7 @@ public class ExcelManager {
             // cargamos el archivo XML existente en un objeto Document
 
             // String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
-            String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/ErroresCCC.xml";
+            String rutaXML = "C:/Users/david/OneDrive/Documentos/GitHub/Proyecto_NominasSI/src/resources/ErroresCCC.xml";
             // torre String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/ErroresCCC.xml";
 
 
@@ -1590,7 +1590,7 @@ public class ExcelManager {
                         nominaEX.esExtra=true;
                         nominasTrabajadores.add(nominaEX);
                         
-                     
+                        
                         
                         
 
@@ -2167,8 +2167,8 @@ public class ExcelManager {
             try{
             // cargamos el archivo XML existente en un objeto Document
 
-            // String rutaXML = "C:/Users/w10/Documents/GitHub/Practica_SI/NominasSI/src/resources/Nominas.xml";
-            String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Nominas.xml";
+            String rutaXML = "C:/Users/david/OneDrive/Documentos/GitHub/Proyecto_NominasSI/src/resources/Nominas.xml";
+            //String rutaXML = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/Nominas.xml";
             //torre String rutaXML = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/Nominas.xml";
 
             File archivoXML = new File(rutaXML);
@@ -2268,11 +2268,8 @@ public class ExcelManager {
     }
     
     
+    public List<Trabajador> getTrabajadoresCorrectos() {
     
-    
-    
-    
-    
-    
-    
+        return this.trabajadoresHoja1;
+    }
 }

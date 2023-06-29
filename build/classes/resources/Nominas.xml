@@ -1,1069 +1,1069 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <Nominas>
-    <Nomina idNomina="0">
-        <idFilaExcel>2</idFilaExcel>
-        <Nombre>Gabriel</Nombre>
-        <NIF>09632539R</NIF>
-        <IBAN>DK7331645124473461205164</IBAN>
-        <Categoria>Limpiador</Categoria>
-        <BrutoAnual>13700.0</BrutoAnual>
-        <ImporteIrpf>0.0</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>978.5714111328125</BrutoNomina>
-        <LiquidoNomina>1068.5999755859375</LiquidoNomina>
-        <CosteTotalEmpresario>1066.642822265625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>3</idFilaExcel>
-        <Nombre>Rubén Darío</Nombre>
-        <NIF>71393419Q</NIF>
-        <IBAN>ES8265614874165615445616</IBAN>
-        <Categoria>Limpiador</Categoria>
-        <BrutoAnual>13700.0</BrutoAnual>
-        <ImporteIrpf>63.607139587402344</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>978.5714111328125</BrutoNomina>
-        <LiquidoNomina>841.8976211547852</LiquidoNomina>
-        <CosteTotalEmpresario>1061.75</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>8</idFilaExcel>
-        <Nombre>Vittorio</Nombre>
-        <NIF>00538394X</NIF>
-        <IBAN>GR9420125003305201112544</IBAN>
-        <Categoria>Cuidador</Categoria>
-        <BrutoAnual>22350.0</BrutoAnual>
-        <ImporteIrpf>221.10536193847656</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1596.4285888671875</BrutoNomina>
-        <LiquidoNomina>1256.123275756836</LiquidoNomina>
-        <CosteTotalEmpresario>1732.125</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>9</idFilaExcel>
-        <Nombre>Vittorio</Nombre>
-        <NIF>09548150E</NIF>
-        <IBAN>ES2821651484690980008984</IBAN>
-        <Categoria>Cuidador</Categoria>
-        <BrutoAnual>22350.0</BrutoAnual>
-        <ImporteIrpf>221.10536193847656</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1596.4285888671875</BrutoNomina>
-        <LiquidoNomina>1256.123275756836</LiquidoNomina>
-        <CosteTotalEmpresario>1732.125</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>10</idFilaExcel>
-        <Nombre>Adolfo</Nombre>
-        <NIF>09743327K</NIF>
-        <IBAN>FI5620960043043554600000</IBAN>
-        <Categoria>Operador</Categoria>
-        <BrutoAnual>14700.0</BrutoAnual>
-        <ImporteIrpf>89.25</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1050.0</BrutoNomina>
-        <LiquidoNomina>882.3499755859375</LiquidoNomina>
-        <CosteTotalEmpresario>1139.25</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>11</idFilaExcel>
-        <Nombre>Mauro</Nombre>
-        <NIF>09548443Q</NIF>
-        <IBAN>ES7921564975243245467995</IBAN>
-        <Categoria>Cuidador</Categoria>
-        <BrutoAnual>22280.0</BrutoAnual>
-        <ImporteIrpf>257.1483459472656</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1591.4285888671875</BrutoNomina>
-        <LiquidoNomina>1480.6916198730469</LiquidoNomina>
-        <CosteTotalEmpresario>1734.6572265625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>12</idFilaExcel>
-        <Nombre>Gabriel</Nombre>
-        <NIF>09632539</NIF>
-        <IBAN>LT8032566221522587754554</IBAN>
-        <Categoria>Ordenanza</Categoria>
-        <BrutoAnual>18280.0</BrutoAnual>
-        <ImporteIrpf>153.42141723632812</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1305.7142333984375</BrutoNomina>
-        <LiquidoNomina>1054.7995300292969</LiquidoNomina>
-        <CosteTotalEmpresario>1416.699951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>14</idFilaExcel>
-        <Nombre>Gabriel</Nombre>
-        <NIF>09632539</NIF>
-        <IBAN>BE9400750184310702510000</IBAN>
-        <Categoria>Programador</Categoria>
-        <BrutoAnual>20950.0</BrutoAnual>
-        <ImporteIrpf>223.46669006347656</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1496.4285888671875</BrutoNomina>
-        <LiquidoNomina>1410.6334075927734</LiquidoNomina>
-        <CosteTotalEmpresario>1631.107177734375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>16</idFilaExcel>
-        <Nombre>Latifa Epfouad Erre</Nombre>
-        <NIF>09548206D</NIF>
-        <IBAN>SM2125894363475485700145</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>15410.0</BrutoAnual>
-        <ImporteIrpf>105.11820983886719</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1100.7142333984375</BrutoNomina>
-        <LiquidoNomina>913.4093780517578</LiquidoNomina>
-        <CosteTotalEmpresario>1194.27490234375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>18</idFilaExcel>
-        <Nombre>Antonio</Nombre>
-        <NIF>09548416N</NIF>
-        <IBAN>AT6825030000114574745458</IBAN>
-        <Categoria>Operador</Categoria>
-        <BrutoAnual>15512.0</BrutoAnual>
-        <ImporteIrpf>123.44966125488281</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1108.0</BrutoNomina>
-        <LiquidoNomina>1086.4862518310547</LiquidoNomina>
-        <CosteTotalEmpresario>1207.719970703125</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>19</idFilaExcel>
-        <Nombre>Dorina</Nombre>
-        <NIF>10405904Z</NIF>
-        <IBAN>IT8915953684811254695203</IBAN>
-        <Categoria>Ordenanza</Categoria>
-        <BrutoAnual>18280.0</BrutoAnual>
-        <ImporteIrpf>0.0</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1305.7142333984375</BrutoNomina>
-        <LiquidoNomina>1425.840087890625</LiquidoNomina>
-        <CosteTotalEmpresario>1423.228515625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>20</idFilaExcel>
-        <Nombre>Pilar</Nombre>
-        <NIF>09548150E</NIF>
-        <IBAN>ES9020960043023096200000</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>14850.0</BrutoAnual>
-        <ImporteIrpf>90.16071319580078</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1060.7142333984375</BrutoNomina>
-        <LiquidoNomina>891.3535079956055</LiquidoNomina>
-        <CosteTotalEmpresario>1150.875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>22</idFilaExcel>
-        <Nombre>Miguel Ángel</Nombre>
-        <NIF>09611066X</NIF>
-        <IBAN>ES5023455254943263234457</IBAN>
-        <Categoria>Programador</Categoria>
-        <BrutoAnual>20530.0</BrutoAnual>
-        <ImporteIrpf>218.98667907714844</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1466.4285888671875</BrutoNomina>
-        <LiquidoNomina>1382.3534088134766</LiquidoNomina>
-        <CosteTotalEmpresario>1598.4072265625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>23</idFilaExcel>
-        <Nombre>Blas</Nombre>
-        <NIF>09611087P</NIF>
-        <IBAN>GR4920910936583000000000</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>14850.0</BrutoAnual>
-        <ImporteIrpf>90.16071319580078</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1060.7142333984375</BrutoNomina>
-        <LiquidoNomina>891.3535079956055</LiquidoNomina>
-        <CosteTotalEmpresario>1150.875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>25</idFilaExcel>
-        <Nombre>Paulina</Nombre>
-        <NIF>01234567L</NIF>
-        <IBAN>DE5512669681115112121210</IBAN>
-        <Categoria>Ordenanza</Categoria>
-        <BrutoAnual>18350.0</BrutoAnual>
-        <ImporteIrpf>154.00892639160156</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1310.7142333984375</BrutoNomina>
-        <LiquidoNomina>1058.838607788086</LiquidoNomina>
-        <CosteTotalEmpresario>1422.125</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>27</idFilaExcel>
-        <Nombre>Gerardo</Nombre>
-        <NIF>09724050H</NIF>
-        <IBAN>ES2956187775315550000651</IBAN>
-        <Categoria>Operador</Categoria>
-        <BrutoAnual>15610.0</BrutoAnual>
-        <ImporteIrpf>106.48249816894531</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1115.0</BrutoNomina>
-        <LiquidoNomina>925.2642059326172</LiquidoNomina>
-        <CosteTotalEmpresario>1209.7750244140625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>28</idFilaExcel>
-        <Nombre>Cecilia</Nombre>
-        <NIF>09689676Y</NIF>
-        <IBAN>ES425516848021156151054</IBAN>
-        <Categoria>Analista</Categoria>
-        <BrutoAnual>24850.0</BrutoAnual>
-        <ImporteIrpf>262.70001220703125</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1775.0</BrutoNomina>
-        <LiquidoNomina>1379.7666625976562</LiquidoNomina>
-        <CosteTotalEmpresario>1925.875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>29</idFilaExcel>
-        <Nombre>Genaro</Nombre>
-        <NIF>09570285P</NIF>
-        <IBAN>PT5764578946740051516490</IBAN>
-        <Categoria>Calefactor</Categoria>
-        <BrutoAnual>13262.0</BrutoAnual>
-        <ImporteIrpf>61.573570251464844</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>947.2857055664062</BrutoNomina>
-        <LiquidoNomina>814.9814834594727</LiquidoNomina>
-        <CosteTotalEmpresario>1027.804931640625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>30</idFilaExcel>
-        <Nombre>Clara</Nombre>
-        <NIF>09570262P</NIF>
-        <IBAN>ES4534698752714600549403</IBAN>
-        <Categoria>Limpiador</Categoria>
-        <BrutoAnual>14960.0</BrutoAnual>
-        <ImporteIrpf>105.96666717529297</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1068.5714111328125</BrutoNomina>
-        <LiquidoNomina>1060.9133377075195</LiquidoNomina>
-        <CosteTotalEmpresario>1164.7427978515625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>31</idFilaExcel>
-        <Nombre>Ana Belén</Nombre>
-        <NIF>09548827D</NIF>
-        <IBAN>ES2766649444162310000255</IBAN>
-        <Categoria>Jefe de servicio</Categoria>
-        <BrutoAnual>42410.0</BrutoAnual>
-        <ImporteIrpf>639.78515625</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>3029.28564453125</BrutoNomina>
-        <LiquidoNomina>2163.313720703125</LiquidoNomina>
-        <CosteTotalEmpresario>3286.77490234375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>32</idFilaExcel>
-        <Nombre>Generoso</Nombre>
-        <NIF>09548486J</NIF>
-        <IBAN>FR5623185484465641685100</IBAN>
-        <Categoria>Programador</Categoria>
-        <BrutoAnual>21230.0</BrutoAnual>
-        <ImporteIrpf>200.1685791015625</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1516.4285888671875</BrutoNomina>
-        <LiquidoNomina>1203.0333251953125</LiquidoNomina>
-        <CosteTotalEmpresario>1645.324951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>36</idFilaExcel>
-        <Nombre>Tomás</Nombre>
-        <NIF>24304263W</NIF>
-        <IBAN>DE5021508149175421346497</IBAN>
-        <Categoria>Coordinador</Categoria>
-        <BrutoAnual>37662.0</BrutoAnual>
-        <ImporteIrpf>615.7737426757812</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2690.142822265625</BrutoNomina>
-        <LiquidoNomina>2321.8622436523438</LiquidoNomina>
-        <CosteTotalEmpresario>2932.255615234375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>37</idFilaExcel>
-        <Nombre>Clotilde</Nombre>
-        <NIF>09570258G</NIF>
-        <IBAN>DE6721346154503164978451</IBAN>
-        <Categoria>Cocinero</Categoria>
-        <BrutoAnual>16200.0</BrutoAnual>
-        <ImporteIrpf>122.07857513427734</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1157.142822265625</BrutoNomina>
-        <LiquidoNomina>948.6642227172852</LiquidoNomina>
-        <CosteTotalEmpresario>1255.5</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>38</idFilaExcel>
-        <Nombre>Cristina</Nombre>
-        <NIF>09548295Y</NIF>
-        <IBAN>ES7225187786311225455548</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>14500.0</BrutoAnual>
-        <ImporteIrpf>88.03571319580078</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1035.7142333984375</BrutoNomina>
-        <LiquidoNomina>870.3452072143555</LiquidoNomina>
-        <CosteTotalEmpresario>1123.75</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>39</idFilaExcel>
-        <Nombre>Sara</Nombre>
-        <NIF>1234</NIF>
-        <IBAN>ES4723164897642213030615</IBAN>
-        <Categoria>Programador</Categoria>
-        <BrutoAnual>20950.0</BrutoAnual>
-        <ImporteIrpf>223.46669006347656</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1496.4285888671875</BrutoNomina>
-        <LiquidoNomina>1410.6334075927734</LiquidoNomina>
-        <CosteTotalEmpresario>1631.107177734375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>40</idFilaExcel>
-        <Nombre>Encarnación</Nombre>
-        <NIF>10575307E</NIF>
-        <IBAN>ES2396536214865214585214</IBAN>
-        <Categoria>Coordinador</Categoria>
-        <BrutoAnual>37480.0</BrutoAnual>
-        <ImporteIrpf>612.7980346679688</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2677.142822265625</BrutoNomina>
-        <LiquidoNomina>2310.6419067382812</LiquidoNomina>
-        <CosteTotalEmpresario>2918.085693359375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>41</idFilaExcel>
-        <Nombre>Dolores</Nombre>
-        <NIF>09548392B</NIF>
-        <IBAN>ES6885461325251978750005</IBAN>
-        <Categoria>Administrativo</Categoria>
-        <BrutoAnual>16500.0</BrutoAnual>
-        <ImporteIrpf>124.33928680419922</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1178.5714111328125</BrutoNomina>
-        <LiquidoNomina>966.2321243286133</LiquidoNomina>
-        <CosteTotalEmpresario>1278.75</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>42</idFilaExcel>
-        <Nombre>Herminia</Nombre>
-        <NIF>09785530L</NIF>
-        <IBAN>FI5024587946032003165464</IBAN>
-        <Categoria>Cocinero</Categoria>
-        <BrutoAnual>16130.0</BrutoAnual>
-        <ImporteIrpf>121.55107116699219</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1152.142822265625</BrutoNomina>
-        <LiquidoNomina>944.5651397705078</LiquidoNomina>
-        <CosteTotalEmpresario>1250.074951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>43</idFilaExcel>
-        <Nombre>Sonia</Nombre>
-        <NIF>71393396Q</NIF>
-        <IBAN>ES5020960043073071400000</IBAN>
-        <Categoria>Limpiador</Categoria>
-        <BrutoAnual>14400.0</BrutoAnual>
-        <ImporteIrpf>102.0</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1028.5714111328125</BrutoNomina>
-        <LiquidoNomina>1021.199951171875</LiquidoNomina>
-        <CosteTotalEmpresario>1121.142822265625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>44</idFilaExcel>
-        <Nombre>Generoso</Nombre>
-        <NIF>71406027C</NIF>
-        <IBAN>ES8220960043042158800000</IBAN>
-        <Categoria>Administrativo</Categoria>
-        <BrutoAnual>16780.0</BrutoAnual>
-        <ImporteIrpf>126.44928741455078</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1198.5714111328125</BrutoNomina>
-        <LiquidoNomina>982.6288375854492</LiquidoNomina>
-        <CosteTotalEmpresario>1300.449951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>45</idFilaExcel>
-        <Nombre>Sergio</Nombre>
-        <NIF>09548451R</NIF>
-        <IBAN>ES7521654587985156484454</IBAN>
-        <Categoria>Administrativo</Categoria>
-        <BrutoAnual>15800.0</BrutoAnual>
-        <ImporteIrpf>125.74166107177734</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1128.5714111328125</BrutoNomina>
-        <LiquidoNomina>1106.6582412719727</LiquidoNomina>
-        <CosteTotalEmpresario>1230.142822265625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>46</idFilaExcel>
-        <Nombre>Bonifacio</Nombre>
-        <NIF>71597570L</NIF>
-        <IBAN>ES3251651681961210656510</IBAN>
-        <Categoria>Programador</Categoria>
-        <BrutoAnual>20950.0</BrutoAnual>
-        <ImporteIrpf>223.46669006347656</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1496.4285888671875</BrutoNomina>
-        <LiquidoNomina>1410.6334075927734</LiquidoNomina>
-        <CosteTotalEmpresario>1631.107177734375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>47</idFilaExcel>
-        <Nombre>Demetrio</Nombre>
-        <NIF>09611100K</NIF>
-        <IBAN>ES5566552211148855332200</IBAN>
-        <Categoria>Coordinador</Categoria>
-        <BrutoAnual>36850.0</BrutoAnual>
-        <ImporteIrpf>506.6874694824219</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2632.142822265625</BrutoNomina>
-        <LiquidoNomina>1928.9219055175781</LiquidoNomina>
-        <CosteTotalEmpresario>2855.875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>48</idFilaExcel>
-        <Nombre>Germán</Nombre>
-        <NIF>abc</NIF>
-        <IBAN>GB9720910936583000000000</IBAN>
-        <Categoria>Coordinador</Categoria>
-        <BrutoAnual>36780.0</BrutoAnual>
-        <ImporteIrpf>590.0125122070312</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2627.142822265625</BrutoNomina>
-        <LiquidoNomina>2278.8275756835938</LiquidoNomina>
-        <CosteTotalEmpresario>2863.585693359375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>49</idFilaExcel>
-        <Nombre>Marta</Nombre>
-        <NIF>09548317M</NIF>
-        <IBAN>DE9301821135910205540000</IBAN>
-        <Categoria>Coordinador</Categoria>
-        <BrutoAnual>36780.0</BrutoAnual>
-        <ImporteIrpf>505.7249755859375</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2627.142822265625</BrutoNomina>
-        <LiquidoNomina>1925.2579345703125</LiquidoNomina>
-        <CosteTotalEmpresario>2850.449951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>50</idFilaExcel>
-        <Nombre>Israel</Nombre>
-        <NIF>12649208J</NIF>
-        <IBAN>DE7822631245526916432102</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>14500.0</BrutoAnual>
-        <ImporteIrpf>88.03571319580078</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1035.7142333984375</BrutoNomina>
-        <LiquidoNomina>870.3452072143555</LiquidoNomina>
-        <CosteTotalEmpresario>1123.75</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>52</idFilaExcel>
-        <Nombre>Gabriel</Nombre>
-        <NIF>02614035Q</NIF>
-        <IBAN>SM7325635478321002541225</IBAN>
-        <Categoria>Programador</Categoria>
-        <BrutoAnual>20950.0</BrutoAnual>
-        <ImporteIrpf>223.46669006347656</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1496.4285888671875</BrutoNomina>
-        <LiquidoNomina>1410.6334075927734</LiquidoNomina>
-        <CosteTotalEmpresario>1631.107177734375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>53</idFilaExcel>
-        <Nombre>Rubén Darío</Nombre>
-        <NIF>09570242B</NIF>
-        <IBAN>ES6832154697195423121000</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>15200.0</BrutoAnual>
-        <ImporteIrpf>103.68570709228516</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1085.7142333984375</BrutoNomina>
-        <LiquidoNomina>900.9618759155273</LiquidoNomina>
-        <CosteTotalEmpresario>1178.0</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>54</idFilaExcel>
-        <Nombre>Alencar</Nombre>
-        <NIF>09738010V</NIF>
-        <IBAN>GR3836521452736500658485</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>14500.0</BrutoAnual>
-        <ImporteIrpf>88.03571319580078</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1035.7142333984375</BrutoNomina>
-        <LiquidoNomina>870.3452072143555</LiquidoNomina>
-        <CosteTotalEmpresario>1123.75</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>55</idFilaExcel>
-        <Nombre>Alencar</Nombre>
-        <NIF>09548501M</NIF>
-        <IBAN>GB5520008521528775113366</IBAN>
-        <Categoria>Ordenanza</Categoria>
-        <BrutoAnual>18350.0</BrutoAnual>
-        <ImporteIrpf>154.00892639160156</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1310.7142333984375</BrutoNomina>
-        <LiquidoNomina>1058.838607788086</LiquidoNomina>
-        <CosteTotalEmpresario>1422.125</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>60</idFilaExcel>
-        <Nombre>Adolfo</Nombre>
-        <NIF>09548290R</NIF>
-        <IBAN>ES8020960043033000100000</IBAN>
-        <Categoria>Limpiador</Categoria>
-        <BrutoAnual>13980.0</BrutoAnual>
-        <ImporteIrpf>64.90714263916016</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>998.5714111328125</BrutoNomina>
-        <LiquidoNomina>859.1042709350586</LiquidoNomina>
-        <CosteTotalEmpresario>1083.449951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>61</idFilaExcel>
-        <Nombre>Giovani</Nombre>
-        <NIF>09626048L</NIF>
-        <IBAN>GB836585214290025478551</IBAN>
-        <Categoria>Jefe de servicio</Categoria>
-        <BrutoAnual>42410.0</BrutoAnual>
-        <ImporteIrpf>639.78515625</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>3029.28564453125</BrutoNomina>
-        <LiquidoNomina>2163.313720703125</LiquidoNomina>
-        <CosteTotalEmpresario>3286.77490234375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>62</idFilaExcel>
-        <Nombre>Agustín</Nombre>
-        <NIF>24571671N</NIF>
-        <IBAN>ES9012548523465214585214</IBAN>
-        <Categoria>Programador</Categoria>
-        <BrutoAnual>20600.0</BrutoAnual>
-        <ImporteIrpf>188.34286499023438</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1471.4285888671875</BrutoNomina>
-        <LiquidoNomina>1173.2190246582031</LiquidoNomina>
-        <CosteTotalEmpresario>1596.5</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>63</idFilaExcel>
-        <Nombre>Luis</Nombre>
-        <NIF>09784112G</NIF>
-        <IBAN>ES6931624561042546920007</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>14850.0</BrutoAnual>
-        <ImporteIrpf>90.16071319580078</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1060.7142333984375</BrutoNomina>
-        <LiquidoNomina>891.3535079956055</LiquidoNomina>
-        <CosteTotalEmpresario>1150.875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>64</idFilaExcel>
-        <Nombre>Armando</Nombre>
-        <NIF>09548495E</NIF>
-        <IBAN>ES1436154231712500312566</IBAN>
-        <Categoria>Administrativo</Categoria>
-        <BrutoAnual>15800.0</BrutoAnual>
-        <ImporteIrpf>107.77857208251953</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1128.5714111328125</BrutoNomina>
-        <LiquidoNomina>936.5261154174805</LiquidoNomina>
-        <CosteTotalEmpresario>1224.5</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>65</idFilaExcel>
-        <Nombre>Latifa</Nombre>
-        <NIF>71404623L</NIF>
-        <IBAN>ES8244875664127231645789</IBAN>
-        <Categoria>Ordenanza</Categoria>
-        <BrutoAnual>19162.0</BrutoAnual>
-        <ImporteIrpf>194.01524353027344</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1368.7142333984375</BrutoNomina>
-        <LiquidoNomina>1300.6207427978516</LiquidoNomina>
-        <CosteTotalEmpresario>1491.8985595703125</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>66</idFilaExcel>
-        <Nombre>Latifa Epfouad Erre</Nombre>
-        <NIF>09810142K</NIF>
-        <IBAN>ES7920960031442124800000</IBAN>
-        <Categoria>Coordinador</Categoria>
-        <BrutoAnual>37200.0</BrutoAnual>
-        <ImporteIrpf>521.3314819335938</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2657.142822265625</BrutoNomina>
-        <LiquidoNomina>1937.4114379882812</LiquidoNomina>
-        <CosteTotalEmpresario>2883.0</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>67</idFilaExcel>
-        <Nombre>Saaida</Nombre>
-        <NIF>09548827D</NIF>
-        <IBAN>ES1633620012937852100256</IBAN>
-        <Categoria>Cocinero</Categoria>
-        <BrutoAnual>15850.0</BrutoAnual>
-        <ImporteIrpf>108.11963653564453</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1132.142822265625</BrutoNomina>
-        <LiquidoNomina>939.489860534668</LiquidoNomina>
-        <CosteTotalEmpresario>1228.375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>68</idFilaExcel>
-        <Nombre>Antonio</Nombre>
-        <NIF>X8996448K</NIF>
-        <IBAN>ES1933218885441445121022</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>14850.0</BrutoAnual>
-        <ImporteIrpf>90.16071319580078</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1060.7142333984375</BrutoNomina>
-        <LiquidoNomina>891.3535079956055</LiquidoNomina>
-        <CosteTotalEmpresario>1150.875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>69</idFilaExcel>
-        <Nombre>Dorina</Nombre>
-        <NIF>09685088H</NIF>
-        <IBAN>ES8462581542713690044508</IBAN>
-        <Categoria>Programador</Categoria>
-        <BrutoAnual>20600.0</BrutoAnual>
-        <ImporteIrpf>188.34286499023438</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1471.4285888671875</BrutoNomina>
-        <LiquidoNomina>1173.2190246582031</LiquidoNomina>
-        <CosteTotalEmpresario>1596.5</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>70</idFilaExcel>
-        <Nombre>Rocío</Nombre>
-        <NIF>09548295Y</NIF>
-        <IBAN>ES3925165151118666365100</IBAN>
-        <Categoria>Coordinador</Categoria>
-        <BrutoAnual>37200.0</BrutoAnual>
-        <ImporteIrpf>521.3314819335938</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2657.142822265625</BrutoNomina>
-        <LiquidoNomina>1937.4114379882812</LiquidoNomina>
-        <CosteTotalEmpresario>2883.0</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>71</idFilaExcel>
-        <Nombre>Soledad</Nombre>
-        <NIF>09545570H</NIF>
-        <IBAN>ES8020960043033000100000</IBAN>
-        <Categoria>Administrativo</Categoria>
-        <BrutoAnual>16500.0</BrutoAnual>
-        <ImporteIrpf>124.33928680419922</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1178.5714111328125</BrutoNomina>
-        <LiquidoNomina>966.2321243286133</LiquidoNomina>
-        <CosteTotalEmpresario>1278.75</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>72</idFilaExcel>
-        <Nombre>Vittorio</Nombre>
-        <NIF>71393411P</NIF>
-        <IBAN>PT3536952365020014425254</IBAN>
-        <Categoria>Cocinero</Categoria>
-        <BrutoAnual>16830.0</BrutoAnual>
-        <ImporteIrpf>126.8260726928711</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1202.142822265625</BrutoNomina>
-        <LiquidoNomina>985.5567398071289</LiquidoNomina>
-        <CosteTotalEmpresario>1304.324951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>73</idFilaExcel>
-        <Nombre>Vittorio</Nombre>
-        <NIF>71393352H</NIF>
-        <IBAN>ES9565168874641561561500</IBAN>
-        <Categoria>Limpiador</Categoria>
-        <BrutoAnual>14862.0</BrutoAnual>
-        <ImporteIrpf>90.23357391357422</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1061.5714111328125</BrutoNomina>
-        <LiquidoNomina>892.073860168457</LiquidoNomina>
-        <CosteTotalEmpresario>1151.804931640625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>74</idFilaExcel>
-        <Nombre>Mario</Nombre>
-        <NIF>09632873J</NIF>
-        <IBAN>ES3220960583831234500000</IBAN>
-        <Categoria>Administrativo</Categoria>
-        <BrutoAnual>16080.0</BrutoAnual>
-        <ImporteIrpf>141.37001037597656</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1148.5714111328125</BrutoNomina>
-        <LiquidoNomina>1112.8699798583984</LiquidoNomina>
-        <CosteTotalEmpresario>1251.94287109375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>75</idFilaExcel>
-        <Nombre>Concepción</Nombre>
-        <NIF>71878948S</NIF>
-        <IBAN>ES7221416325811510005514</IBAN>
-        <Categoria>Administrativo</Categoria>
-        <BrutoAnual>16500.0</BrutoAnual>
-        <ImporteIrpf>124.33928680419922</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1178.5714111328125</BrutoNomina>
-        <LiquidoNomina>966.2321243286133</LiquidoNomina>
-        <CosteTotalEmpresario>1278.75</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>77</idFilaExcel>
-        <Nombre>Federico</Nombre>
-        <NIF>X3607387K</NIF>
-        <IBAN>ES2220960056133231500000</IBAN>
-        <Categoria>Coordinador</Categoria>
-        <BrutoAnual>36850.0</BrutoAnual>
-        <ImporteIrpf>506.6874694824219</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2632.142822265625</BrutoNomina>
-        <LiquidoNomina>1928.9219055175781</LiquidoNomina>
-        <CosteTotalEmpresario>2855.875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>79</idFilaExcel>
-        <Nombre>Serafín</Nombre>
-        <NIF>09634700T</NIF>
-        <IBAN>ES8163516541828944000984</IBAN>
-        <Categoria>Coordinador</Categoria>
-        <BrutoAnual>36780.0</BrutoAnual>
-        <ImporteIrpf>505.7249755859375</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2627.142822265625</BrutoNomina>
-        <LiquidoNomina>1925.2579345703125</LiquidoNomina>
-        <CosteTotalEmpresario>2850.449951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>81</idFilaExcel>
-        <Nombre>Gonzalo</Nombre>
-        <NIF>09548247G</NIF>
-        <IBAN>FI6132658012367712548745</IBAN>
-        <Categoria>Jefe de sección</Categoria>
-        <BrutoAnual>23480.0</BrutoAnual>
-        <ImporteIrpf>276.8683166503906</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1677.142822265625</BrutoNomina>
-        <LiquidoNomina>1554.5716247558594</LiquidoNomina>
-        <CosteTotalEmpresario>1828.085693359375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>82</idFilaExcel>
-        <Nombre>Emiliano</Nombre>
-        <NIF>09611071S</NIF>
-        <IBAN>ES7223652365142254222000</IBAN>
-        <Categoria>Cocinero</Categoria>
-        <BrutoAnual>16830.0</BrutoAnual>
-        <ImporteIrpf>147.96376037597656</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1202.142822265625</BrutoNomina>
-        <LiquidoNomina>1164.7762298583984</LiquidoNomina>
-        <CosteTotalEmpresario>1310.335693359375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>83</idFilaExcel>
-        <Nombre>Melisa</Nombre>
-        <NIF>09314602Q</NIF>
-        <IBAN>FR3820012541150023365233</IBAN>
-        <Categoria>Jefe división</Categoria>
-        <BrutoAnual>31780.0</BrutoAnual>
-        <ImporteIrpf>471.4032897949219</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2270.0</BrutoNomina>
-        <LiquidoNomina>2007.4365539550781</LiquidoNomina>
-        <CosteTotalEmpresario>2474.300048828125</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>84</idFilaExcel>
-        <Nombre>Montserrat</Nombre>
-        <NIF>71404629W</NIF>
-        <IBAN>ES9232584216971684051000</IBAN>
-        <Categoria>Ordenanza</Categoria>
-        <BrutoAnual>18280.0</BrutoAnual>
-        <ImporteIrpf>153.42141723632812</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1305.7142333984375</BrutoNomina>
-        <LiquidoNomina>1054.7995300292969</LiquidoNomina>
-        <CosteTotalEmpresario>1416.699951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>86</idFilaExcel>
-        <Nombre>José Antonio</Nombre>
-        <NIF>10940987W</NIF>
-        <IBAN>ES7395485212315484010000</IBAN>
-        <Categoria>Operador</Categoria>
-        <BrutoAnual>14350.0</BrutoAnual>
-        <ImporteIrpf>101.64583587646484</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1025.0</BrutoNomina>
-        <LiquidoNomina>1017.6542129516602</LiquidoNomina>
-        <CosteTotalEmpresario>1117.25</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>88</idFilaExcel>
-        <Nombre>Nelida</Nombre>
-        <NIF>09548287K</NIF>
-        <IBAN>ES5736245978133245679001</IBAN>
-        <Categoria>Operador</Categoria>
-        <BrutoAnual>14700.0</BrutoAnual>
-        <ImporteIrpf>104.125</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1050.0</BrutoNomina>
-        <LiquidoNomina>1042.4749755859375</LiquidoNomina>
-        <CosteTotalEmpresario>1144.5</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>89</idFilaExcel>
-        <Nombre>Marisa</Nombre>
-        <NIF>Y1337652D</NIF>
-        <IBAN>ES7631245164156597845124</IBAN>
-        <Categoria>Administrativo</Categoria>
-        <BrutoAnual>16710.0</BrutoAnual>
-        <ImporteIrpf>146.90875244140625</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1193.5714111328125</BrutoNomina>
-        <LiquidoNomina>1156.4712524414062</LiquidoNomina>
-        <CosteTotalEmpresario>1300.9927978515625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>90</idFilaExcel>
-        <Nombre>Marta</Nombre>
-        <NIF>Y1337652D</NIF>
-        <IBAN>SM4423221158252545471411</IBAN>
-        <Categoria>Ordenanza</Categoria>
-        <BrutoAnual>19162.0</BrutoAnual>
-        <ImporteIrpf>194.01524353027344</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1368.7142333984375</BrutoNomina>
-        <LiquidoNomina>1300.6207427978516</LiquidoNomina>
-        <CosteTotalEmpresario>1491.8985595703125</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>91</idFilaExcel>
-        <Nombre>Miguel</Nombre>
-        <NIF>09481741Z</NIF>
-        <IBAN>SE6832574512085411002255</IBAN>
-        <Categoria>Operador</Categoria>
-        <BrutoAnual>15260.0</BrutoAnual>
-        <ImporteIrpf>121.44416046142578</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1090.0</BrutoNomina>
-        <LiquidoNomina>1068.8357467651367</LiquidoNomina>
-        <CosteTotalEmpresario>1188.0999755859375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>93</idFilaExcel>
-        <Nombre>Carmen</Nombre>
-        <NIF>X1673150S</NIF>
-        <IBAN>ES5631215643855060225021</IBAN>
-        <Categoria>Jefe de servicio</Categoria>
-        <BrutoAnual>41500.0</BrutoAnual>
-        <ImporteIrpf>719.333251953125</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2964.28564453125</BrutoNomina>
-        <LiquidoNomina>2517.666748046875</LiquidoNomina>
-        <CosteTotalEmpresario>3231.0712890625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>94</idFilaExcel>
-        <Nombre>Hugo</Nombre>
-        <NIF/>
-        <IBAN>AT3285550564726165145610</IBAN>
-        <Categoria>Operador</Categoria>
-        <BrutoAnual>14630.0</BrutoAnual>
-        <ImporteIrpf>88.82500457763672</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1045.0</BrutoNomina>
-        <LiquidoNomina>878.148323059082</LiquidoNomina>
-        <CosteTotalEmpresario>1133.824951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>95</idFilaExcel>
-        <Nombre>Khadouj</Nombre>
-        <NIF>12160221Y</NIF>
-        <IBAN>ES1665165654918886005001</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>15200.0</BrutoAnual>
-        <ImporteIrpf>103.68570709228516</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1085.7142333984375</BrutoNomina>
-        <LiquidoNomina>900.9618759155273</LiquidoNomina>
-        <CosteTotalEmpresario>1178.0</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>104</idFilaExcel>
-        <Nombre>María</Nombre>
-        <NIF>71609083D</NIF>
-        <IBAN>HU2399558741836555551120</IBAN>
-        <Categoria>Cocinero</Categoria>
-        <BrutoAnual>16130.0</BrutoAnual>
-        <ImporteIrpf>121.55107116699219</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1152.142822265625</BrutoNomina>
-        <LiquidoNomina>944.5651397705078</LiquidoNomina>
-        <CosteTotalEmpresario>1250.074951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>106</idFilaExcel>
-        <Nombre>Gabriel</Nombre>
-        <NIF>09458455G</NIF>
-        <IBAN>IE6851556584221251000254</IBAN>
-        <Categoria>Ordenanza</Categoria>
-        <BrutoAnual>18280.0</BrutoAnual>
-        <ImporteIrpf>153.42141723632812</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1305.7142333984375</BrutoNomina>
-        <LiquidoNomina>1054.7995300292969</LiquidoNomina>
-        <CosteTotalEmpresario>1416.699951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>127</idFilaExcel>
-        <Nombre>Ismael</Nombre>
-        <NIF>X1673150S</NIF>
-        <IBAN>DK9032541112811220000588</IBAN>
-        <Categoria>Analista</Categoria>
-        <BrutoAnual>25200.0</BrutoAnual>
-        <ImporteIrpf>275.3999938964844</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1800.0</BrutoNomina>
-        <LiquidoNomina>1390.1999816894531</LiquidoNomina>
-        <CosteTotalEmpresario>1953.0</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>128</idFilaExcel>
-        <Nombre>Diana</Nombre>
-        <NIF>09611076C</NIF>
-        <IBAN>LT9362541122421110105611</IBAN>
-        <Categoria>Jefe de sección</Categoria>
-        <BrutoAnual>23480.0</BrutoAnual>
-        <ImporteIrpf>276.8683166503906</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1677.142822265625</BrutoNomina>
-        <LiquidoNomina>1554.5716247558594</LiquidoNomina>
-        <CosteTotalEmpresario>1828.085693359375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>129</idFilaExcel>
-        <Nombre>Elisa</Nombre>
-        <NIF>Y0806930N</NIF>
-        <IBAN>ES6855065688761051056105</IBAN>
-        <Categoria>Cocinero</Categoria>
-        <BrutoAnual>15850.0</BrutoAnual>
-        <ImporteIrpf>108.11963653564453</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1132.142822265625</BrutoNomina>
-        <LiquidoNomina>939.489860534668</LiquidoNomina>
-        <CosteTotalEmpresario>1228.375</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>130</idFilaExcel>
-        <Nombre>Nelida</Nombre>
-        <NIF>Y0806930N</NIF>
-        <IBAN>ES7426221011628048788896</IBAN>
-        <Categoria>Jefe división</Categoria>
-        <BrutoAnual>31500.0</BrutoAnual>
-        <ImporteIrpf>400.4999694824219</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>2250.0</BrutoNomina>
-        <LiquidoNomina>1681.5000305175781</LiquidoNomina>
-        <CosteTotalEmpresario>2441.25</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>131</idFilaExcel>
-        <Nombre>Marisa</Nombre>
-        <NIF>09714235R</NIF>
-        <IBAN>ES9712548521518742146695</IBAN>
-        <Categoria>Ordenanza</Categoria>
-        <BrutoAnual>18350.0</BrutoAnual>
-        <ImporteIrpf>154.00892639160156</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1310.7142333984375</BrutoNomina>
-        <LiquidoNomina>1058.838607788086</LiquidoNomina>
-        <CosteTotalEmpresario>1422.125</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>132</idFilaExcel>
-        <Nombre>Marta</Nombre>
-        <NIF>09806572Q</NIF>
-        <IBAN>ES9001826530120201560000</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>14780.0</BrutoAnual>
-        <ImporteIrpf>104.69166564941406</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1055.7142333984375</BrutoNomina>
-        <LiquidoNomina>1048.1483001708984</LiquidoNomina>
-        <CosteTotalEmpresario>1150.728515625</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>133</idFilaExcel>
-        <Nombre>Miguel</Nombre>
-        <NIF>02031127C</NIF>
-        <IBAN>ES9021651651812511133551</IBAN>
-        <Categoria>Operador</Categoria>
-        <BrutoAnual>14630.0</BrutoAnual>
-        <ImporteIrpf>88.82500457763672</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1045.0</BrutoNomina>
-        <LiquidoNomina>878.148323059082</LiquidoNomina>
-        <CosteTotalEmpresario>1133.824951171875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>134</idFilaExcel>
-        <Nombre>Cruz</Nombre>
-        <NIF>09548215H</NIF>
-        <IBAN>ES6851651487910005118185</IBAN>
-        <Categoria>Auxiliar</Categoria>
-        <BrutoAnual>14500.0</BrutoAnual>
-        <ImporteIrpf>102.70833587646484</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1035.7142333984375</BrutoNomina>
-        <LiquidoNomina>1028.2916641235352</LiquidoNomina>
-        <CosteTotalEmpresario>1128.928466796875</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>135</idFilaExcel>
-        <Nombre>Carmen</Nombre>
-        <NIF/>
-        <IBAN>CZ9536250012804785523365</IBAN>
-        <Categoria>Operador</Categoria>
-        <BrutoAnual>14700.0</BrutoAnual>
-        <ImporteIrpf>89.25</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1050.0</BrutoNomina>
-        <LiquidoNomina>882.3499755859375</LiquidoNomina>
-        <CosteTotalEmpresario>1139.25</CosteTotalEmpresario>
-    </Nomina>
-    <Nomina idNomina="0">
-        <idFilaExcel>136</idFilaExcel>
-        <Nombre>Hugo</Nombre>
-        <NIF>09548505D</NIF>
-        <IBAN>AT3122515651915640081000</IBAN>
-        <Categoria>Administrativo</Categoria>
-        <BrutoAnual>16500.0</BrutoAnual>
-        <ImporteIrpf>124.33928680419922</ImporteIrpf>
-        <BaseEmpresario>0.0</BaseEmpresario>
-        <BrutoNomina>1178.5714111328125</BrutoNomina>
-        <LiquidoNomina>966.2321243286133</LiquidoNomina>
-        <CosteTotalEmpresario>1278.75</CosteTotalEmpresario>
-    </Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>2</idFilaExcel>
+<Nombre>Gabriel</Nombre>
+<NIF>09632539R</NIF>
+<IBAN>DK7331645124473461205164</IBAN>
+<Categoria>Limpiador</Categoria>
+<BrutoAnual>13700.0</BrutoAnual>
+<ImporteIrpf>0.0</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>978.5714111328125</BrutoNomina>
+<LiquidoNomina>1068.5999755859375</LiquidoNomina>
+<CosteTotalEmpresario>1066.642822265625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>3</idFilaExcel>
+<Nombre>Rubén Darío</Nombre>
+<NIF>71393419Q</NIF>
+<IBAN>ES8265614874165615445616</IBAN>
+<Categoria>Limpiador</Categoria>
+<BrutoAnual>13700.0</BrutoAnual>
+<ImporteIrpf>63.607139587402344</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>978.5714111328125</BrutoNomina>
+<LiquidoNomina>841.8976211547852</LiquidoNomina>
+<CosteTotalEmpresario>1061.75</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>8</idFilaExcel>
+<Nombre>Vittorio</Nombre>
+<NIF>00538394X</NIF>
+<IBAN>GR9420125003305201112544</IBAN>
+<Categoria>Cuidador</Categoria>
+<BrutoAnual>22350.0</BrutoAnual>
+<ImporteIrpf>221.10536193847656</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1596.4285888671875</BrutoNomina>
+<LiquidoNomina>1256.123275756836</LiquidoNomina>
+<CosteTotalEmpresario>1732.125</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>9</idFilaExcel>
+<Nombre>Vittorio</Nombre>
+<NIF>09548150E</NIF>
+<IBAN>ES2821651484690980008984</IBAN>
+<Categoria>Cuidador</Categoria>
+<BrutoAnual>22350.0</BrutoAnual>
+<ImporteIrpf>221.10536193847656</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1596.4285888671875</BrutoNomina>
+<LiquidoNomina>1256.123275756836</LiquidoNomina>
+<CosteTotalEmpresario>1732.125</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>10</idFilaExcel>
+<Nombre>Adolfo</Nombre>
+<NIF>09743327K</NIF>
+<IBAN>FI5620960043043554600000</IBAN>
+<Categoria>Operador</Categoria>
+<BrutoAnual>14700.0</BrutoAnual>
+<ImporteIrpf>89.25</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1050.0</BrutoNomina>
+<LiquidoNomina>882.3499755859375</LiquidoNomina>
+<CosteTotalEmpresario>1139.25</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>11</idFilaExcel>
+<Nombre>Mauro</Nombre>
+<NIF>09548443Q</NIF>
+<IBAN>ES7921564975243245467995</IBAN>
+<Categoria>Cuidador</Categoria>
+<BrutoAnual>22280.0</BrutoAnual>
+<ImporteIrpf>257.1483459472656</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1591.4285888671875</BrutoNomina>
+<LiquidoNomina>1480.6916198730469</LiquidoNomina>
+<CosteTotalEmpresario>1734.6572265625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>12</idFilaExcel>
+<Nombre>Gabriel</Nombre>
+<NIF>09632539</NIF>
+<IBAN>LT8032566221522587754554</IBAN>
+<Categoria>Ordenanza</Categoria>
+<BrutoAnual>18280.0</BrutoAnual>
+<ImporteIrpf>153.42141723632812</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1305.7142333984375</BrutoNomina>
+<LiquidoNomina>1054.7995300292969</LiquidoNomina>
+<CosteTotalEmpresario>1416.699951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>14</idFilaExcel>
+<Nombre>Gabriel</Nombre>
+<NIF>09632539</NIF>
+<IBAN>BE9400750184310702510000</IBAN>
+<Categoria>Programador</Categoria>
+<BrutoAnual>20950.0</BrutoAnual>
+<ImporteIrpf>223.46669006347656</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1496.4285888671875</BrutoNomina>
+<LiquidoNomina>1410.6334075927734</LiquidoNomina>
+<CosteTotalEmpresario>1631.107177734375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>16</idFilaExcel>
+<Nombre>Latifa Epfouad Erre</Nombre>
+<NIF>09548206D</NIF>
+<IBAN>SM2125894363475485700145</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>15410.0</BrutoAnual>
+<ImporteIrpf>105.11820983886719</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1100.7142333984375</BrutoNomina>
+<LiquidoNomina>913.4093780517578</LiquidoNomina>
+<CosteTotalEmpresario>1194.27490234375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>18</idFilaExcel>
+<Nombre>Antonio</Nombre>
+<NIF>09548416N</NIF>
+<IBAN>AT6825030000114574745458</IBAN>
+<Categoria>Operador</Categoria>
+<BrutoAnual>15512.0</BrutoAnual>
+<ImporteIrpf>123.44966125488281</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1108.0</BrutoNomina>
+<LiquidoNomina>1086.4862518310547</LiquidoNomina>
+<CosteTotalEmpresario>1207.719970703125</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>19</idFilaExcel>
+<Nombre>Dorina</Nombre>
+<NIF>10405904Z</NIF>
+<IBAN>IT8915953684811254695203</IBAN>
+<Categoria>Ordenanza</Categoria>
+<BrutoAnual>18280.0</BrutoAnual>
+<ImporteIrpf>0.0</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1305.7142333984375</BrutoNomina>
+<LiquidoNomina>1425.840087890625</LiquidoNomina>
+<CosteTotalEmpresario>1423.228515625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>20</idFilaExcel>
+<Nombre>Pilar</Nombre>
+<NIF>09548150E</NIF>
+<IBAN>ES9020960043023096200000</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>14850.0</BrutoAnual>
+<ImporteIrpf>90.16071319580078</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1060.7142333984375</BrutoNomina>
+<LiquidoNomina>891.3535079956055</LiquidoNomina>
+<CosteTotalEmpresario>1150.875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>22</idFilaExcel>
+<Nombre>Miguel Ángel</Nombre>
+<NIF>09611066X</NIF>
+<IBAN>ES5023455254943263234457</IBAN>
+<Categoria>Programador</Categoria>
+<BrutoAnual>20530.0</BrutoAnual>
+<ImporteIrpf>218.98667907714844</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1466.4285888671875</BrutoNomina>
+<LiquidoNomina>1382.3534088134766</LiquidoNomina>
+<CosteTotalEmpresario>1598.4072265625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>23</idFilaExcel>
+<Nombre>Blas</Nombre>
+<NIF>09611087P</NIF>
+<IBAN>GR4920910936583000000000</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>14850.0</BrutoAnual>
+<ImporteIrpf>90.16071319580078</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1060.7142333984375</BrutoNomina>
+<LiquidoNomina>891.3535079956055</LiquidoNomina>
+<CosteTotalEmpresario>1150.875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>25</idFilaExcel>
+<Nombre>Paulina</Nombre>
+<NIF>01234567L</NIF>
+<IBAN>DE5512669681115112121210</IBAN>
+<Categoria>Ordenanza</Categoria>
+<BrutoAnual>18350.0</BrutoAnual>
+<ImporteIrpf>154.00892639160156</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1310.7142333984375</BrutoNomina>
+<LiquidoNomina>1058.838607788086</LiquidoNomina>
+<CosteTotalEmpresario>1422.125</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>27</idFilaExcel>
+<Nombre>Gerardo</Nombre>
+<NIF>09724050H</NIF>
+<IBAN>ES2956187775315550000651</IBAN>
+<Categoria>Operador</Categoria>
+<BrutoAnual>15610.0</BrutoAnual>
+<ImporteIrpf>106.48249816894531</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1115.0</BrutoNomina>
+<LiquidoNomina>925.2642059326172</LiquidoNomina>
+<CosteTotalEmpresario>1209.7750244140625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>28</idFilaExcel>
+<Nombre>Cecilia</Nombre>
+<NIF>09689676Y</NIF>
+<IBAN>ES425516848021156151054</IBAN>
+<Categoria>Analista</Categoria>
+<BrutoAnual>24850.0</BrutoAnual>
+<ImporteIrpf>262.70001220703125</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1775.0</BrutoNomina>
+<LiquidoNomina>1379.7666625976562</LiquidoNomina>
+<CosteTotalEmpresario>1925.875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>29</idFilaExcel>
+<Nombre>Genaro</Nombre>
+<NIF>09570285P</NIF>
+<IBAN>PT5764578946740051516490</IBAN>
+<Categoria>Calefactor</Categoria>
+<BrutoAnual>13262.0</BrutoAnual>
+<ImporteIrpf>61.573570251464844</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>947.2857055664062</BrutoNomina>
+<LiquidoNomina>814.9814834594727</LiquidoNomina>
+<CosteTotalEmpresario>1027.804931640625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>30</idFilaExcel>
+<Nombre>Clara</Nombre>
+<NIF>09570262P</NIF>
+<IBAN>ES4534698752714600549403</IBAN>
+<Categoria>Limpiador</Categoria>
+<BrutoAnual>14960.0</BrutoAnual>
+<ImporteIrpf>105.96666717529297</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1068.5714111328125</BrutoNomina>
+<LiquidoNomina>1060.9133377075195</LiquidoNomina>
+<CosteTotalEmpresario>1164.7427978515625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>31</idFilaExcel>
+<Nombre>Ana Belén</Nombre>
+<NIF>09548827D</NIF>
+<IBAN>ES2766649444162310000255</IBAN>
+<Categoria>Jefe de servicio</Categoria>
+<BrutoAnual>42410.0</BrutoAnual>
+<ImporteIrpf>639.78515625</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>3029.28564453125</BrutoNomina>
+<LiquidoNomina>2163.313720703125</LiquidoNomina>
+<CosteTotalEmpresario>3286.77490234375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>32</idFilaExcel>
+<Nombre>Generoso</Nombre>
+<NIF>09548486J</NIF>
+<IBAN>FR5623185484465641685100</IBAN>
+<Categoria>Programador</Categoria>
+<BrutoAnual>21230.0</BrutoAnual>
+<ImporteIrpf>200.1685791015625</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1516.4285888671875</BrutoNomina>
+<LiquidoNomina>1203.0333251953125</LiquidoNomina>
+<CosteTotalEmpresario>1645.324951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>36</idFilaExcel>
+<Nombre>Tomás</Nombre>
+<NIF>24304263W</NIF>
+<IBAN>DE5021508149175421346497</IBAN>
+<Categoria>Coordinador</Categoria>
+<BrutoAnual>37662.0</BrutoAnual>
+<ImporteIrpf>615.7737426757812</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2690.142822265625</BrutoNomina>
+<LiquidoNomina>2321.8622436523438</LiquidoNomina>
+<CosteTotalEmpresario>2932.255615234375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>37</idFilaExcel>
+<Nombre>Clotilde</Nombre>
+<NIF>09570258G</NIF>
+<IBAN>DE6721346154503164978451</IBAN>
+<Categoria>Cocinero</Categoria>
+<BrutoAnual>16200.0</BrutoAnual>
+<ImporteIrpf>122.07857513427734</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1157.142822265625</BrutoNomina>
+<LiquidoNomina>948.6642227172852</LiquidoNomina>
+<CosteTotalEmpresario>1255.5</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>38</idFilaExcel>
+<Nombre>Cristina</Nombre>
+<NIF>09548295Y</NIF>
+<IBAN>ES7225187786311225455548</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>14500.0</BrutoAnual>
+<ImporteIrpf>88.03571319580078</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1035.7142333984375</BrutoNomina>
+<LiquidoNomina>870.3452072143555</LiquidoNomina>
+<CosteTotalEmpresario>1123.75</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>39</idFilaExcel>
+<Nombre>Sara</Nombre>
+<NIF>1234</NIF>
+<IBAN>ES4723164897642213030615</IBAN>
+<Categoria>Programador</Categoria>
+<BrutoAnual>20950.0</BrutoAnual>
+<ImporteIrpf>223.46669006347656</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1496.4285888671875</BrutoNomina>
+<LiquidoNomina>1410.6334075927734</LiquidoNomina>
+<CosteTotalEmpresario>1631.107177734375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>40</idFilaExcel>
+<Nombre>Encarnación</Nombre>
+<NIF>10575307E</NIF>
+<IBAN>ES2396536214865214585214</IBAN>
+<Categoria>Coordinador</Categoria>
+<BrutoAnual>37480.0</BrutoAnual>
+<ImporteIrpf>612.7980346679688</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2677.142822265625</BrutoNomina>
+<LiquidoNomina>2310.6419067382812</LiquidoNomina>
+<CosteTotalEmpresario>2918.085693359375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>41</idFilaExcel>
+<Nombre>Dolores</Nombre>
+<NIF>09548392B</NIF>
+<IBAN>ES6885461325251978750005</IBAN>
+<Categoria>Administrativo</Categoria>
+<BrutoAnual>16500.0</BrutoAnual>
+<ImporteIrpf>124.33928680419922</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1178.5714111328125</BrutoNomina>
+<LiquidoNomina>966.2321243286133</LiquidoNomina>
+<CosteTotalEmpresario>1278.75</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>42</idFilaExcel>
+<Nombre>Herminia</Nombre>
+<NIF>09785530L</NIF>
+<IBAN>FI5024587946032003165464</IBAN>
+<Categoria>Cocinero</Categoria>
+<BrutoAnual>16130.0</BrutoAnual>
+<ImporteIrpf>121.55107116699219</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1152.142822265625</BrutoNomina>
+<LiquidoNomina>944.5651397705078</LiquidoNomina>
+<CosteTotalEmpresario>1250.074951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>43</idFilaExcel>
+<Nombre>Sonia</Nombre>
+<NIF>71393396Q</NIF>
+<IBAN>ES5020960043073071400000</IBAN>
+<Categoria>Limpiador</Categoria>
+<BrutoAnual>14400.0</BrutoAnual>
+<ImporteIrpf>102.0</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1028.5714111328125</BrutoNomina>
+<LiquidoNomina>1021.199951171875</LiquidoNomina>
+<CosteTotalEmpresario>1121.142822265625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>44</idFilaExcel>
+<Nombre>Generoso</Nombre>
+<NIF>71406027C</NIF>
+<IBAN>ES8220960043042158800000</IBAN>
+<Categoria>Administrativo</Categoria>
+<BrutoAnual>16780.0</BrutoAnual>
+<ImporteIrpf>126.44928741455078</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1198.5714111328125</BrutoNomina>
+<LiquidoNomina>982.6288375854492</LiquidoNomina>
+<CosteTotalEmpresario>1300.449951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>45</idFilaExcel>
+<Nombre>Sergio</Nombre>
+<NIF>09548451R</NIF>
+<IBAN>ES7521654587985156484454</IBAN>
+<Categoria>Administrativo</Categoria>
+<BrutoAnual>15800.0</BrutoAnual>
+<ImporteIrpf>125.74166107177734</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1128.5714111328125</BrutoNomina>
+<LiquidoNomina>1106.6582412719727</LiquidoNomina>
+<CosteTotalEmpresario>1230.142822265625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>46</idFilaExcel>
+<Nombre>Bonifacio</Nombre>
+<NIF>71597570L</NIF>
+<IBAN>ES3251651681961210656510</IBAN>
+<Categoria>Programador</Categoria>
+<BrutoAnual>20950.0</BrutoAnual>
+<ImporteIrpf>223.46669006347656</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1496.4285888671875</BrutoNomina>
+<LiquidoNomina>1410.6334075927734</LiquidoNomina>
+<CosteTotalEmpresario>1631.107177734375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>47</idFilaExcel>
+<Nombre>Demetrio</Nombre>
+<NIF>09611100K</NIF>
+<IBAN>ES5566552211148855332200</IBAN>
+<Categoria>Coordinador</Categoria>
+<BrutoAnual>36850.0</BrutoAnual>
+<ImporteIrpf>506.6874694824219</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2632.142822265625</BrutoNomina>
+<LiquidoNomina>1928.9219055175781</LiquidoNomina>
+<CosteTotalEmpresario>2855.875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>48</idFilaExcel>
+<Nombre>Germán</Nombre>
+<NIF>abc</NIF>
+<IBAN>GB9720910936583000000000</IBAN>
+<Categoria>Coordinador</Categoria>
+<BrutoAnual>36780.0</BrutoAnual>
+<ImporteIrpf>590.0125122070312</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2627.142822265625</BrutoNomina>
+<LiquidoNomina>2278.8275756835938</LiquidoNomina>
+<CosteTotalEmpresario>2863.585693359375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>49</idFilaExcel>
+<Nombre>Marta</Nombre>
+<NIF>09548317M</NIF>
+<IBAN>DE9301821135910205540000</IBAN>
+<Categoria>Coordinador</Categoria>
+<BrutoAnual>36780.0</BrutoAnual>
+<ImporteIrpf>505.7249755859375</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2627.142822265625</BrutoNomina>
+<LiquidoNomina>1925.2579345703125</LiquidoNomina>
+<CosteTotalEmpresario>2850.449951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>50</idFilaExcel>
+<Nombre>Israel</Nombre>
+<NIF>12649208J</NIF>
+<IBAN>DE7822631245526916432102</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>14500.0</BrutoAnual>
+<ImporteIrpf>88.03571319580078</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1035.7142333984375</BrutoNomina>
+<LiquidoNomina>870.3452072143555</LiquidoNomina>
+<CosteTotalEmpresario>1123.75</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>52</idFilaExcel>
+<Nombre>Gabriel</Nombre>
+<NIF>02614035Q</NIF>
+<IBAN>SM7325635478321002541225</IBAN>
+<Categoria>Programador</Categoria>
+<BrutoAnual>20950.0</BrutoAnual>
+<ImporteIrpf>223.46669006347656</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1496.4285888671875</BrutoNomina>
+<LiquidoNomina>1410.6334075927734</LiquidoNomina>
+<CosteTotalEmpresario>1631.107177734375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>53</idFilaExcel>
+<Nombre>Rubén Darío</Nombre>
+<NIF>09570242B</NIF>
+<IBAN>ES6832154697195423121000</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>15200.0</BrutoAnual>
+<ImporteIrpf>103.68570709228516</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1085.7142333984375</BrutoNomina>
+<LiquidoNomina>900.9618759155273</LiquidoNomina>
+<CosteTotalEmpresario>1178.0</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>54</idFilaExcel>
+<Nombre>Alencar</Nombre>
+<NIF>09738010V</NIF>
+<IBAN>GR3836521452736500658485</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>14500.0</BrutoAnual>
+<ImporteIrpf>88.03571319580078</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1035.7142333984375</BrutoNomina>
+<LiquidoNomina>870.3452072143555</LiquidoNomina>
+<CosteTotalEmpresario>1123.75</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>55</idFilaExcel>
+<Nombre>Alencar</Nombre>
+<NIF>09548501M</NIF>
+<IBAN>GB5520008521528775113366</IBAN>
+<Categoria>Ordenanza</Categoria>
+<BrutoAnual>18350.0</BrutoAnual>
+<ImporteIrpf>154.00892639160156</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1310.7142333984375</BrutoNomina>
+<LiquidoNomina>1058.838607788086</LiquidoNomina>
+<CosteTotalEmpresario>1422.125</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>60</idFilaExcel>
+<Nombre>Adolfo</Nombre>
+<NIF>09548290R</NIF>
+<IBAN>ES8020960043033000100000</IBAN>
+<Categoria>Limpiador</Categoria>
+<BrutoAnual>13980.0</BrutoAnual>
+<ImporteIrpf>64.90714263916016</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>998.5714111328125</BrutoNomina>
+<LiquidoNomina>859.1042709350586</LiquidoNomina>
+<CosteTotalEmpresario>1083.449951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>61</idFilaExcel>
+<Nombre>Giovani</Nombre>
+<NIF>09626048L</NIF>
+<IBAN>GB836585214290025478551</IBAN>
+<Categoria>Jefe de servicio</Categoria>
+<BrutoAnual>42410.0</BrutoAnual>
+<ImporteIrpf>639.78515625</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>3029.28564453125</BrutoNomina>
+<LiquidoNomina>2163.313720703125</LiquidoNomina>
+<CosteTotalEmpresario>3286.77490234375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>62</idFilaExcel>
+<Nombre>Agustín</Nombre>
+<NIF>24571671N</NIF>
+<IBAN>ES9012548523465214585214</IBAN>
+<Categoria>Programador</Categoria>
+<BrutoAnual>20600.0</BrutoAnual>
+<ImporteIrpf>188.34286499023438</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1471.4285888671875</BrutoNomina>
+<LiquidoNomina>1173.2190246582031</LiquidoNomina>
+<CosteTotalEmpresario>1596.5</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>63</idFilaExcel>
+<Nombre>Luis</Nombre>
+<NIF>09784112G</NIF>
+<IBAN>ES6931624561042546920007</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>14850.0</BrutoAnual>
+<ImporteIrpf>90.16071319580078</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1060.7142333984375</BrutoNomina>
+<LiquidoNomina>891.3535079956055</LiquidoNomina>
+<CosteTotalEmpresario>1150.875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>64</idFilaExcel>
+<Nombre>Armando</Nombre>
+<NIF>09548495E</NIF>
+<IBAN>ES1436154231712500312566</IBAN>
+<Categoria>Administrativo</Categoria>
+<BrutoAnual>15800.0</BrutoAnual>
+<ImporteIrpf>107.77857208251953</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1128.5714111328125</BrutoNomina>
+<LiquidoNomina>936.5261154174805</LiquidoNomina>
+<CosteTotalEmpresario>1224.5</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>65</idFilaExcel>
+<Nombre>Latifa</Nombre>
+<NIF>71404623L</NIF>
+<IBAN>ES8244875664127231645789</IBAN>
+<Categoria>Ordenanza</Categoria>
+<BrutoAnual>19162.0</BrutoAnual>
+<ImporteIrpf>194.01524353027344</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1368.7142333984375</BrutoNomina>
+<LiquidoNomina>1300.6207427978516</LiquidoNomina>
+<CosteTotalEmpresario>1491.8985595703125</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>66</idFilaExcel>
+<Nombre>Latifa Epfouad Erre</Nombre>
+<NIF>09810142K</NIF>
+<IBAN>ES7920960031442124800000</IBAN>
+<Categoria>Coordinador</Categoria>
+<BrutoAnual>37200.0</BrutoAnual>
+<ImporteIrpf>521.3314819335938</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2657.142822265625</BrutoNomina>
+<LiquidoNomina>1937.4114379882812</LiquidoNomina>
+<CosteTotalEmpresario>2883.0</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>67</idFilaExcel>
+<Nombre>Saaida</Nombre>
+<NIF>09548827D</NIF>
+<IBAN>ES1633620012937852100256</IBAN>
+<Categoria>Cocinero</Categoria>
+<BrutoAnual>15850.0</BrutoAnual>
+<ImporteIrpf>108.11963653564453</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1132.142822265625</BrutoNomina>
+<LiquidoNomina>939.489860534668</LiquidoNomina>
+<CosteTotalEmpresario>1228.375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>68</idFilaExcel>
+<Nombre>Antonio</Nombre>
+<NIF>X8996448K</NIF>
+<IBAN>ES1933218885441445121022</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>14850.0</BrutoAnual>
+<ImporteIrpf>90.16071319580078</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1060.7142333984375</BrutoNomina>
+<LiquidoNomina>891.3535079956055</LiquidoNomina>
+<CosteTotalEmpresario>1150.875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>69</idFilaExcel>
+<Nombre>Dorina</Nombre>
+<NIF>09685088H</NIF>
+<IBAN>ES8462581542713690044508</IBAN>
+<Categoria>Programador</Categoria>
+<BrutoAnual>20600.0</BrutoAnual>
+<ImporteIrpf>188.34286499023438</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1471.4285888671875</BrutoNomina>
+<LiquidoNomina>1173.2190246582031</LiquidoNomina>
+<CosteTotalEmpresario>1596.5</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>70</idFilaExcel>
+<Nombre>Rocío</Nombre>
+<NIF>09548295Y</NIF>
+<IBAN>ES3925165151118666365100</IBAN>
+<Categoria>Coordinador</Categoria>
+<BrutoAnual>37200.0</BrutoAnual>
+<ImporteIrpf>521.3314819335938</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2657.142822265625</BrutoNomina>
+<LiquidoNomina>1937.4114379882812</LiquidoNomina>
+<CosteTotalEmpresario>2883.0</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>71</idFilaExcel>
+<Nombre>Soledad</Nombre>
+<NIF>09545570H</NIF>
+<IBAN>ES8020960043033000100000</IBAN>
+<Categoria>Administrativo</Categoria>
+<BrutoAnual>16500.0</BrutoAnual>
+<ImporteIrpf>124.33928680419922</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1178.5714111328125</BrutoNomina>
+<LiquidoNomina>966.2321243286133</LiquidoNomina>
+<CosteTotalEmpresario>1278.75</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>72</idFilaExcel>
+<Nombre>Vittorio</Nombre>
+<NIF>71393411P</NIF>
+<IBAN>PT3536952365020014425254</IBAN>
+<Categoria>Cocinero</Categoria>
+<BrutoAnual>16830.0</BrutoAnual>
+<ImporteIrpf>126.8260726928711</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1202.142822265625</BrutoNomina>
+<LiquidoNomina>985.5567398071289</LiquidoNomina>
+<CosteTotalEmpresario>1304.324951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>73</idFilaExcel>
+<Nombre>Vittorio</Nombre>
+<NIF>71393352H</NIF>
+<IBAN>ES9565168874641561561500</IBAN>
+<Categoria>Limpiador</Categoria>
+<BrutoAnual>14862.0</BrutoAnual>
+<ImporteIrpf>90.23357391357422</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1061.5714111328125</BrutoNomina>
+<LiquidoNomina>892.073860168457</LiquidoNomina>
+<CosteTotalEmpresario>1151.804931640625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>74</idFilaExcel>
+<Nombre>Mario</Nombre>
+<NIF>09632873J</NIF>
+<IBAN>ES3220960583831234500000</IBAN>
+<Categoria>Administrativo</Categoria>
+<BrutoAnual>16080.0</BrutoAnual>
+<ImporteIrpf>141.37001037597656</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1148.5714111328125</BrutoNomina>
+<LiquidoNomina>1112.8699798583984</LiquidoNomina>
+<CosteTotalEmpresario>1251.94287109375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>75</idFilaExcel>
+<Nombre>Concepción</Nombre>
+<NIF>71878948S</NIF>
+<IBAN>ES7221416325811510005514</IBAN>
+<Categoria>Administrativo</Categoria>
+<BrutoAnual>16500.0</BrutoAnual>
+<ImporteIrpf>124.33928680419922</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1178.5714111328125</BrutoNomina>
+<LiquidoNomina>966.2321243286133</LiquidoNomina>
+<CosteTotalEmpresario>1278.75</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>77</idFilaExcel>
+<Nombre>Federico</Nombre>
+<NIF>X3607387K</NIF>
+<IBAN>ES2220960056133231500000</IBAN>
+<Categoria>Coordinador</Categoria>
+<BrutoAnual>36850.0</BrutoAnual>
+<ImporteIrpf>506.6874694824219</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2632.142822265625</BrutoNomina>
+<LiquidoNomina>1928.9219055175781</LiquidoNomina>
+<CosteTotalEmpresario>2855.875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>79</idFilaExcel>
+<Nombre>Serafín</Nombre>
+<NIF>09634700T</NIF>
+<IBAN>ES8163516541828944000984</IBAN>
+<Categoria>Coordinador</Categoria>
+<BrutoAnual>36780.0</BrutoAnual>
+<ImporteIrpf>505.7249755859375</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2627.142822265625</BrutoNomina>
+<LiquidoNomina>1925.2579345703125</LiquidoNomina>
+<CosteTotalEmpresario>2850.449951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>81</idFilaExcel>
+<Nombre>Gonzalo</Nombre>
+<NIF>09548247G</NIF>
+<IBAN>FI6132658012367712548745</IBAN>
+<Categoria>Jefe de sección</Categoria>
+<BrutoAnual>23480.0</BrutoAnual>
+<ImporteIrpf>276.8683166503906</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1677.142822265625</BrutoNomina>
+<LiquidoNomina>1554.5716247558594</LiquidoNomina>
+<CosteTotalEmpresario>1828.085693359375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>82</idFilaExcel>
+<Nombre>Emiliano</Nombre>
+<NIF>09611071S</NIF>
+<IBAN>ES7223652365142254222000</IBAN>
+<Categoria>Cocinero</Categoria>
+<BrutoAnual>16830.0</BrutoAnual>
+<ImporteIrpf>147.96376037597656</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1202.142822265625</BrutoNomina>
+<LiquidoNomina>1164.7762298583984</LiquidoNomina>
+<CosteTotalEmpresario>1310.335693359375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>83</idFilaExcel>
+<Nombre>Melisa</Nombre>
+<NIF>09314602Q</NIF>
+<IBAN>FR3820012541150023365233</IBAN>
+<Categoria>Jefe división</Categoria>
+<BrutoAnual>31780.0</BrutoAnual>
+<ImporteIrpf>471.4032897949219</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2270.0</BrutoNomina>
+<LiquidoNomina>2007.4365539550781</LiquidoNomina>
+<CosteTotalEmpresario>2474.300048828125</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>84</idFilaExcel>
+<Nombre>Montserrat</Nombre>
+<NIF>71404629W</NIF>
+<IBAN>ES9232584216971684051000</IBAN>
+<Categoria>Ordenanza</Categoria>
+<BrutoAnual>18280.0</BrutoAnual>
+<ImporteIrpf>153.42141723632812</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1305.7142333984375</BrutoNomina>
+<LiquidoNomina>1054.7995300292969</LiquidoNomina>
+<CosteTotalEmpresario>1416.699951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>86</idFilaExcel>
+<Nombre>José Antonio</Nombre>
+<NIF>10940987W</NIF>
+<IBAN>ES7395485212315484010000</IBAN>
+<Categoria>Operador</Categoria>
+<BrutoAnual>14350.0</BrutoAnual>
+<ImporteIrpf>101.64583587646484</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1025.0</BrutoNomina>
+<LiquidoNomina>1017.6542129516602</LiquidoNomina>
+<CosteTotalEmpresario>1117.25</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>88</idFilaExcel>
+<Nombre>Nelida</Nombre>
+<NIF>09548287K</NIF>
+<IBAN>ES5736245978133245679001</IBAN>
+<Categoria>Operador</Categoria>
+<BrutoAnual>14700.0</BrutoAnual>
+<ImporteIrpf>104.125</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1050.0</BrutoNomina>
+<LiquidoNomina>1042.4749755859375</LiquidoNomina>
+<CosteTotalEmpresario>1144.5</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>89</idFilaExcel>
+<Nombre>Marisa</Nombre>
+<NIF>Y1337652D</NIF>
+<IBAN>ES7631245164156597845124</IBAN>
+<Categoria>Administrativo</Categoria>
+<BrutoAnual>16710.0</BrutoAnual>
+<ImporteIrpf>146.90875244140625</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1193.5714111328125</BrutoNomina>
+<LiquidoNomina>1156.4712524414062</LiquidoNomina>
+<CosteTotalEmpresario>1300.9927978515625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>90</idFilaExcel>
+<Nombre>Marta</Nombre>
+<NIF>Y1337652D</NIF>
+<IBAN>SM4423221158252545471411</IBAN>
+<Categoria>Ordenanza</Categoria>
+<BrutoAnual>19162.0</BrutoAnual>
+<ImporteIrpf>194.01524353027344</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1368.7142333984375</BrutoNomina>
+<LiquidoNomina>1300.6207427978516</LiquidoNomina>
+<CosteTotalEmpresario>1491.8985595703125</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>91</idFilaExcel>
+<Nombre>Miguel</Nombre>
+<NIF>09481741Z</NIF>
+<IBAN>SE6832574512085411002255</IBAN>
+<Categoria>Operador</Categoria>
+<BrutoAnual>15260.0</BrutoAnual>
+<ImporteIrpf>121.44416046142578</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1090.0</BrutoNomina>
+<LiquidoNomina>1068.8357467651367</LiquidoNomina>
+<CosteTotalEmpresario>1188.0999755859375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>93</idFilaExcel>
+<Nombre>Carmen</Nombre>
+<NIF>X1673150S</NIF>
+<IBAN>ES5631215643855060225021</IBAN>
+<Categoria>Jefe de servicio</Categoria>
+<BrutoAnual>41500.0</BrutoAnual>
+<ImporteIrpf>719.333251953125</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2964.28564453125</BrutoNomina>
+<LiquidoNomina>2517.666748046875</LiquidoNomina>
+<CosteTotalEmpresario>3231.0712890625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>94</idFilaExcel>
+<Nombre>Hugo</Nombre>
+<NIF/>
+<IBAN>AT3285550564726165145610</IBAN>
+<Categoria>Operador</Categoria>
+<BrutoAnual>14630.0</BrutoAnual>
+<ImporteIrpf>88.82500457763672</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1045.0</BrutoNomina>
+<LiquidoNomina>878.148323059082</LiquidoNomina>
+<CosteTotalEmpresario>1133.824951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>95</idFilaExcel>
+<Nombre>Khadouj</Nombre>
+<NIF>12160221Y</NIF>
+<IBAN>ES1665165654918886005001</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>15200.0</BrutoAnual>
+<ImporteIrpf>103.68570709228516</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1085.7142333984375</BrutoNomina>
+<LiquidoNomina>900.9618759155273</LiquidoNomina>
+<CosteTotalEmpresario>1178.0</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>104</idFilaExcel>
+<Nombre>María</Nombre>
+<NIF>71609083D</NIF>
+<IBAN>HU2399558741836555551120</IBAN>
+<Categoria>Cocinero</Categoria>
+<BrutoAnual>16130.0</BrutoAnual>
+<ImporteIrpf>121.55107116699219</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1152.142822265625</BrutoNomina>
+<LiquidoNomina>944.5651397705078</LiquidoNomina>
+<CosteTotalEmpresario>1250.074951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>106</idFilaExcel>
+<Nombre>Gabriel</Nombre>
+<NIF>09458455G</NIF>
+<IBAN>IE6851556584221251000254</IBAN>
+<Categoria>Ordenanza</Categoria>
+<BrutoAnual>18280.0</BrutoAnual>
+<ImporteIrpf>153.42141723632812</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1305.7142333984375</BrutoNomina>
+<LiquidoNomina>1054.7995300292969</LiquidoNomina>
+<CosteTotalEmpresario>1416.699951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>127</idFilaExcel>
+<Nombre>Ismael</Nombre>
+<NIF>X1673150S</NIF>
+<IBAN>DK9032541112811220000588</IBAN>
+<Categoria>Analista</Categoria>
+<BrutoAnual>25200.0</BrutoAnual>
+<ImporteIrpf>275.3999938964844</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1800.0</BrutoNomina>
+<LiquidoNomina>1390.1999816894531</LiquidoNomina>
+<CosteTotalEmpresario>1953.0</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>128</idFilaExcel>
+<Nombre>Diana</Nombre>
+<NIF>09611076C</NIF>
+<IBAN>LT9362541122421110105611</IBAN>
+<Categoria>Jefe de sección</Categoria>
+<BrutoAnual>23480.0</BrutoAnual>
+<ImporteIrpf>276.8683166503906</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1677.142822265625</BrutoNomina>
+<LiquidoNomina>1554.5716247558594</LiquidoNomina>
+<CosteTotalEmpresario>1828.085693359375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>129</idFilaExcel>
+<Nombre>Elisa</Nombre>
+<NIF>Y0806930N</NIF>
+<IBAN>ES6855065688761051056105</IBAN>
+<Categoria>Cocinero</Categoria>
+<BrutoAnual>15850.0</BrutoAnual>
+<ImporteIrpf>108.11963653564453</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1132.142822265625</BrutoNomina>
+<LiquidoNomina>939.489860534668</LiquidoNomina>
+<CosteTotalEmpresario>1228.375</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>130</idFilaExcel>
+<Nombre>Nelida</Nombre>
+<NIF>Y0806930N</NIF>
+<IBAN>ES7426221011628048788896</IBAN>
+<Categoria>Jefe división</Categoria>
+<BrutoAnual>31500.0</BrutoAnual>
+<ImporteIrpf>400.4999694824219</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>2250.0</BrutoNomina>
+<LiquidoNomina>1681.5000305175781</LiquidoNomina>
+<CosteTotalEmpresario>2441.25</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>131</idFilaExcel>
+<Nombre>Marisa</Nombre>
+<NIF>09714235R</NIF>
+<IBAN>ES9712548521518742146695</IBAN>
+<Categoria>Ordenanza</Categoria>
+<BrutoAnual>18350.0</BrutoAnual>
+<ImporteIrpf>154.00892639160156</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1310.7142333984375</BrutoNomina>
+<LiquidoNomina>1058.838607788086</LiquidoNomina>
+<CosteTotalEmpresario>1422.125</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>132</idFilaExcel>
+<Nombre>Marta</Nombre>
+<NIF>09806572Q</NIF>
+<IBAN>ES9001826530120201560000</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>14780.0</BrutoAnual>
+<ImporteIrpf>104.69166564941406</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1055.7142333984375</BrutoNomina>
+<LiquidoNomina>1048.1483001708984</LiquidoNomina>
+<CosteTotalEmpresario>1150.728515625</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>133</idFilaExcel>
+<Nombre>Miguel</Nombre>
+<NIF>02031127C</NIF>
+<IBAN>ES9021651651812511133551</IBAN>
+<Categoria>Operador</Categoria>
+<BrutoAnual>14630.0</BrutoAnual>
+<ImporteIrpf>88.82500457763672</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1045.0</BrutoNomina>
+<LiquidoNomina>878.148323059082</LiquidoNomina>
+<CosteTotalEmpresario>1133.824951171875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>134</idFilaExcel>
+<Nombre>Cruz</Nombre>
+<NIF>09548215H</NIF>
+<IBAN>ES6851651487910005118185</IBAN>
+<Categoria>Auxiliar</Categoria>
+<BrutoAnual>14500.0</BrutoAnual>
+<ImporteIrpf>102.70833587646484</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1035.7142333984375</BrutoNomina>
+<LiquidoNomina>1028.2916641235352</LiquidoNomina>
+<CosteTotalEmpresario>1128.928466796875</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>135</idFilaExcel>
+<Nombre>Carmen</Nombre>
+<NIF/>
+<IBAN>CZ9536250012804785523365</IBAN>
+<Categoria>Operador</Categoria>
+<BrutoAnual>14700.0</BrutoAnual>
+<ImporteIrpf>89.25</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1050.0</BrutoNomina>
+<LiquidoNomina>882.3499755859375</LiquidoNomina>
+<CosteTotalEmpresario>1139.25</CosteTotalEmpresario>
+</Nomina>
+<Nomina idNomina="0">
+<idFilaExcel>136</idFilaExcel>
+<Nombre>Hugo</Nombre>
+<NIF>09548505D</NIF>
+<IBAN>AT3122515651915640081000</IBAN>
+<Categoria>Administrativo</Categoria>
+<BrutoAnual>16500.0</BrutoAnual>
+<ImporteIrpf>124.33928680419922</ImporteIrpf>
+<BaseEmpresario>0.0</BaseEmpresario>
+<BrutoNomina>1178.5714111328125</BrutoNomina>
+<LiquidoNomina>966.2321243286133</LiquidoNomina>
+<CosteTotalEmpresario>1278.75</CosteTotalEmpresario>
+</Nomina>
 </Nominas>
