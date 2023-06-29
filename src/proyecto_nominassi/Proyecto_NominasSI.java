@@ -101,7 +101,7 @@ public class Proyecto_NominasSI {
 
 
          try {
- /*
+ 
              resolverEjercicio.mapearHoja1(); 
             
              resolverEjercicio.mapearHoja2(); 
@@ -110,7 +110,7 @@ public class Proyecto_NominasSI {
              resolverEjercicio.procesarDNI();
              resolverEjercicio.generarGmailTrabajadores();         
              resolverEjercicio.generarIBANTrabajadores();
-*/
+
 
             
              
@@ -137,9 +137,12 @@ public class Proyecto_NominasSI {
         //    Logger.getLogger(Proyecto_NominasSI.class.getName()).log(Level.SEVERE, null, ex);
         //}
 
- 
+        }
         
+        // Ejercicio 5
         
+        DBManager ej5 = new DBManager(resolverEjercicio.getTrabajadoresCorrectos(), resolverEjercicio.getCategoriaSalarioBase(), resolverEjercicio.getCategoriaComplementos());
+        ej5.actualizarBaseDatos();
     }
     
 }

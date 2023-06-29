@@ -176,8 +176,9 @@ public class ExcelManager {
 
                 // EMPRESA TIENE ID -> NOMBRE -> CIF
                 
-                Empresas EmpresaAux = new Empresas(nombreEmpresa.get(i), cifEmpresa.get(i));
-                aux.setEmpresa(EmpresaAux);
+                Empresas empresaAux = new Empresas(1, nombreEmpresa.get(i), cifEmpresa.get(i));
+                empresaAux = asignarIdEmpresa(empresaAux);
+                aux.setEmpresa(empresaAux);
                 
                 Categorias categorias = new Categorias();
                 categorias.setNombreCategoria(categoria.get(i));
@@ -194,6 +195,42 @@ public class ExcelManager {
 
     }
     
+    public Empresas asignarIdEmpresa(Empresas empresa) {
+        boolean empresaExistente = false;
+        int nuevoIdEmpresa = 1;
+
+        for (int i = 0; i < trabajadoresHoja1.size(); i++) {
+            Trabajador trabajador = trabajadoresHoja1.get(i);
+            if (trabajador.getEmpresa().getNombre().equals(empresa.getNombre())) {
+                empresaExistente = true;
+                empresa.setIdEmpresa(trabajador.getEmpresa().getIdEmpresa());
+                break;
+            }
+        }
+
+        if (empresaExistente) {
+            
+            // Si la empresa ya existe, se le ha asignado antes al objeto de tipo empresa el id ya existente
+            
+            
+        } else {
+                    // Si la empresa no existe, se busca el máximo idEmpresa y se incrementa en 1
+
+        for (int i = 0; i < trabajadoresHoja1.size(); i++) {
+                Trabajador trabajador = trabajadoresHoja1.get(i);
+                int idEmpresa = trabajador.getEmpresa().getIdEmpresa();
+                if (idEmpresa >= nuevoIdEmpresa) {
+                    nuevoIdEmpresa = idEmpresa + 1;
+                    
+                }
+        }
+        
+        empresa.setIdEmpresa(nuevoIdEmpresa);
+        
+        }
+
+        return empresa;
+    }
     
     public void mapearHoja2() throws IOException{
         
@@ -2271,5 +2308,15 @@ public class ExcelManager {
     public List<Trabajador> getTrabajadoresCorrectos() {
     
         return this.trabajadoresHoja1;
+    }
+    
+    public Map<String, String> getCategoriaSalarioBase() {
+    
+        return this.categoria_SalarioBase;
+    }
+    
+    public Map<String, String> getCategoriaComplementos() {
+    
+        return this.categoria_Complementos;
     }
 }

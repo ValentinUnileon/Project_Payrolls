@@ -17,6 +17,7 @@ import com.itextpdf.layout.element.Image;
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.TextAlignment;
+import controlador.Categorias;
 import controlador.Empresas;
 import controlador.Nomina;
 import controlador.Trabajador;
@@ -27,6 +28,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import org.hibernate.*;
 import util.HibernateUtil;
@@ -37,13 +39,15 @@ import util.HibernateUtil;
  */
 public class DBManager {
     
-    private ArrayList<Trabajador> trabajadoresCorrectos;
-    private HashMap<String, Double> categoriaSalarioBase;
-    private HashMap<String, Double> categoriaComplementos;
+    private List<Trabajador> trabajadoresCorrectos;
+    private Map<String, String> categoriaSalarioBase;
+    private Map<String, String> categoriaComplementos;
     private SessionFactory sessionFactory;
     private Session session;
     
-    public DBManager(ArrayList<Trabajador> trabajadoresCorrectos, HashMap<String, Double> categoriaSalarioBase, HashMap<String, Double> categoriaComplementos){
+    private List<Categorias> listaCategorias;
+    
+    public DBManager(List<Trabajador> trabajadoresCorrectos, Map<String, String> categoriaSalarioBase, Map<String, String> categoriaComplementos){
         this.trabajadoresCorrectos=trabajadoresCorrectos;
         this.categoriaSalarioBase=categoriaSalarioBase;
         this.categoriaComplementos=categoriaComplementos;
@@ -51,44 +55,129 @@ public class DBManager {
     }
     
     public void actualizarBaseDatos(){
-        almacenarEmpresas();
-        //almacenarCategorias();
+        //almacenarEmpresas();
+        almacenarCategorias();
         //almacenarTrabajadorYNominas();
     }
     
     private void almacenarEmpresas(){
-        //Guardamos las empresas de la DB en una lista
         session = sessionFactory.openSession();
         session.beginTransaction();
+        
         String consulta = "select e from Empresas e";
         Query query = session.createQuery(consulta);
-        List<Empresas> empresasDB = query.list();
+        List<Empresas> listaEmpresasIntroducidas = query.list();
+
         session.getTransaction().commit();
         session.close();
         
-        //Recorre trabajadores e inserta en DB las empresas que no esten
-        for(Trabajador trabajador: trabajadoresCorrectos){
-            if(EmpresaExiste(trabajador.getEmpresa().getCif(), empresasDB)==false){
-                 //Insertar
+        for(int i = 0; i<trabajadoresCorrectos.size(); i++){
+                    
+            if(empresaExiste(trabajadoresCorrectos.get(i).getEmpresa().getIdEmpresa(), listaEmpresasIntroducidas)==false){                 
                 session = sessionFactory.openSession();
                 session.beginTransaction();
-                session.save(trabajador.getEmpresa());
+                session.save(trabajadoresCorrectos.get(i).getEmpresa());
                 session.getTransaction().commit();
-                //Añade la empresa insertada a la lista
-                empresasDB.add(trabajador.getEmpresa());
+                listaEmpresasIntroducidas.add(trabajadoresCorrectos.get(i).getEmpresa());
                 session.close();
             }
-        } 
+        }
+        
     }
     
-    private boolean EmpresaExiste(String elem, List<Empresas> list){
+    private boolean empresaExiste(int id, List<Empresas> list){
         for(int i=0; i<list.size(); i++){
            
-            if((list.get(i).getCif()).equals(elem))
+            if(list.get(i).getIdEmpresa() == id){
                 return true;
+            }
         }
         return false;
     }
+    
+    private void almacenarCategorias(){
+        
+        
+        
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        String consulta = "select c from Categorias c";
+        Query query = session.createQuery(consulta);
+        listaCategorias = query.list();
+        session.getTransaction().commit();
+        session.close();
+
+        for(Map.Entry<String, String> entry : categoriaSalarioBase.entrySet()){
+            
+            String nombreCategoria = entry.getKey();
+            
+            if(categoriaExiste(nombreCategoria)==false){
+                
+                session = sessionFactory.openSession();
+                session.beginTransaction();
+                
+                
+                
+                Categorias categoria = new Categorias(1, nombreCategoria, Double.parseDouble(categoriaSalarioBase.get(nombreCategoria)), Double.parseDouble(categoriaComplementos.get(nombreCategoria)));
+                categoria = asignarIdCategoria(categoria);
+                session.save(categoria);
+                session.getTransaction().commit();
+                
+                
+                
+                listaCategorias.add(categoria);
+                session.close();
+            }
+        }
+        
+        System.out.println("categorias procesadas correctamente");
+        
+        
+    }
+    
+    public Categorias asignarIdCategoria(Categorias categoria) {
+        boolean categoriaExistente = false;
+        int nuevoIdCategoria = 1;
+
+        for (int i = 0; i < listaCategorias.size(); i++) {
+            Categorias categoriaAux = listaCategorias.get(i);
+            if (categoriaAux.getNombreCategoria().equals(categoria.getNombreCategoria())) {
+                categoriaExistente = true;
+                categoria.setIdCategoria(categoriaAux.getIdCategoria());
+                break;
+            }
+        }
+
+        if (categoriaExistente) {
+            
+            // Si la categoria ya existe, se le ha asignado antes al objeto de tipo categoria el id ya existente
+            
+            
+        } else {
+                    // Si la categoria no existe, se busca el máximo idCategoria y se incrementa en 1
+
+        for (int i = 0; i < listaCategorias.size(); i++) {
+                Categorias categoriaAux = listaCategorias.get(i);
+                int idCategoria = categoriaAux.getIdCategoria();
+                if (idCategoria >= nuevoIdCategoria) {
+                    nuevoIdCategoria = idCategoria + 1;
+                    
+                }
+        }
+        
+        categoria.setIdCategoria(nuevoIdCategoria);        
+        }
+
+        return categoria;
+    }
+    
+    private boolean categoriaExiste(String nombreCategoria){
+            for(int i=0; i<listaCategorias.size(); i++){
+                if(listaCategorias.get(i).getNombreCategoria().equals(nombreCategoria))
+                    return true;
+            }
+            return false;
+        }
     
 }
 
