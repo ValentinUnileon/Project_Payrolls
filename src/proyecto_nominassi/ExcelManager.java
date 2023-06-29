@@ -73,6 +73,7 @@ public class ExcelManager {
     //Datos de las hojas del excel
     
     private List<Trabajador> trabajadoresHoja1= new ArrayList<>();
+    private List<Trabajador> trabajadoresErrores= new ArrayList<>();
     
     List<Trabajador> trabajadoresErroneos= new ArrayList();
     List<String> CCCErroneo= new ArrayList();
@@ -602,7 +603,7 @@ public class ExcelManager {
         
         // SE RELLENA LA LISTA QUE CONTIENE LAS LETRAS DE LOS DNI
         char[] listaAux = new char[]{'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
-        List<Trabajador> trabajadoresErrores= new ArrayList<>();
+ 
         for(int i=0; i<23; i++) {
             letras.add(listaAux[i]);
         }
@@ -633,7 +634,7 @@ public class ExcelManager {
                     
                     for(int j=0; j< numTrabajadoresRepetidos.size(); j++){ 
 
-                        trabajadoresErrores.add(trabajadoresHoja1.get(numTrabajadoresRepetidos.get(j)));
+                        trabajadoresErrores.add(trabajadoresHoja1.get(numTrabajadoresRepetidos.get(j)));  //Er
                         
                     }
                     
@@ -662,7 +663,7 @@ public class ExcelManager {
                                 case 3:
                                     //el error no es subsanable -> ESTÁ MAL ESTRUCTURADO -> añadir al XML
 
-                                   trabajadoresErrores.add(trabajadoresHoja1.get(i));
+                                   trabajadoresErrores.add(trabajadoresHoja1.get(i));  //Er
                                    break;
                             }
                         } else {    // ESTAMOS TRABAJANDO CON UN DNI
@@ -1162,6 +1163,8 @@ public class ExcelManager {
                
         }
         
+        
+        
         this.agregarErroresCCCXML(trabajadoresErroneos, CCCErroneo);
     
     }
@@ -1303,7 +1306,6 @@ public class ExcelManager {
     
     public void agregarErroresCCCXML(List<Trabajador> trabajadores, List<String> CCCErroneo) throws ParserConfigurationException, IOException, SAXException, TransformerException, org.xml.sax.SAXException {
 
-
             try{
             // cargamos el archivo XML existente en un objeto Document
 
@@ -1326,6 +1328,8 @@ public class ExcelManager {
             Element eRaiz = doc.getDocumentElement();
 
             // creamos un nuevo elemento para cada trabajador
+            
+
             for (int i = 0; i < trabajadores.size(); i++) {
 
                 Element xmlTrabajador = doc.createElement("Cuenta");
@@ -1339,6 +1343,7 @@ public class ExcelManager {
                 nif.appendChild(doc.createTextNode(trabajadores.get(i).getNombre()));
                 xmlTrabajador.appendChild(nif);
 
+                
 
                 Element nombre = doc.createElement("Apellidos");
                 nombre.appendChild(doc.createTextNode(trabajadores.get(i).getApellido1()+ " " +trabajadores.get(i).getApellido2()));
@@ -2256,14 +2261,29 @@ public class ExcelManager {
 
             }catch(Exception e){
                 e.printStackTrace();
-            }     
+            }       
+    }
+    
+    
+    public List<Trabajador> obtenerTrabajadoresCorrectos(){
+        
+        List<Trabajador> resultado= new ArrayList<>();
         
         
+        for(int i=0; i<trabajadoresHoja1.size(); i++){
+            
+            if(!this.trabajadoresErrores.contains(this.trabajadoresHoja1.get(i))){
+                
+                resultado.add(this.trabajadoresHoja1.get(i));
+                
+            }
+            
+        }
         
         
+
         
-        
-        
+        return resultado;
         
     }
     

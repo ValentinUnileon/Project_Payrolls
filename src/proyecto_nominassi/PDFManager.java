@@ -51,6 +51,8 @@ public class PDFManager {
         Table tabla1 = new Table(2); 
         tabla1.setWidth(500);
         
+        //datos de la empresa
+        
         Paragraph nom = new Paragraph("NOMBRE");
         Paragraph cif = new Paragraph("CIF: ");
         Paragraph dir1 = new Paragraph("Avenida de la facultad - 6");

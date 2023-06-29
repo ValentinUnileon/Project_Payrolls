@@ -101,7 +101,7 @@ public class Proyecto_NominasSI {
 
 
          try {
- /*
+ 
              resolverEjercicio.mapearHoja1(); 
             
              resolverEjercicio.mapearHoja2(); 
@@ -110,7 +110,7 @@ public class Proyecto_NominasSI {
              resolverEjercicio.procesarDNI();
              resolverEjercicio.generarGmailTrabajadores();         
              resolverEjercicio.generarIBANTrabajadores();
-*/
+
 
             
              
