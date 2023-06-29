@@ -13,9 +13,11 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.borders.*;
 import com.itextpdf.layout.element.Cell;
 import com.itextpdf.layout.element.Image;
+
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.properties.TextAlignment;
+import com.sun.org.apache.xml.internal.serialize.LineSeparator;
 import controlador.Nomina;
 import controlador.Trabajador;
 import java.io.FileNotFoundException;
@@ -28,14 +30,14 @@ import java.net.MalformedURLException;
 public class PDFManager {
     
             
-    //public final static String imagen = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/nominas/img.JPG";
-    public final static String imagen  = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/nominas/img.JPG";
+    public final static String imagen = "C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/nominas/img.JPG";
+    //portatil public final static String imagen  = "C:/Users/valen/Documents/git/Practica_SI/NominasSI/src/resources/nominas/img.JPG";
 
     
     public void crear() throws FileNotFoundException, MalformedURLException {
         
-        //ruta torre String ruta="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/nominas/archivo.pdf";
-        String ruta ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/nominas/archivo.pdf";
+        String ruta="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/nominas/archivo.pdf";
+        //String ruta ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/nominas/archivo.pdf";
 
         PdfWriter writer = new PdfWriter(ruta); 
         PdfDocument pdfDoc = new PdfDocument(writer); 
@@ -67,6 +69,7 @@ public class PDFManager {
         
         Cell cell2 = new Cell();
         cell2.setBorder(null);
+        cell2.setFontSize(10f);
         cell2.setPadding(10);
         cell2.setTextAlignment(TextAlignment.RIGHT);
         cell2.add(new Paragraph("IBAN: "));
@@ -95,6 +98,7 @@ public class PDFManager {
         
         Cell cellD = new Cell();
         cellD.setBorder(null);  //no poner borde 
+        cellD.setFontSize(10f);
 
         cellD.setTextAlignment(TextAlignment.RIGHT);
         cellD.setPadding(10);
@@ -112,112 +116,229 @@ public class PDFManager {
         
         //Tabla de datos del trabajador 
         
-        Table tablaDatosTrabajador = new Table(3); 
+        Table tablaDatosTrabajador = new Table(5); 
        
         
         Cell cellT = new Cell();
         Cell cellC = new Cell();
         Cell cellI = new Cell();
+        Cell cellDe = new Cell();
+        Cell cellDeduccion = new Cell();
         
         
         cellT.setBorder(com.itextpdf.layout.borders.Border.NO_BORDER);
-        cellT.setPadding(50);
-        cellT.setWidth(100);
+        cellT.setPadding(10);
+        cellT.setWidth(250);
         cellT.setTextAlignment(TextAlignment.CENTER);
+        cellT.setFontSize(8f);
         
         cellC.setBorder(com.itextpdf.layout.borders.Border.NO_BORDER);
-        cellC.setPadding(50);
-        cellC.setWidth(100);
+        cellC.setPadding(10);
+        cellC.setWidth(250);
         cellC.setTextAlignment(TextAlignment.CENTER);
+        cellC.setFontSize(8f);
         
         cellI.setBorder(com.itextpdf.layout.borders.Border.NO_BORDER);
-        cellI.setPadding(50);
-        cellI.setWidth(100);
+        cellI.setPadding(10);
+        cellI.setWidth(250);
         cellI.setTextAlignment(TextAlignment.CENTER);
+        cellI.setFontSize(8f);
+        
+        cellDe.setBorder(com.itextpdf.layout.borders.Border.NO_BORDER);
+        cellDe.setPadding(10);
+        cellDe.setWidth(250);
+        cellDe.setTextAlignment(TextAlignment.CENTER);
+        cellDe.setFontSize(8f);
+        
+        cellDeduccion.setBorder(com.itextpdf.layout.borders.Border.NO_BORDER);
+        cellDeduccion.setPadding(10);
+        cellDeduccion.setWidth(250);
+        cellDeduccion.setTextAlignment(TextAlignment.CENTER);
+        cellDeduccion.setFontSize(8f);
         
         
-        
-        cellT.add(new Paragraph("CONCEPTOS "));
+        cellT.add(new Paragraph("CONCEPTOS ").setFontSize(8f));
         cellC.add(new Paragraph("CANTIDAD "));
-        cellI.add(new Paragraph("Imp. Unitario "));
+        cellI.add(new Paragraph("IMP.UNITARIO "));
+        cellDe.add(new Paragraph("DEVENGO "));
+        cellDeduccion.add(new Paragraph("DEDUCCION "));
         
         
         cellT.add(new Paragraph("Salario base: "));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         cellT.add(new Paragraph("Prorrateo: "));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Complemento: "));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         
         
         cellT.add(new Paragraph("Antigüedad: "));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Seguridad social: "));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Desempleo: " ));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Cuota de formación: "));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("MEI: "));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("IRPF: "));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Descuento baja: "));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Total deducciones: "));
-        cellC.add(new Paragraph("valor "));
+        cellC.add(new Paragraph("valor ").setFontSize(8f));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Total devengos: " ));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));
+        cellDeduccion.add(new Paragraph("valor "));
         
         
         cellT.add(new Paragraph("Liquido a percibir: "));
         cellC.add(new Paragraph("valor "));
         cellI.add(new Paragraph("valor "));
+        cellDe.add(new Paragraph("valor "));  
+        cellDeduccion.add(new Paragraph("valor "));
+        
+        //RESUMEN
+        
+        Table tablaResumen = new Table(1); 
+       
+        Cell cellTotalDeducciones = new Cell();
+        
+        cellTotalDeducciones.setBorder(new SolidBorder(1));
+        cellTotalDeducciones.setPadding(10);
+        cellTotalDeducciones.setWidth(250);
+        cellTotalDeducciones.setTextAlignment(TextAlignment.LEFT);
         
         
-        tablaDatosTrabajador.addCell(cellT);
-        tablaDatosTrabajador.addCell(cellC);
-        tablaDatosTrabajador.addCell(cellI);
-        //tablaCantidad.addCell(cellC);
+        cellTotalDeducciones.add(new Paragraph("Total deducciones: ").setFontSize(8f));
+        cellTotalDeducciones.add(new Paragraph("Total devengos: ").setFontSize(8f));
+        cellTotalDeducciones.add(new Paragraph("Liquido a percibir: ").setFontSize(8f));
         
         
         
 
+        tablaDatosTrabajador.addCell(cellT);
+        tablaDatosTrabajador.addCell(cellC);
+        tablaDatosTrabajador.addCell(cellI);
+        tablaDatosTrabajador.addCell(cellDe);
+        tablaDatosTrabajador.addCell(cellDeduccion);
+        //tablaResumen.addCell(cellDeduccion);
+        //tablaCantidad.addCell(cellC);
+        
+        
+        //TABLA DE COSTES DE EMRESARIO 
+        
+        
+        Table tablaCostesEmpresario = new Table(2); 
+       
+
+        Cell cellConceptos = new Cell();
+        Cell cellValores = new Cell();
+        
+        cellConceptos.setBorder(null);      
+        cellConceptos.setFontSize(8f);
+        cellConceptos.setPadding(10);
+        
+        cellConceptos.add(new Paragraph("Calculo empresario: BASE " ));
+        cellConceptos.add(new Paragraph("Contingencias comunes empreasario " ));
+        cellConceptos.add(new Paragraph("MEI empresario: " ));
+        cellConceptos.add(new Paragraph("Desempleo: " ));
+        cellConceptos.add(new Paragraph("Formación: " ));
+        cellConceptos.add(new Paragraph("Accidentes de trabajo: "));
+        cellConceptos.add(new Paragraph("FOGASA: " ));
+        cellConceptos.add(new Paragraph("Total empresario: "  ));
+        cellConceptos.add(new Paragraph("COSTE TOTAL TRABAJADOR: " ));
+        
+        
+        cellValores.setBorder(null);
+        cellValores.setWidth(330);
+        cellValores.setTextAlignment(TextAlignment.RIGHT);
+        cellValores.setPadding(10);
+        cellValores.setFontSize(8f);
+
+        cellValores.add(new Paragraph("valor" ));
+        cellValores.add(new Paragraph("valor" ));
+        cellValores.add(new Paragraph("valor" ));
+        cellValores.add(new Paragraph("valor" ));
+        cellValores.add(new Paragraph("valor" ));
+        cellValores.add(new Paragraph("valor" ));
+        cellValores.add(new Paragraph("valor" ));
+        cellValores.add(new Paragraph("valor" ));
+        cellValores.add(new Paragraph("valor" ));
+        
+        
+        
+        
+
+    
+        tablaCostesEmpresario.addCell(cellConceptos);
+        tablaCostesEmpresario.addCell(cellValores);
+
+        
+        
+  
+        
         doc.add(tabla1);
         doc.add(tabla2);
         doc.add(tablaDatosTrabajador);
+        doc.add(tablaResumen);
+        doc.add(tablaCostesEmpresario);
 
         doc.close();
 
