@@ -1396,6 +1396,8 @@ public class ExcelManager {
         
         String fechaAux = dia+"/"+mes+"/"+anio;
         
+        List<Trabajador> trabajdoresCorrectos = obtenerTrabajadoresCorrectos();
+        
         
         
         SimpleDateFormat formatoFecha = new SimpleDateFormat("dd/MM/yyyy");
@@ -1404,14 +1406,14 @@ public class ExcelManager {
        
         System.out.println("FECHA ACTUAL: "+ fechaActual.getDay() + "/" + fechaActual.getMonth() +"/"+ fechaActual.getYear());
     
-        for(int i=0; i<trabajadoresHoja1.size(); i++){ 
+        for(int i=0; i<trabajdoresCorrectos.size(); i++){ 
             
-            Date fechaAltaTrabajador = trabajadoresHoja1.get(i).getFechaAlta();
+            Date fechaAltaTrabajador = trabajdoresCorrectos.get(i).getFechaAlta();
             
 
-            String categoriaTrabajador_s = trabajadoresHoja1.get(i).getCategoria().getNombreCategoria();            
+            String categoriaTrabajador_s = trabajdoresCorrectos.get(i).getCategoria().getNombreCategoria();            
             
-            boolean prorrata = trabajadoresHoja1.get(i).getProrrata();
+            boolean prorrata = trabajdoresCorrectos.get(i).getProrrata();
             
             String salarioBase_s = categoria_SalarioBase.get(categoriaTrabajador_s);
             
@@ -1535,7 +1537,7 @@ public class ExcelManager {
                     nomina.setBrutoNomina(nominaMensual);
                     nomina.setLiquidoNomina(liquidoMensual);
                     nomina.setCosteTotalEmpresario(costeEmpresa);
-                    nomina.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
+                    nomina.setIdTrabajador(trabajdoresCorrectos.get(i).getIdTrabajador());
 
                     
 
@@ -1591,7 +1593,7 @@ public class ExcelManager {
                                 -nominaEX.getImporteIrpf()
                         ));
                     
-                        nominaEX.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
+                        nominaEX.setIdTrabajador(trabajdoresCorrectos.get(i).getIdTrabajador());
                         nominaEX.esExtra=true;
                         nominasTrabajadores.add(nominaEX);
                         
@@ -1663,7 +1665,7 @@ public class ExcelManager {
                     nomina.setBrutoNomina(nominaMensual);
                     nomina.setLiquidoNomina(liquidoMensual);
                     nomina.setCosteTotalEmpresario(costeEmpresa);
-                    nomina.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
+                    nomina.setIdTrabajador(trabajdoresCorrectos.get(i).getIdTrabajador());
                             
 
   
@@ -1760,7 +1762,7 @@ public class ExcelManager {
                     nomina.setBrutoNomina(nominaMensual);
                     nomina.setLiquidoNomina(liquidoMensual);
                     nomina.setCosteTotalEmpresario(costeEmpresa);
-                    nomina.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
+                    nomina.setIdTrabajador(trabajdoresCorrectos.get(i).getIdTrabajador());
                     
 
 
@@ -1802,7 +1804,7 @@ public class ExcelManager {
                                 -nominaEX.getImporteIrpf()
                         ));
                     
-                        nominaEX.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
+                        nominaEX.setIdTrabajador(trabajdoresCorrectos.get(i).getIdTrabajador());
                         nominaEX.esExtra=true;
                         nominasTrabajadores.add(nominaEX);
                         
@@ -1885,7 +1887,7 @@ public class ExcelManager {
                     nomina.setBrutoNomina(nominaMensual);
                     nomina.setLiquidoNomina(liquidoMensual);
                     nomina.setCosteTotalEmpresario(costeEmpresa);
-                    nomina.setIdTrabajador(trabajadoresHoja1.get(i).getIdTrabajador());
+                    nomina.setIdTrabajador(trabajdoresCorrectos.get(i).getIdTrabajador());
                     //fin
                 }
 
@@ -1900,20 +1902,20 @@ public class ExcelManager {
             
             //CUANDO HAY BAJA LABORAL
             
-            if(trabajadoresHoja1.get(i).getBajaLaboral()!=null){
+            if(trabajdoresCorrectos.get(i).getBajaLaboral()!=null){
                 
                 float descuentoBaja=0;
                 int diasDeBaja=0;
                 
-                if(trabajadoresHoja1.get(i).getAltaLaboral()!=null){        //si ha terminado su baja
+                if(trabajdoresCorrectos.get(i).getAltaLaboral()!=null){        //si ha terminado su baja
                     
-                    if(trabajadoresHoja1.get(i).getBajaLaboral().compareTo(trabajadoresHoja1.get(i).getAltaLaboral())<0 || ( (trabajadoresHoja1.get(i).getAltaLaboral().getMonth()==fechaActual.getMonth() && trabajadoresHoja1.get(i).getAltaLaboral().getYear()==fechaActual.getYear() ))){
+                    if(trabajdoresCorrectos.get(i).getBajaLaboral().compareTo(trabajdoresCorrectos.get(i).getAltaLaboral())<0 || ( (trabajdoresCorrectos.get(i).getAltaLaboral().getMonth()==fechaActual.getMonth() && trabajdoresCorrectos.get(i).getAltaLaboral().getYear()==fechaActual.getYear() ))){
                         // se comprueba que la fecha de baja laboral es posterior a la de alta, esta mal?
                         //nos incumbe la baja laboral y tiene fecha de alta
                         
-                       diasDeBaja = calcularDiasEntreFechas(trabajadoresHoja1.get(i).getBajaLaboral(), trabajadoresHoja1.get(i).getAltaLaboral());
+                       diasDeBaja = calcularDiasEntreFechas(trabajdoresCorrectos.get(i).getBajaLaboral(), trabajdoresCorrectos.get(i).getAltaLaboral());
                         System.out.println("aaa dias de baja lol "+diasDeBaja);
-                       Date auxFecha=(Date)trabajadoresHoja1.get(i).getBajaLaboral().clone();
+                       Date auxFecha=(Date)trabajdoresCorrectos.get(i).getBajaLaboral().clone();
                        
                        for(int f=0; f<diasDeBaja; f++){
                            
@@ -1942,13 +1944,13 @@ public class ExcelManager {
                 }else{ //no tenemos alta laboral -- su baja no ha terminado aun 
                    
                    
-                   if((trabajadoresHoja1.get(i).getBajaLaboral().getMonth()<= fechaActual.getMonth() && trabajadoresHoja1.get(i).getBajaLaboral().getYear()==fechaActual.getYear() )){
+                   if((trabajdoresCorrectos.get(i).getBajaLaboral().getMonth()<= fechaActual.getMonth() && trabajdoresCorrectos.get(i).getBajaLaboral().getYear()==fechaActual.getYear() )){
                        //la baja se calcula porque es anterior a la fecha actual - nos incumbe
                        
                   
-                       if(trabajadoresHoja1.get(i).getBajaLaboral().getMonth()!= fechaActual.getMonth()){
+                       if(trabajdoresCorrectos.get(i).getBajaLaboral().getMonth()!= fechaActual.getMonth()){
                            //la baja comenzó antes de nuestro mes
-                           diasDeBaja = calcularDiasEntreFechas(trabajadoresHoja1.get(i).getBajaLaboral(), fechaActual);
+                           diasDeBaja = calcularDiasEntreFechas(trabajdoresCorrectos.get(i).getBajaLaboral(), fechaActual);
 
                            for(int h=1; h<diasDeBaja+31; h++){
                                
@@ -1970,8 +1972,8 @@ public class ExcelManager {
 
                        }else{
                            //la baja comenzó en nuestro mes
-                           int diasBaja= obtenerDiasMes(fechaActual) - trabajadoresHoja1.get(i).getBajaLaboral().getDay();
-                           System.out.println("me llamo "+trabajadoresHoja1.get(i).getNombre()+ "dias baja loko "+diasBaja);
+                           int diasBaja= obtenerDiasMes(fechaActual) - trabajdoresCorrectos.get(i).getBajaLaboral().getDay();
+                           System.out.println("me llamo "+trabajdoresCorrectos.get(i).getNombre()+ "dias baja loko "+diasBaja);
                             for(int h=1; h<diasBaja; h++){
                                
                                if(h<=diasBaja){
@@ -1995,7 +1997,7 @@ public class ExcelManager {
 
                 }
                 
-                if((trabajadoresHoja1.get(i).getBajaLaboral().compareTo(fechaActual)<=0 ) ){
+                if((trabajdoresCorrectos.get(i).getBajaLaboral().compareTo(fechaActual)<=0 ) ){
                    //si la baja se produce antes de la fecha
                    float irpf=calcularIRPF(brutoAnual);
                    nomina.setDiasBaja(diasDeBaja);
@@ -2038,17 +2040,15 @@ public class ExcelManager {
                 
                 
                 
-                System.out.println("nombre "+trabajadoresHoja1.get(i).getNombre() + " apellido " +trabajadoresHoja1.get(i).getApellido1());
+                System.out.println("nombre "+trabajdoresCorrectos.get(i).getNombre() + " apellido " +trabajdoresCorrectos.get(i).getApellido1());
                 System.out.println("liquido nomina "+nomina.getLiquidoNomina());
                 System.out.println("irpf "+nomina.getImporteIrpf()+ " % "+ nomina.getImporteIrpf());
                 
+                nomina.setMes(Integer.parseInt(mes));
+                nomina.setAnio(Integer.parseInt(anio));
                 nominasTrabajadores.add(nomina);
                 
             }
-                         
-            
-            
-            
 
 
             // El valor de comparacion será:
@@ -2067,7 +2067,9 @@ public class ExcelManager {
 
         }
         
-        generarNominasXML(trabajadoresHoja1, nominasTrabajadores);
+        generarNominasXML(trabajdoresCorrectos, nominasTrabajadores);
+        PDFManager generador = new PDFManager();
+        generador.crear(trabajdoresCorrectos, nominasTrabajadores);
         
         
     }
@@ -2084,7 +2086,7 @@ public class ExcelManager {
        calendar.add(Calendar.DAY_OF_YEAR, 1);
        return calendar.getTime();
     }
-    public  int calcularDiasEntreFechas(Date fechaInicio, Date fechaFin) {
+    public int calcularDiasEntreFechas(Date fechaInicio, Date fechaFin) {
         long diferenciaEnMilisegundos = fechaFin.getTime() - fechaInicio.getTime();
         long milisegundosPorDia = 24 * 60 * 60 * 1000;
         return (int) (diferenciaEnMilisegundos / milisegundosPorDia);

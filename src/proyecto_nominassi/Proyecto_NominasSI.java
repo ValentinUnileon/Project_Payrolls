@@ -127,9 +127,8 @@ public class Proyecto_NominasSI {
         String fecha = scan2.nextLine();
          
         try {
-            //resolverEjercicio.generarNominasTrabajadores("04/2017");
-            PDFManager lol = new PDFManager();
-            lol.crear();
+            resolverEjercicio.generarNominasTrabajadores("04/2017");
+
 
         } catch (IOException ex) {
             Logger.getLogger(Proyecto_NominasSI.class.getName()).log(Level.SEVERE, null, ex);

@@ -8,21 +8,13 @@
         <Empresa>TecnoLeonSL</Empresa>
         <Categoria>Administrativo</Categoria>
     </Trabajador>
-    <Trabajador id="13">
-        <NIF_NIE>09632539</NIF_NIE>
-        <Nombre>Gabriel</Nombre>
-        <PrimerApellido>Moral</PrimerApellido>
-        <SegundoApellido>Molina</SegundoApellido>
+    <Trabajador id="20">
+        <NIF_NIE>09548150E</NIF_NIE>
+        <Nombre>Pilar</Nombre>
+        <PrimerApellido>González</PrimerApellido>
+        <SegundoApellido>Salas</SegundoApellido>
         <Empresa>TecnoLeonSL</Empresa>
-        <Categoria>Administrativo</Categoria>
-    </Trabajador>
-    <Trabajador id="14">
-        <NIF_NIE>09632539</NIF_NIE>
-        <Nombre>Gabriel</Nombre>
-        <PrimerApellido>Moral</PrimerApellido>
-        <SegundoApellido>Molina</SegundoApellido>
-        <Empresa>TecnoLeonSL</Empresa>
-        <Categoria>Programador</Categoria>
+        <Categoria>Auxiliar</Categoria>
     </Trabajador>
     <Trabajador id="13">
         <NIF_NIE>09632539</NIF_NIE>
@@ -39,6 +31,30 @@
         <SegundoApellido>Molina</SegundoApellido>
         <Empresa>TecnoLeonSL</Empresa>
         <Categoria>Programador</Categoria>
+    </Trabajador>
+    <Trabajador id="13">
+        <NIF_NIE>09632539</NIF_NIE>
+        <Nombre>Gabriel</Nombre>
+        <PrimerApellido>Moral</PrimerApellido>
+        <SegundoApellido>Molina</SegundoApellido>
+        <Empresa>TecnoLeonSL</Empresa>
+        <Categoria>Administrativo</Categoria>
+    </Trabajador>
+    <Trabajador id="14">
+        <NIF_NIE>09632539</NIF_NIE>
+        <Nombre>Gabriel</Nombre>
+        <PrimerApellido>Moral</PrimerApellido>
+        <SegundoApellido>Molina</SegundoApellido>
+        <Empresa>TecnoLeonSL</Empresa>
+        <Categoria>Programador</Categoria>
+    </Trabajador>
+    <Trabajador id="67">
+        <NIF_NIE>09548827D</NIF_NIE>
+        <Nombre>Saaida</Nombre>
+        <PrimerApellido>Blanco</PrimerApellido>
+        <SegundoApellido>García</SegundoApellido>
+        <Empresa>TecnoProyectSL</Empresa>
+        <Categoria>Cocinero</Categoria>
     </Trabajador>
     <Trabajador id="76">
         <NIF_NIE>24304263W</NIF_NIE>
@@ -47,6 +63,14 @@
         <SegundoApellido>Herreras</SegundoApellido>
         <Empresa>TecnoLeonSL</Empresa>
         <Categoria>Programador</Categoria>
+    </Trabajador>
+    <Trabajador id="70">
+        <NIF_NIE>09548295Y</NIF_NIE>
+        <Nombre>Rocío</Nombre>
+        <PrimerApellido>Otero</PrimerApellido>
+        <SegundoApellido>Gomara</SegundoApellido>
+        <Empresa>PBlankSA</Empresa>
+        <Categoria>Coordinador</Categoria>
     </Trabajador>
     <Trabajador id="39">
         <NIF_NIE>1234</NIF_NIE>
@@ -87,6 +111,14 @@
         <SegundoApellido>Castro</SegundoApellido>
         <Empresa>Asoftware</Empresa>
         <Categoria>Operador</Categoria>
+    </Trabajador>
+    <Trabajador id="106">
+        <NIF_NIE>09458455G</NIF_NIE>
+        <Nombre>Gabriel</Nombre>
+        <PrimerApellido>Moncada</PrimerApellido>
+        <SegundoApellido>Martinez</SegundoApellido>
+        <Empresa>TecnoLeonSL</Empresa>
+        <Categoria>Ordenanza</Categoria>
     </Trabajador>
     <Trabajador id="130">
         <NIF_NIE>Y0806930N</NIF_NIE>
