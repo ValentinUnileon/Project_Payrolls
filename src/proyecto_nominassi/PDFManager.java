@@ -22,7 +22,9 @@ import controlador.Nomina;
 import controlador.Trabajador;
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -77,11 +79,27 @@ public class PDFManager {
         }
         return "";
     }
+    
+        public float calcularNumeroTrienios(Date fechaInicio, Date fechaActual) {
+            
+ 
+    
+            float numeroTrienios = 0;        
+            int aniosDiferencia;
+
+            aniosDiferencia = fechaActual.getYear() - fechaInicio.getYear();
+            numeroTrienios = aniosDiferencia/3;
+            
+                      
+            System.out.println("numero diferencia resultado "+aniosDiferencia);
+
+            return numeroTrienios;
+    }
 
   
 
     
-    public void crear(List<Trabajador> trabajadores, List<Nomina> nominas) throws FileNotFoundException, MalformedURLException {
+    public void crear(List<Trabajador> trabajadores, List<Nomina> nominas, Date fechaActual, Map<String, String> categoria_Complementos, Map<String, String> categoriaSalarioBase, Map<Float, Float> trienios) throws FileNotFoundException, MalformedURLException {
         
         
         for(int i=0; i<nominas.size(); i++){
@@ -107,8 +125,8 @@ public class PDFManager {
 
             //datos de la empresa
 
-            Paragraph nom = new Paragraph("NOMBRE");
-            Paragraph cif = new Paragraph("CIF: ");
+            Paragraph nom = new Paragraph(trabajador.getEmpresa().getNombre());
+            Paragraph cif = new Paragraph(trabajador.getEmpresa().getCif());
             Paragraph dir1 = new Paragraph("Avenida de la facultad - 6");
             Paragraph dir2 = new Paragraph("24001 León");
 
@@ -128,10 +146,10 @@ public class PDFManager {
             cell2.setFontSize(10f);
             cell2.setPadding(10);
             cell2.setTextAlignment(TextAlignment.RIGHT);
-            cell2.add(new Paragraph("IBAN: "));
-            cell2.add(new Paragraph("Bruto anual: "));
-            cell2.add(new Paragraph("Categoría: "));
-            cell2.add(new Paragraph("Fecha de alta: "));
+            cell2.add(new Paragraph("IBAN: "+trabajador.getIban()));
+            cell2.add(new Paragraph("Bruto anual: "+categoriaSalarioBase.get(trabajador.getCategoria().getNombreCategoria())));
+            cell2.add(new Paragraph("Categoría: "+trabajador.getCategoria().getNombreCategoria()));
+            cell2.add(new Paragraph("Fecha de alta: "+trabajador.getFechaAlta()));
             tabla1.addCell(cell2);
 
             //SEGUNDA TABLA
@@ -159,10 +177,10 @@ public class PDFManager {
             cellD.setTextAlignment(TextAlignment.RIGHT);
             cellD.setPadding(10);
             cellD.add(nom);
-            cellD.add(new Paragraph("nombre completo  "));
-            cellD.add(new Paragraph("sni  "));
-            cellD.add(new Paragraph("avenida  "));
-            cellD.add(new Paragraph("codigo postal  "));
+            cellD.add(new Paragraph( trabajador.getNombre() + " " + trabajador.getApellido1() + " " + trabajador.getApellido2()  ));
+            cellD.add(new Paragraph("DNI: "+ trabajador.getNifnie()));
+            cellD.add(new Paragraph("Avenida de la facultad  "));
+            cellD.add(new Paragraph("24001 Leon"));
             cellD.setBorder(new SolidBorder(1));
 
             cellD.setWidth(250);
@@ -185,7 +203,7 @@ public class PDFManager {
             cellT.setBorder(com.itextpdf.layout.borders.Border.NO_BORDER);
             cellT.setPadding(10);
             cellT.setWidth(250);
-            cellT.setTextAlignment(TextAlignment.CENTER);
+            cellT.setTextAlignment(TextAlignment.LEFT);
             cellT.setFontSize(8f);
 
             cellC.setBorder(com.itextpdf.layout.borders.Border.NO_BORDER);
@@ -214,101 +232,114 @@ public class PDFManager {
 
 
             cellT.add(new Paragraph("CONCEPTOS ").setFontSize(8f));
-            cellC.add(new Paragraph("CANTIDAD "));
-            cellI.add(new Paragraph("IMP.UNITARIO "));
+
+
             cellDe.add(new Paragraph("DEVENGO "));
             cellDeduccion.add(new Paragraph("DEDUCCION "));
 
 
             cellT.add(new Paragraph("Salario base: "));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
+
+            
+
+            cellDe.add(new Paragraph(""+categoriaSalarioBase.get(trabajador.getCategoria().getNombreCategoria())));
+            cellDeduccion.add(new Paragraph("- "));
 
             cellT.add(new Paragraph("Prorrateo: "));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
+
+
+            if(trabajador.getProrrata()){
+                
+                cellDe.add(new Paragraph(String.format("%.2f",nominas.get(i).getValorProrrateo())));
+                
+            }else{
+                cellDe.add(new Paragraph("0,00 "));
+            }
+
+            cellDeduccion.add(new Paragraph("- "));
 
 
             cellT.add(new Paragraph("Complemento: "));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
+           
+
+            cellDe.add(new Paragraph(""+nominas.get(i).getImporteComplementoMes()));
+            cellDeduccion.add(new Paragraph("- "));
 
 
 
             cellT.add(new Paragraph("Antigüedad: "));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
+            
+            
+            float numeroTrienios = calcularNumeroTrienios(trabajador.getFechaAlta(), fechaActual);
+          
+            Float valorTrienio = 0.0f;
+           
+           if(numeroTrienios!=0.0f){
+               valorTrienio = trienios.get(numeroTrienios);
+               System.out.println("asldkfjal;ksdfj "+valorTrienio);
+           }
 
 
-            cellT.add(new Paragraph("Seguridad social: "));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
 
 
-            cellT.add(new Paragraph("Desempleo: " ));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
+            cellDe.add(new Paragraph(String.format("%.2f", valorTrienio)));
+            cellDeduccion.add(new Paragraph("- "));
 
 
-            cellT.add(new Paragraph("Cuota de formación: "));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
+            cellT.add(new Paragraph("Contingencias generales"));
 
 
-            cellT.add(new Paragraph("MEI: "));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
+            cellDe.add(new Paragraph("- "));
+            cellDeduccion.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteSeguridadSocialTrabajador())));
+
+
+            cellT.add(new Paragraph("MEI Trabajador" ));
+
+
+            cellDe.add(new Paragraph("- "));
+            cellDeduccion.add(new Paragraph(""+nominas.get(i).getImporteMeiTrabajador()));
+
+
+            cellT.add(new Paragraph("Desempleo "));
+
+
+            cellDe.add(new Paragraph("- "));
+            cellDeduccion.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteDesempleoTrabajador())));
+
+
+            cellT.add(new Paragraph("Cuota formacion: "));
+
+
+            cellDe.add(new Paragraph("- "));
+            cellDeduccion.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteFormacionTrabajador())));
 
 
             cellT.add(new Paragraph("IRPF: "));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
 
 
-            cellT.add(new Paragraph("Descuento baja: "));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
-
+            cellDe.add(new Paragraph("- "));
+            cellDeduccion.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteIrpf())));
 
             cellT.add(new Paragraph("Total deducciones: "));
-            cellC.add(new Paragraph("valor ").setFontSize(8f));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
+
+
+            cellDe.add(new Paragraph("- "));
+            
+            Double sumaDeducciones =  nominas.get(i).getImporteMeiTrabajador() + nominas.get(i).getImporteDesempleoTrabajador() + nominas.get(i).getImporteIrpf();
+            
+            cellDeduccion.add(new Paragraph(String.format("%.2f",sumaDeducciones)));
 
 
             cellT.add(new Paragraph("Total devengos: " ));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));
-            cellDeduccion.add(new Paragraph("valor "));
+
+            Double sumaDevengos = Double.parseDouble(categoriaSalarioBase.get(trabajador.getCategoria().getNombreCategoria())) + nominas.get(i).getValorProrrateo() + valorTrienio;
+
+            cellDe.add(new Paragraph(String.format("%.2f",sumaDevengos)));
+            
+
+            cellT.add(new Paragraph("Liquido a percibir: "+ String.format("%.2f",nominas.get(i).getLiquidoNomina())));
 
 
-            cellT.add(new Paragraph("Liquido a percibir: "));
-            cellC.add(new Paragraph("valor "));
-            cellI.add(new Paragraph("valor "));
-            cellDe.add(new Paragraph("valor "));  
-            cellDeduccion.add(new Paragraph("valor "));
 
             //RESUMEN
 
@@ -331,7 +362,7 @@ public class PDFManager {
 
             tablaDatosTrabajador.addCell(cellT);
             tablaDatosTrabajador.addCell(cellC);
-            tablaDatosTrabajador.addCell(cellI);
+
             tablaDatosTrabajador.addCell(cellDe);
             tablaDatosTrabajador.addCell(cellDeduccion);
             //tablaResumen.addCell(cellDeduccion);
@@ -368,15 +399,16 @@ public class PDFManager {
             cellValores.setPadding(10);
             cellValores.setFontSize(8f);
 
-            cellValores.add(new Paragraph("valor" ));
-            cellValores.add(new Paragraph("valor" ));
-            cellValores.add(new Paragraph("valor" ));
-            cellValores.add(new Paragraph("valor" ));
-            cellValores.add(new Paragraph("valor" ));
-            cellValores.add(new Paragraph("valor" ));
-            cellValores.add(new Paragraph("valor" ));
-            cellValores.add(new Paragraph("valor" ));
-            cellValores.add(new Paragraph("valor" ));
+            cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getBaseEmpresario() )));
+            cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteSeguridadSocialEmpresario() )));
+            cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteMeiEmpresario() )));
+            cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteDesempleoEmpresario()) ));
+            cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteFormacionEmpresario()) ));
+            cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteAccidentesTrabajoEmpresario())));
+            cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteFogasaempresario()) ));
+            cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteSeguridadSocialEmpresario()+nominas.get(i).getImporteMeiEmpresario()+nominas.get(i).getImporteDesempleoEmpresario()+nominas.get(i).getImporteFormacionEmpresario()+nominas.get(i).getImporteAccidentesTrabajoEmpresario()+nominas.get(i).getImporteFogasaempresario()) ));
+            cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getBaseEmpresario()+nominas.get(i).getImporteSeguridadSocialEmpresario()+nominas.get(i).getImporteMeiEmpresario()+nominas.get(i).getImporteDesempleoEmpresario()+nominas.get(i).getImporteFormacionEmpresario()+nominas.get(i).getImporteAccidentesTrabajoEmpresario()+nominas.get(i).getImporteFogasaempresario()) ));
+
 
 
 

@@ -2106,8 +2106,11 @@ public class ExcelManager {
         }
         
         generarNominasXML(trabajdoresCorrectos, nominasTrabajadores);
-        //PDFManager generador = new PDFManager();
-        //generador.crear(trabajdoresCorrectos, nominasTrabajadores);
+        
+        System.out.println(categoria_SalarioBase);
+        PDFManager generador = new PDFManager();
+        generador.crear(trabajdoresCorrectos, nominasTrabajadores, fechaActual, categoria_Complementos, categoria_SalarioBase, trienios);
+        
         
         
     }
