@@ -81,14 +81,19 @@ public class PDFManager {
     }
     
         public float calcularNumeroTrienios(Date fechaInicio, Date fechaActual) {
+            
+ 
     
-        float numeroTrienios = 0;        
-        int aniosDiferencia;
-        
-        aniosDiferencia = fechaActual.getYear() - fechaInicio.getYear();
-        numeroTrienios = aniosDiferencia/3;
-        
-        return numeroTrienios;
+            float numeroTrienios = 0;        
+            int aniosDiferencia;
+
+            aniosDiferencia = fechaActual.getYear() - fechaInicio.getYear();
+            numeroTrienios = aniosDiferencia/3;
+            
+                      
+            System.out.println("numero diferencia resultado "+aniosDiferencia);
+
+            return numeroTrienios;
     }
 
   
@@ -264,15 +269,20 @@ public class PDFManager {
 
             cellT.add(new Paragraph("Antigüedad: "));
             
-            //caluclar numero de trienios
             
             float numeroTrienios = calcularNumeroTrienios(trabajador.getFechaAlta(), fechaActual);
-           String complementos_s = categoria_Complementos.get(trabajador);
+          
+            Float valorTrienio = 0.0f;
            
-           
+           if(numeroTrienios!=0.0f){
+               valorTrienio = trienios.get(numeroTrienios);
+               System.out.println("asldkfjal;ksdfj "+valorTrienio);
+           }
 
 
-            cellDe.add(new Paragraph(String.format("%.2f",trienios.get(numeroTrienios))));
+
+
+            cellDe.add(new Paragraph(String.format("%.2f", valorTrienio)));
             cellDeduccion.add(new Paragraph("- "));
 
 
@@ -314,15 +324,18 @@ public class PDFManager {
 
 
             cellDe.add(new Paragraph("- "));
-            cellDeduccion.add(new Paragraph("valor "));
+            
+            Double sumaDeducciones =  nominas.get(i).getImporteMeiTrabajador() + nominas.get(i).getImporteDesempleoTrabajador() + nominas.get(i).getImporteIrpf();
+            
+            cellDeduccion.add(new Paragraph(String.format("%.2f",sumaDeducciones)));
 
 
             cellT.add(new Paragraph("Total devengos: " ));
 
+            Double sumaDevengos = Double.parseDouble(categoriaSalarioBase.get(trabajador.getCategoria().getNombreCategoria())) + nominas.get(i).getValorProrrateo() + valorTrienio;
 
-            cellDe.add(new Paragraph("devengo "));
-
-
+            cellDe.add(new Paragraph(String.format("%.2f",sumaDevengos)));
+            
 
             cellT.add(new Paragraph("Liquido a percibir: "+ String.format("%.2f",nominas.get(i).getLiquidoNomina())));
 
