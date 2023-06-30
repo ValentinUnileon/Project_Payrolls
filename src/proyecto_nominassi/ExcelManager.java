@@ -159,7 +159,7 @@ public class ExcelManager {
                 } else {
                     prorrataAux = false;
                 }
-
+                
                 Trabajador aux = new Trabajador(this.obtenerNumFila(localizacionExcel, codigoCuenta.get(i), apellido1.get(i))
                         , codigoCuenta.get(i)
                         , iban.get(i)
