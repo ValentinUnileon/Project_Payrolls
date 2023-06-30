@@ -23,7 +23,6 @@ import controlador.Nomina;
 import controlador.Trabajador;
 import java.io.FileNotFoundException;
 import java.net.MalformedURLException;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -189,12 +188,9 @@ public class DBManager {
         }
 
         if (categoriaExistente) {
-            
-            // Si la categoria ya existe, se le ha asignado antes al objeto de tipo categoria el id ya existente
-            
+                        
             
         } else {
-                    // Si la categoria no existe, se busca el máximo idCategoria y se incrementa en 1
 
         for (int i = 0; i < listaCategorias.size(); i++) {
                 Categorias categoriaAux = listaCategorias.get(i);
@@ -313,7 +309,6 @@ public class DBManager {
     
     private void introducirNominas(){
         
-        //Guardamos las nominas de la DB en una lista
         session = sessionFactory.openSession();
         session.beginTransaction();
         String consulta = "select n from Nomina n";
@@ -324,7 +319,6 @@ public class DBManager {
         
         for(Nomina nomina: nominasCorrectas){
             if(existeNomina(nomina)==false){
-                //Inserta trabajador y nomina normal
                 
                 session = sessionFactory.openSession();
                 session.beginTransaction();
@@ -333,7 +327,6 @@ public class DBManager {
                 session.save(nomina);
                 session.getTransaction().commit();
                 
-                //Añade el trabajador insertada a la lista
                 listaNominas.add(nomina);
                 session.close();
             } else {
@@ -345,7 +338,6 @@ public class DBManager {
                 session.update(nomina);
                 session.getTransaction().commit();
                 
-                //Añade el trabajador insertada a la lista
                 session.close();
                 
                 
@@ -391,11 +383,8 @@ public class DBManager {
         }
 
         if (nominaExistente) {
-            
-            // Si la nomina ya existe, se le ha asignado antes el id que ya existe
-            
+                        
         } else {
-                    // Si la nomina no existe, se busca el máximo idNomina y se incrementa en 1
 
         for (int i = 0; i < listaNominas.size(); i++) {
                 Nomina nominaAux = listaNominas.get(i);
