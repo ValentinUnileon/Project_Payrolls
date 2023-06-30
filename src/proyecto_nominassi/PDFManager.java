@@ -102,10 +102,8 @@ public class PDFManager {
             Trabajador trabajador = encontrarTrabajadorPorID(trabajadores, nominas.get(i).getIdTrabajador());
 
 
-            String ruta="C:/Users/Torre/Documents/GitHub/Proyecto_NominasSI/src/resources/nominas/"+trabajador.getNifnie()+trabajador.getNombre()+trabajador.getApellido1()+trabajador.getApellido2()+getMesString(nominas.get(i).getMes())+nominas.get(i).getAnio()+".pdf";
+            String ruta="src/resources/nominas/"+trabajador.getNifnie()+trabajador.getNombre()+trabajador.getApellido1()+trabajador.getApellido2()+getMesString(nominas.get(i).getMes())+nominas.get(i).getAnio()+".pdf";
             
-            //String ruta ="C:/Users/valen/Documents/git/Proyecto_NominasSI/src/resources/nominas/archivo.pdf";
-
             PdfWriter writer = new PdfWriter(ruta); 
             PdfDocument pdfDoc = new PdfDocument(writer); 
             Document doc = new Document(pdfDoc, PageSize.LETTER);
@@ -151,9 +149,11 @@ public class PDFManager {
 
             Table tabla2 = new Table(2);
             tabla2.setWidth(500);
-            //Image img = new Image(ImageDataFactory.create(imagen));
-            //img.setBorder(null);
-            //img.setPadding(10);
+            
+            String imagen ="src/resources/imagenPDF.jpg";
+            Image img = new Image(ImageDataFactory.create(imagen));
+            img.setBorder(null);
+            img.setPadding(10);
 
             Cell cell3 = new Cell();
             //cell3.add(img);
