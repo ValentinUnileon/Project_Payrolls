@@ -1470,12 +1470,17 @@ public class ExcelManager {
                 int numMeses = 12- fechaAltaTrabajador.getMonth();
                 
                 brutoAnual=(numMeses/14) * (salarioBase + complementos + (importeBrutoTrienios*14));
+
                 nomina.setBrutoAnual(brutoAnual);
                 float irpf=calcularIRPF(brutoAnual);
                 if(prorrata){
                     
+                    nomina.setImporteComplementoMes(complementos/12);
+                    
                     nominaMensual = brutoAnual/numMeses;
                     nominaMensual=nominaMensual + nominaMensual/6;
+                    
+                    nomina.setValorProrrateo(nominaMensual/6);
                     
                     //Impuestos
                     
@@ -1506,8 +1511,8 @@ public class ExcelManager {
                     
                     //Costes empresario
                     
-                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);     
-                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
+                    nomina.setImporteSeguridadSocialEmpresario(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
                     nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
@@ -1539,11 +1544,13 @@ public class ExcelManager {
                     nomina.setCosteTotalEmpresario(costeEmpresa);
                     nomina.setIdTrabajador(trabajdoresCorrectos.get(i).getIdTrabajador());
 
-                    
+                 // mateo, riversESP, shelao, luzu, mayichi, german   
 
                 }else {  //no es prorrata
                     
                     nominaMensual = brutoAnual/numMeses;
+                    nomina.setValorProrrateo(0);
+                    nomina.setImporteComplementoMes(complementos/14);
 
                     float nominaExtra=0;
                     
@@ -1634,8 +1641,8 @@ public class ExcelManager {
                     
                     //Costes empresario
                     
-                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);    
-                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
+                    nomina.setImporteSeguridadSocialEmpresario(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
                     nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
@@ -1686,11 +1693,15 @@ public class ExcelManager {
                 //Impuestos y gastos trabajador y empresario
 
                 if(prorrata){
- 
+                   
+                    nomina.setImporteComplementoMes(complementos/12);
+
                         
                     nominaMensual = brutoAnual / 14;
 
                     float nominaMensualAux = brutoAnual /12;
+                    
+                    nomina.setValorProrrateo(brutoAnual/6);
                     
                     
                                         
@@ -1731,8 +1742,8 @@ public class ExcelManager {
                     
                     //Costes empresario
                     
-                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);    
-                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);             
+                    nomina.setImporteSeguridadSocialEmpresario(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
                     nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
@@ -1771,8 +1782,9 @@ public class ExcelManager {
                 }else{  // no tiene prorrata, ha entrado a la empresa antes de este año
                     
                     float nominaExtra=0;
-                    nominaMensual = brutoAnual / 14; 
-                    
+                    nominaMensual = brutoAnual / 14; //--------------------------------
+                    nomina.setImporteComplementoMes(complementos/14);
+                    nomina.setValorProrrateo(0);
                     
                     if(fechaActual.getMonth()== 5 && fechaActual.getMonth()==11){
                         //tenemos nomina extra
@@ -1849,8 +1861,8 @@ public class ExcelManager {
 
                     //Costes empresario
                     
-                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);          
-                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              
+                    nomina.setImporteSeguridadSocialEmpresario(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
                     nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
@@ -2055,8 +2067,8 @@ public class ExcelManager {
         generarNominasXML(trabajdoresCorrectos, nominasTrabajadores);
         
         System.out.println(categoria_SalarioBase);
-        //PDFManager generador = new PDFManager();
-        //generador.crear(trabajdoresCorrectos, nominasTrabajadores, fechaActual, categoria_Complementos, categoria_SalarioBase, trienios);
+        PDFManager generador = new PDFManager();
+        generador.crear(trabajdoresCorrectos, nominasTrabajadores, fechaActual, categoria_Complementos, categoria_SalarioBase, trienios);
         
         
         

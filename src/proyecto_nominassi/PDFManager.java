@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 package proyecto_nominassi;
 
 import com.itextpdf.io.image.ImageDataFactory;
@@ -89,9 +86,7 @@ public class PDFManager {
 
             aniosDiferencia = fechaActual.getYear() - fechaInicio.getYear();
             numeroTrienios = aniosDiferencia/3;
-            
-                      
-            System.out.println("numero diferencia resultado "+aniosDiferencia);
+
 
             return numeroTrienios;
     }
@@ -262,7 +257,7 @@ public class PDFManager {
             cellT.add(new Paragraph("Complemento: "));
            
 
-            cellDe.add(new Paragraph(""+nominas.get(i).getImporteComplementoMes()));
+            cellDe.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteComplementoMes())));
             cellDeduccion.add(new Paragraph("- "));
 
 
@@ -276,7 +271,7 @@ public class PDFManager {
            
            if(numeroTrienios!=0.0f){
                valorTrienio = trienios.get(numeroTrienios);
-               System.out.println("asldkfjal;ksdfj "+valorTrienio);
+
            }
 
 
@@ -399,7 +394,7 @@ public class PDFManager {
             cellValores.setPadding(10);
             cellValores.setFontSize(8f);
 
-            cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getBaseEmpresario() )));
+            cellValores.add(new Paragraph(String.format("%.2f",sumaDevengos )));
             cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteSeguridadSocialEmpresario() )));
             cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteMeiEmpresario() )));
             cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteDesempleoEmpresario()) ));
