@@ -128,8 +128,6 @@ public class Proyecto_NominasSI {
          
         try {
             resolverEjercicio.generarNominasTrabajadores("04/2017");
-            // PDFManager lol = new PDFManager();
-            // lol.crear();
 
         } catch (IOException ex) {
             Logger.getLogger(Proyecto_NominasSI.class.getName()).log(Level.SEVERE, null, ex);
@@ -148,10 +146,9 @@ public class Proyecto_NominasSI {
         }
         */
         
-        DBManager ej5 = new DBManager(resolverEjercicio.obtenerTrabajadoresCorrectos(), resolverEjercicio.getCategoriaSalarioBase(), resolverEjercicio.getCategoriaComplementos(), resolverEjercicio.getNominasTrabajadores());
-        ej5.actualizarBaseDatos();
-        
-        System.out.println("LLEGA AL FINAL DEL MAIN");
+        //DBManager ej5 = new DBManager(resolverEjercicio.obtenerTrabajadoresCorrectos(), resolverEjercicio.getCategoriaSalarioBase(), resolverEjercicio.getCategoriaComplementos(), resolverEjercicio.getNominasTrabajadores());
+        //ej5.actualizarBaseDatos();
+
     }
     
 }

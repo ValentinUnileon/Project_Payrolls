@@ -1500,9 +1500,12 @@ public class ExcelManager {
                 int numMeses = 12- fechaAltaTrabajador.getMonth();
                 
                 brutoAnual=(numMeses/14) * (salarioBase + complementos + (importeBrutoTrienios*14));
+
                 nomina.setBrutoAnual(brutoAnual);
                 float irpf=calcularIRPF(brutoAnual);
                 if(prorrata){
+                    
+                    nomina.setImporteComplementoMes(complementos/12);
                     
                     nominaMensual = brutoAnual/numMeses;
                     nominaMensual=nominaMensual + nominaMensual/6;
@@ -1539,7 +1542,7 @@ public class ExcelManager {
                     //Costes empresario
                     
                     nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
-                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    nomina.setImporteSeguridadSocialEmpresario(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
                     nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
@@ -1577,6 +1580,7 @@ public class ExcelManager {
                     
                     nominaMensual = brutoAnual/numMeses;
                     nomina.setValorProrrateo(0);
+                    nomina.setImporteComplementoMes(complementos/14);
 
                     float nominaExtra=0;
                     
@@ -1668,7 +1672,7 @@ public class ExcelManager {
                     //Costes empresario
                     
                     nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
-                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    nomina.setImporteSeguridadSocialEmpresario(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
                     nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
@@ -1719,7 +1723,9 @@ public class ExcelManager {
                 //Impuestos y gastos trabajador y empresario
 
                 if(prorrata){
- 
+                   
+                    nomina.setImporteComplementoMes(complementos/12);
+
                         
                     nominaMensual = brutoAnual / 14;
 
@@ -1767,7 +1773,7 @@ public class ExcelManager {
                     //Costes empresario
                     
                     nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
-                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    nomina.setImporteSeguridadSocialEmpresario(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
                     nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
@@ -1807,7 +1813,7 @@ public class ExcelManager {
                     
                     float nominaExtra=0;
                     nominaMensual = brutoAnual / 14; //--------------------------------
-                    
+                    nomina.setImporteComplementoMes(complementos/14);
                     nomina.setValorProrrateo(0);
                     
                     if(fechaActual.getMonth()== 5 && fechaActual.getMonth()==11){
@@ -1886,7 +1892,7 @@ public class ExcelManager {
                     //Costes empresario
                     
                     nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
-                    nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
+                    nomina.setImporteSeguridadSocialEmpresario(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
                     nomina.setImporteFormacionEmpresario(nominaMensual*formacionEmpresario);
@@ -2106,8 +2112,8 @@ public class ExcelManager {
         generarNominasXML(trabajdoresCorrectos, nominasTrabajadores);
         
         System.out.println(categoria_SalarioBase);
-        //PDFManager generador = new PDFManager();
-        //generador.crear(trabajdoresCorrectos, nominasTrabajadores, fechaActual, categoria_Complementos, categoria_SalarioBase, trienios);
+        PDFManager generador = new PDFManager();
+        generador.crear(trabajdoresCorrectos, nominasTrabajadores, fechaActual, categoria_Complementos, categoria_SalarioBase, trienios);
         
         
         
