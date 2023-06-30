@@ -399,7 +399,7 @@ public class PDFManager {
             cellValores.setPadding(10);
             cellValores.setFontSize(8f);
 
-            cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getBaseEmpresario() )));
+            cellValores.add(new Paragraph(String.format("%.2f",sumaDevengos )));
             cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteSeguridadSocialEmpresario() )));
             cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteMeiEmpresario() )));
             cellValores.add(new Paragraph(String.format("%.2f",nominas.get(i).getImporteDesempleoEmpresario()) ));
