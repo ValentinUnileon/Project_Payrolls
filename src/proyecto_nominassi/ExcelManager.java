@@ -1507,6 +1507,8 @@ public class ExcelManager {
                     nominaMensual = brutoAnual/numMeses;
                     nominaMensual=nominaMensual + nominaMensual/6;
                     
+                    nomina.setValorProrrateo(nominaMensual/6);
+                    
                     //Impuestos
                     
                     nomina.setSeguridadSocialTrabajador(seguridadSocialTrabajador);
@@ -1569,11 +1571,12 @@ public class ExcelManager {
                     nomina.setCosteTotalEmpresario(costeEmpresa);
                     nomina.setIdTrabajador(trabajdoresCorrectos.get(i).getIdTrabajador());
 
-                    
+                 // mateo, riversESP, shelao, luzu, mayichi, german   
 
                 }else {  //no es prorrata
                     
                     nominaMensual = brutoAnual/numMeses;
+                    nomina.setValorProrrateo(0);
 
                     float nominaExtra=0;
                     
@@ -1722,6 +1725,8 @@ public class ExcelManager {
 
                     float nominaMensualAux = brutoAnual /12;
                     
+                    nomina.setValorProrrateo(brutoAnual/6);
+                    
                     
                                         
                     //Impuestos
@@ -1803,6 +1808,7 @@ public class ExcelManager {
                     float nominaExtra=0;
                     nominaMensual = brutoAnual / 14; //--------------------------------
                     
+                    nomina.setValorProrrateo(0);
                     
                     if(fechaActual.getMonth()== 5 && fechaActual.getMonth()==11){
                         //tenemos nomina extra
