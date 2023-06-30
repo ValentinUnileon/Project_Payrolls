@@ -148,8 +148,10 @@ public class Proyecto_NominasSI {
         }
         */
         
-        DBManager ej5 = new DBManager(resolverEjercicio.obtenerTrabajadoresCorrectos(), resolverEjercicio.getCategoriaSalarioBase(), resolverEjercicio.getCategoriaComplementos());
+        DBManager ej5 = new DBManager(resolverEjercicio.obtenerTrabajadoresCorrectos(), resolverEjercicio.getCategoriaSalarioBase(), resolverEjercicio.getCategoriaComplementos(), resolverEjercicio.getNominasTrabajadores());
         ej5.actualizarBaseDatos();
+        
+        System.out.println("LLEGA AL FINAL DEL MAIN");
     }
     
 }

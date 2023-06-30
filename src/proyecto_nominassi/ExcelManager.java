@@ -2106,8 +2106,8 @@ public class ExcelManager {
         }
         
         generarNominasXML(trabajdoresCorrectos, nominasTrabajadores);
-        PDFManager generador = new PDFManager();
-        generador.crear(trabajdoresCorrectos, nominasTrabajadores);
+        //PDFManager generador = new PDFManager();
+        //generador.crear(trabajdoresCorrectos, nominasTrabajadores);
         
         
     }
@@ -2331,6 +2331,11 @@ public class ExcelManager {
     public List<Trabajador> getTrabajadoresHoja1() {
     
         return this.trabajadoresHoja1;
+    }
+    
+    public List<Nomina> getNominasTrabajadores() {
+    
+        return this.nominasTrabajadores;
     }
     
     public Map<String, String> getCategoriaSalarioBase() {

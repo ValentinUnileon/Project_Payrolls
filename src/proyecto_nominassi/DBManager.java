@@ -40,6 +40,7 @@ import util.HibernateUtil;
 public class DBManager {
     
     private List<Trabajador> trabajadoresCorrectos;
+    private List<Nomina> nominasCorrectas;
     private Map<String, String> categoriaSalarioBase;
     private Map<String, String> categoriaComplementos;
     private SessionFactory sessionFactory;
@@ -48,24 +49,27 @@ public class DBManager {
     private List<Categorias> listaCategorias;
     private List<Empresas> listaEmpresas;
     private List<Trabajador> listaTrabajadores;
+    private List<Nomina> listaNominas;
 
     
-    public DBManager(List<Trabajador> trabajadoresCorrectos, Map<String, String> categoriaSalarioBase, Map<String, String> categoriaComplementos){
+    public DBManager(List<Trabajador> trabajadoresCorrectos, Map<String, String> categoriaSalarioBase, Map<String, String> categoriaComplementos, List<Nomina> nominasCorrectas){
         this.trabajadoresCorrectos=trabajadoresCorrectos;
         this.categoriaSalarioBase=categoriaSalarioBase;
         this.categoriaComplementos=categoriaComplementos;
         this.sessionFactory = HibernateUtil.getSessionFactory();
+        this.nominasCorrectas = nominasCorrectas;
     }
     
     public void actualizarBaseDatos(){
-        almacenarEmpresas();
-        almacenarCategorias();
-        almacenarTrabajador();
+        introducirEmpresas();
+        introducirCategorias();
+        introducirTrabajadores();
+        introducirNominas();
         
         System.out.println("EJECUCION TERMINADA :)");
     }
     
-    private void almacenarEmpresas(){
+    private void introducirEmpresas(){
         session = sessionFactory.openSession();
         session.beginTransaction();
         
@@ -101,7 +105,7 @@ public class DBManager {
         return false;
     }
     
-    private void almacenarCategorias(){
+    private void introducirCategorias(){
         
         
         
@@ -134,10 +138,7 @@ public class DBManager {
                 listaCategorias.add(categoria);
                 session.close();
             }
-        }
-        
-        System.out.println("categorias procesadas correctamente");
-        
+        }        
         
     }
     
@@ -186,7 +187,7 @@ public class DBManager {
         }
     
     
-    private void almacenarTrabajador(){
+    private void introducirTrabajadores(){
         //Guardamos los trabajadores de la DB en una lista
         
         settearIdsTrabajadores();
@@ -200,7 +201,7 @@ public class DBManager {
         
         //Recorre trabajadores e inserta en DB los trabajadores y sus nominas que no estén
         for(Trabajador trabajador: trabajadoresCorrectos){
-            if(comprobarSiExisteTrabajador(trabajador)==false){
+            if(trabajadorExiste(trabajador)==false){
                 //Inserta trabajador y nomina normal
                 
                 session = sessionFactory.openSession();
@@ -241,12 +242,90 @@ public class DBManager {
         
     }
     
-    private boolean comprobarSiExisteTrabajador(Trabajador trabajador){
+    private boolean trabajadorExiste(Trabajador trabajador){
          for(int i=0; i<listaTrabajadores.size(); i++){
             if(listaTrabajadores.get(i).getNombre().equals(trabajador.getNombre()) && listaTrabajadores.get(i).getNifnie().equals(trabajador.getNifnie()) && listaTrabajadores.get(i).getFechaAlta().equals(trabajador.getFechaAlta())){
                 return true;
             }
          }
          return false;
+    }
+    
+    private void introducirNominas(){
+        
+        //Guardamos las nominas de la DB en una lista
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        String consulta = "select n from Nomina n";
+        Query query = session.createQuery(consulta);
+        listaNominas = query.list();
+        session.getTransaction().commit();
+        session.close();
+        
+        for(Nomina nomina: nominasCorrectas){
+            if(existeNomina(nomina)==false){
+                //Inserta trabajador y nomina normal
+                
+                session = sessionFactory.openSession();
+                session.beginTransaction();
+                
+                nomina = asignarIdNomina(nomina);
+                session.save(nomina);
+                session.getTransaction().commit();
+                
+                //Añade el trabajador insertada a la lista
+                listaNominas.add(nomina);
+                session.close();
+            }
+        }
+    }
+    
+    public Nomina asignarIdNomina(Nomina nomina) {
+        boolean nominaExistente = false;
+        int nuevoIdNomina = 1;
+
+        for (int i = 0; i < listaNominas.size(); i++) {
+            Nomina nominaAux = listaNominas.get(i);
+            if (nominaAux.getMes() == nomina.getMes() && nominaAux.getAnio() == nomina.getAnio() &&
+                nominaAux.getIdTrabajador() == nomina.getIdTrabajador() && 
+                nominaAux.getLiquidoNomina() == nomina.getLiquidoNomina() && nominaAux.getBrutoNomina() == nomina.getBrutoNomina()) {
+                nominaExistente = true;
+                nomina.setIdNomina(nominaAux.getIdNomina());
+                break;
+            }
+        }
+
+        if (nominaExistente) {
+            
+            // Si la nomina ya existe, se le ha asignado antes el id que ya existe
+            
+        } else {
+                    // Si la nomina no existe, se busca el máximo idNomina y se incrementa en 1
+
+        for (int i = 0; i < listaNominas.size(); i++) {
+                Nomina nominaAux = listaNominas.get(i);
+                int idNomina = nominaAux.getIdNomina();
+                if (idNomina >= nuevoIdNomina) {
+                    nuevoIdNomina = idNomina + 1;
+                    
+                }
+        }
+        
+        nomina.setIdNomina(nuevoIdNomina);        
+        }
+
+        return nomina;
+    }
+    
+    private boolean existeNomina(Nomina nominaNueva){
+        
+        for(int i=0; i<listaNominas.size(); i++){
+            if(listaNominas.get(i).getMes()==nominaNueva.getMes() && listaNominas.get(i).getAnio()==nominaNueva.getAnio() && 
+                    listaNominas.get(i).getIdTrabajador() == nominaNueva.getIdTrabajador() && 
+                    listaNominas.get(i).getLiquidoNomina()==nominaNueva.getLiquidoNomina() && listaNominas.get(i).getBrutoNomina()==nominaNueva.getBrutoNomina()){
+                return true;
+            }
+        }
+        return false;
     }
 }
