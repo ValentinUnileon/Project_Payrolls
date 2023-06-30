@@ -141,7 +141,14 @@ public class Proyecto_NominasSI {
         
         // Ejercicio 5
         
-        DBManager ej5 = new DBManager(resolverEjercicio.getTrabajadoresCorrectos(), resolverEjercicio.getCategoriaSalarioBase(), resolverEjercicio.getCategoriaComplementos());
+        /*
+        for (int i=0; i<resolverEjercicio.getTrabajadoresCorrectos().size(); i++) {
+            
+            System.out.println("lista de trabajadores: "+ resolverEjercicio.getTrabajadoresCorrectos().get(i).getIdTrabajador());
+        }
+        */
+        
+        DBManager ej5 = new DBManager(resolverEjercicio.obtenerTrabajadoresCorrectos(), resolverEjercicio.getCategoriaSalarioBase(), resolverEjercicio.getCategoriaComplementos());
         ej5.actualizarBaseDatos();
     }
     

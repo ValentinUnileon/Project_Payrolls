@@ -202,7 +202,7 @@ public class ExcelManager {
 
         for (int i = 0; i < trabajadoresHoja1.size(); i++) {
             Trabajador trabajador = trabajadoresHoja1.get(i);
-            if (trabajador.getEmpresa().getNombre().equals(empresa.getNombre())) {
+            if (trabajador.getEmpresa().getCif().equals(empresa.getCif())) {
                 empresaExistente = true;
                 empresa.setIdEmpresa(trabajador.getEmpresa().getIdEmpresa());
                 break;
@@ -218,6 +218,7 @@ public class ExcelManager {
                     // Si la empresa no existe, se busca el máximo idEmpresa y se incrementa en 1
 
         for (int i = 0; i < trabajadoresHoja1.size(); i++) {
+                        
                 Trabajador trabajador = trabajadoresHoja1.get(i);
                 int idEmpresa = trabajador.getEmpresa().getIdEmpresa();
                 if (idEmpresa >= nuevoIdEmpresa) {
@@ -2325,7 +2326,7 @@ public class ExcelManager {
     }
     
     
-    public List<Trabajador> getTrabajadoresCorrectos() {
+    public List<Trabajador> getTrabajadoresHoja1() {
     
         return this.trabajadoresHoja1;
     }

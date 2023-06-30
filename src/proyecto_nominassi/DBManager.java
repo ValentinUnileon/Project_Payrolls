@@ -46,6 +46,9 @@ public class DBManager {
     private Session session;
     
     private List<Categorias> listaCategorias;
+    private List<Empresas> listaEmpresas;
+    private List<Trabajador> listaTrabajadores;
+
     
     public DBManager(List<Trabajador> trabajadoresCorrectos, Map<String, String> categoriaSalarioBase, Map<String, String> categoriaComplementos){
         this.trabajadoresCorrectos=trabajadoresCorrectos;
@@ -55,9 +58,11 @@ public class DBManager {
     }
     
     public void actualizarBaseDatos(){
-        //almacenarEmpresas();
+        almacenarEmpresas();
         almacenarCategorias();
-        //almacenarTrabajadorYNominas();
+        almacenarTrabajador();
+        
+        System.out.println("EJECUCION TERMINADA :)");
     }
     
     private void almacenarEmpresas(){
@@ -66,29 +71,30 @@ public class DBManager {
         
         String consulta = "select e from Empresas e";
         Query query = session.createQuery(consulta);
-        List<Empresas> listaEmpresasIntroducidas = query.list();
+        listaEmpresas = query.list();        
 
         session.getTransaction().commit();
         session.close();
         
         for(int i = 0; i<trabajadoresCorrectos.size(); i++){
-                    
-            if(empresaExiste(trabajadoresCorrectos.get(i).getEmpresa().getIdEmpresa(), listaEmpresasIntroducidas)==false){                 
+            
+            if(empresaExiste(trabajadoresCorrectos.get(i).getEmpresa().getCif())==false){ 
+                
                 session = sessionFactory.openSession();
                 session.beginTransaction();
                 session.save(trabajadoresCorrectos.get(i).getEmpresa());
                 session.getTransaction().commit();
-                listaEmpresasIntroducidas.add(trabajadoresCorrectos.get(i).getEmpresa());
+                listaEmpresas.add(trabajadoresCorrectos.get(i).getEmpresa());
                 session.close();
             }
         }
         
     }
     
-    private boolean empresaExiste(int id, List<Empresas> list){
-        for(int i=0; i<list.size(); i++){
+    private boolean empresaExiste(String cif){
+        for(int i=0; i<listaEmpresas.size(); i++){
            
-            if(list.get(i).getIdEmpresa() == id){
+            if(listaEmpresas.get(i).getCif().equals(cif)){
                 return true;
             }
         }
@@ -179,7 +185,68 @@ public class DBManager {
             return false;
         }
     
+    
+    private void almacenarTrabajador(){
+        //Guardamos los trabajadores de la DB en una lista
+        
+        settearIdsTrabajadores();
+        session = sessionFactory.openSession();
+        session.beginTransaction();
+        String consulta = "select t from Trabajador t";
+        Query query = session.createQuery(consulta);
+        listaTrabajadores = query.list();
+        session.getTransaction().commit();
+        session.close();
+        
+        //Recorre trabajadores e inserta en DB los trabajadores y sus nominas que no estén
+        for(Trabajador trabajador: trabajadoresCorrectos){
+            if(comprobarSiExisteTrabajador(trabajador)==false){
+                //Inserta trabajador y nomina normal
+                
+                session = sessionFactory.openSession();
+                session.beginTransaction();
+                session.save(trabajador);
+                session.getTransaction().commit();
+                
+                //Añade el trabajador insertada a la lista
+                listaTrabajadores.add(trabajador);
+                session.close();
+            }
+        }
+    }
+    
+    public void settearIdsTrabajadores() {
+    
+        for (int i=0; i<trabajadoresCorrectos.size(); i++) {
+            
+                    
+            for (int j=0; j<listaEmpresas.size(); j++){
+            
+                if (trabajadoresCorrectos.get(i).getEmpresa().getCif().equals(listaEmpresas.get(j).getCif())) {
+                    
+                    trabajadoresCorrectos.get(i).setIdEmpresa(listaEmpresas.get(j).getIdEmpresa());
+                }
+            }
+            
+            for (int k=0; k<listaCategorias.size(); k++){
+            
+                if (trabajadoresCorrectos.get(i).getCategoria().getNombreCategoria().equals(listaCategorias.get(k).getNombreCategoria())) {
+                    
+                    trabajadoresCorrectos.get(i).setIdCategoria(listaCategorias.get(k).getIdCategoria());
+                }
+            }
+            
+        }
+        
+        
+    }
+    
+    private boolean comprobarSiExisteTrabajador(Trabajador trabajador){
+         for(int i=0; i<listaTrabajadores.size(); i++){
+            if(listaTrabajadores.get(i).getNombre().equals(trabajador.getNombre()) && listaTrabajadores.get(i).getNifnie().equals(trabajador.getNifnie()) && listaTrabajadores.get(i).getFechaAlta().equals(trabajador.getFechaAlta())){
+                return true;
+            }
+         }
+         return false;
+    }
 }
-
-
-
