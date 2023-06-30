@@ -66,6 +66,9 @@ public class DBManager {
         introducirNominas();
         
         System.out.println("EJECUCION TERMINADA :)");
+        
+        HibernateUtil.cerrarSessionFactory();
+        HibernateUtil.shutdown();
     }
     
     private void introducirEmpresas(){

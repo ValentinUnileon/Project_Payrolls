@@ -86,8 +86,6 @@ public class ExcelManager {
     
     private final Map<String, Float> datosEmpresa = new HashMap<>(); 
     
-    //
-    
     private static final List<Character> letras = new ArrayList<Character>();
     private static final List<Character> letrasPais = new ArrayList<Character>();
     private static final List<String> numerosPais = new ArrayList<String>();
@@ -123,20 +121,12 @@ public class ExcelManager {
             
             if(!codigoCuenta.get(i).equals("")){
                
-                //System.out.println("El dni de la fila es "+" ---- "+fechaAltaLaboral.get(i)+" ----- APE "+apellido1.get(i)+" y el nombre es "+nombre.get(i));                
-                //System.out.println(fechaAltaEmpresa.get(i));
                 
                 //Preparamos las fechas
 
                 SimpleDateFormat formatoFecha = new SimpleDateFormat("dd-MMM-yyyy", new Locale("es", "ES"));
                 SimpleDateFormat formatoFechaNuevo = new SimpleDateFormat("dd-MM-yyyy");
  
-                /* Para cuando generemos las fechas  -- gestionar para cuando no hay fecha y se le pasa ""
-                Date fecha_fechaAltaEmpresa = formatoFecha.parse(fechaAltaEmpresa.get(i));
-                Date fecha_fechaBajaLaboral = formatoFecha.parse(fechaBajaLaboral.get(i));
-                Date fecha_fechaAltaLaboral = formatoFecha.parse(fechaAltaLaboral.get(i));
- 
-                */
                            
                 Date fecha_fechaAltaEmpresa = formatoFecha.parse(fechaAltaEmpresa.get(i));
                 Date fecha_fechaAltaLaboral = null;
@@ -181,7 +171,7 @@ public class ExcelManager {
                 
                 Categorias categorias = new Categorias();
                 categorias.setNombreCategoria(categoria.get(i));
-                aux.setCategoria(categorias); //TODO - RELLENAR CATEGORIA CORRECTAMENTE
+                aux.setCategoria(categorias); 
                 
                 
                 trabajadoresHoja1.add(aux);
@@ -189,7 +179,6 @@ public class ExcelManager {
             }
 
         }
-        //System.out.println("FINAL "+trabajadoresHoja1.get(0).getNombre()+" locura longitud "+ trabajadoresHoja1.size());
        
 
     }
@@ -288,8 +277,6 @@ public class ExcelManager {
         List<String> accidentesTrabajo = this.obtenerColumnasDatosAux(nombreColum1, 3);
         List<String> valores = this.obtenerColumnasDatosAux( nombreColum2+"", 3);
 
-        //System.out.println("ACCIDENTES: "+ accidentesTrabajo.toString());
-        //System.out.println("VALORES: "+ valores.toString());
         datosEmpresa.put(nombreColum1, Float.parseFloat(nombreColum2+"")/100);
 
         for(int j=0; j<accidentesTrabajo.size(); j++ ){
@@ -421,23 +408,19 @@ public class ExcelManager {
                 XSSFRow fila = (XSSFRow) iteradorFilas.next();     
                 Iterator<Cell> iteradorCeldas = fila.cellIterator();      
                 
-                //System.out.println("la fila actual"+iteradorFilas);
 
                 while(iteradorCeldas.hasNext())
                 {
                     XSSFCell celda = (XSSFCell) iteradorCeldas.next();  
-                    //System.out.println("la celda es: "+ celda.toString());
                     if(celda.toString().equals(antiguaCelda) )                   
                     {
                         celda.setCellValue(nuevaCelda);
-                        //System.out.println("la celda es: "+ celda.toString());
                     }                                            
 
                 }
 
             }
         flujoEntrada.close();
-         //System.out.println("la celda es: ");
         
          try{
             FileOutputStream output_file = new FileOutputStream(new File(localizacionExcel));
@@ -471,7 +454,6 @@ public class ExcelManager {
         while(iteradorFilas.hasNext() && encontrado==false) 
         {
             XSSFRow fila = (XSSFRow) iteradorFilas.next(); 
-            //System.out.println("NumFIla es: "+fila.getRowNum());          //PARA OBTENER EL NUMERO DE LA FILA DEL EXCEL
             Iterator<Cell> iteradorCeldas = fila.cellIterator();          
 
             while(iteradorCeldas.hasNext())
@@ -542,7 +524,6 @@ public class ExcelManager {
         while(iteradorFilas.hasNext() && encontrado==false) 
         {
             XSSFRow fila = (XSSFRow) iteradorFilas.next(); 
-            //System.out.println("NumFIla es: "+fila.getRowNum());          //PARA OBTENER EL NUMERO DE LA FILA DEL EXCEL
             Iterator<Cell> iteradorCeldas = fila.cellIterator();          
 
             while(iteradorCeldas.hasNext())
@@ -645,7 +626,6 @@ public class ExcelManager {
         }
         
 
-        //List<String> listaDNI = this.obtenerColumnasDatos(localizacionExcel, "NIF/NIE", 0);
         List<String> listaDNI= new ArrayList<>();
         
         for(int j=0; j< trabajadoresHoja1.size(); j++){
@@ -660,17 +640,15 @@ public class ExcelManager {
             
             
                 
-                //System.out.println("el elemento "+listaDNI.get(i)+" se repite estas veces: "+map.get(listaDNI.get(i)) );
 
                 if(map.get(listaDNI.get(i))>1 && !listaDNI_Repetidos.contains(listaDNI.get(i)) && !listaDNI.get(i).equals("")){  //comprobar que el dni se repite y que no se encuentra en la lista de "ya añadidos"
 
-                    //System.out.println("Añadidos a XML ERRORES por repeticion: "+ listaDNI.get(i)+" "+ map.get(listaDNI.get(i)));
                     
                     List<Integer> numTrabajadoresRepetidos = obtenerRepetidos(listaDNI.get(i));                
                     
                     for(int j=0; j< numTrabajadoresRepetidos.size(); j++){ 
 
-                        trabajadoresErrores.add(trabajadoresHoja1.get(numTrabajadoresRepetidos.get(j)));  //Er
+                        trabajadoresErrores.add(trabajadoresHoja1.get(numTrabajadoresRepetidos.get(j)));  
                         
                     }
                     
@@ -1078,14 +1056,13 @@ public class ExcelManager {
         
         
         for(int i=0; i<trabajadoresHoja1.size(); i++){
-            //System.out.println("TE HE PILLADO "+trabajadoresHoja1.get(i).getIdTrabajador());
             if(trabajadoresHoja1.get(i).getIdTrabajador()==1){
                System.out.println("TE HE PILLADO "+trabajadoresHoja1.get(i).getApellido2()); 
             }
             
-            if(trabajadoresHoja1.get(i).getEmail().equals("")){                     //solo lo genera cuando el trabajador no tiene email 
+            if(trabajadoresHoja1.get(i).getEmail().equals("")){        //solo lo genera cuando el trabajador no tiene email 
                 
-                //generar email y cambiarlo en el trabjador y en el excel//COMPROBAR SI HAY SEGUNDO APELLIDO
+                //generar email y cambiarlo en el trabjador y en el excel
                 
                 String correoGeneradoCuerpo = trabajadoresHoja1.get(i).getNombre().charAt(0)+
                                         Character.toString(trabajadoresHoja1.get(i).getApellido1().charAt(0)); 
@@ -1178,9 +1155,7 @@ public class ExcelManager {
                 String numerosIBAN = obtenerNumerosIBAN(paisOrigen, numeroCuenta);
                 
                 String ibanFinal = paisOrigen + numerosIBAN + numeroCuenta;
-                
-                // System.out.println(ibanFinal);
-                
+                                
                 for(int j =0; j<trabajadoresErroneos.size(); j++){
                     if(trabajadoresErroneos.get(j).getApellido1().equals(trabajadoresHoja1.get(i).getApellido1()) && trabajadoresErroneos.get(j).getCodigoCuenta().equals(trabajadoresHoja1.get(i).getCodigoCuenta())){
                         trabajadoresErroneos.get(j).setIban(ibanFinal);
@@ -1188,7 +1163,6 @@ public class ExcelManager {
                 }
 
                 trabajadoresHoja1.get(i).setIban(ibanFinal);
-                //System.out.println("CUIDAO QUE LO TENGO "+ trabajadoresHoja1.get(i).getIdTrabajador()+ "el iban es "+trabajadoresHoja1.get(i).getIban()+ " el nombre "+ trabajadoresHoja1.get(i).getApellido1());
                 this.escribirCeldaColumna("IBAN",  trabajadoresHoja1.get(i).getIban(), trabajadoresHoja1.get(i).getIdTrabajador()-1, 0); 
                 
             }
@@ -1302,11 +1276,7 @@ public class ExcelManager {
         String primeraAux = numeroCuenta.substring(0, 8);
         String primeraCadena = "00"+primeraAux;
         
-        String segundaCadena = numeroCuenta.substring(10);
-        
-        // 20960043 01 3468900000
-        // 20960043 11 103468900000
-        
+        String segundaCadena = numeroCuenta.substring(10);        
         
         int primeraCantidad=0;
         int segundaCantidad=0;
@@ -1536,7 +1506,7 @@ public class ExcelManager {
                     
                     //Costes empresario
                     
-                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);     
                     nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
@@ -1581,7 +1551,7 @@ public class ExcelManager {
                         
                         //diciembre 
                         if(fechaActual.getMonth()==11){                          
-                            if(numMeses<7){ //EFMAMJJASOND
+                            if(numMeses<7){ 
                                 nominaExtra= (nominaMensual/6)*(numMeses-1);
                             }else{
                                 //se le suma toda la paga extra
@@ -1664,7 +1634,7 @@ public class ExcelManager {
                     
                     //Costes empresario
                     
-                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);    
                     nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
@@ -1761,7 +1731,7 @@ public class ExcelManager {
                     
                     //Costes empresario
                     
-                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);    
                     nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
@@ -1798,10 +1768,10 @@ public class ExcelManager {
 
        
 
-                }else{  // no tiene prorrata, cobra vito, ha entrado a la empresa antes de este año
+                }else{  // no tiene prorrata, ha entrado a la empresa antes de este año
                     
                     float nominaExtra=0;
-                    nominaMensual = brutoAnual / 14; //--------------------------------
+                    nominaMensual = brutoAnual / 14; 
                     
                     
                     if(fechaActual.getMonth()== 5 && fechaActual.getMonth()==11){
@@ -1879,7 +1849,7 @@ public class ExcelManager {
 
                     //Costes empresario
                     
-                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);              //CUIDADO ES UNA STRING
+                    nomina.setSeguridadSocialEmpresario(""+seguridadSocialEmpresario);          
                     nomina.setImporteSeguridadSocialTrabajador(nominaMensual*seguridadSocialEmpresario);
                     
                     nomina.setFormacionEmpresario(formacionEmpresario);
@@ -1918,7 +1888,7 @@ public class ExcelManager {
                     nomina.setLiquidoNomina(liquidoMensual);
                     nomina.setCosteTotalEmpresario(costeEmpresa);
                     nomina.setIdTrabajador(trabajdoresCorrectos.get(i).getIdTrabajador());
-                    //fin
+                    
                 }
 
 
@@ -1940,7 +1910,7 @@ public class ExcelManager {
                 if(trabajdoresCorrectos.get(i).getAltaLaboral()!=null){        //si ha terminado su baja
                     
                     if(trabajdoresCorrectos.get(i).getBajaLaboral().compareTo(trabajdoresCorrectos.get(i).getAltaLaboral())<0 || ( (trabajdoresCorrectos.get(i).getAltaLaboral().getMonth()==fechaActual.getMonth() && trabajdoresCorrectos.get(i).getAltaLaboral().getYear()==fechaActual.getYear() ))){
-                        // se comprueba que la fecha de baja laboral es posterior a la de alta, esta mal?
+                        // se comprueba que la fecha de baja laboral es posterior a la de alta
                         //nos incumbe la baja laboral y tiene fecha de alta
                         
                        diasDeBaja = calcularDiasEntreFechas(trabajdoresCorrectos.get(i).getBajaLaboral(), trabajdoresCorrectos.get(i).getAltaLaboral());
@@ -2079,22 +2049,7 @@ public class ExcelManager {
                 nominasTrabajadores.add(nomina);
                 
             }
-
-
-            // El valor de comparacion será:
-            // 0 si las fechas son iguales
-            // un número negativo si fecha1 es anterior a fecha2
-            // un número positivo si fecha1 es posterior a fecha2
             
-            
-            
-            //TENIENDO TODOS ESTOS DATOS SE CALCULA EL BRUTO ANUAL
-            // HAY QUE TENER EN CUENTA TODO LO QUE VA A GANAR ESTE AÑO, TENIENDO EN CUENTA TODO
-            // SI ES SU PRIMER AÑO, SI CAMBIA JUSTO DE TRIENIO EN ESTE AÑO
-            // SI ES UNA NOMINA NORMAL SIN CAMBIO DE TRIENIO, SI TIENE BAJAS
-            
-            // se puede hacer con un switch y hacer 4 apartados diferentes
-
         }
         
         generarNominasXML(trabajdoresCorrectos, nominasTrabajadores);
