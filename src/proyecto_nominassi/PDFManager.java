@@ -142,7 +142,8 @@ public class PDFManager {
             cell2.add(new Paragraph("IBAN: "+trabajador.getIban()));
             cell2.add(new Paragraph("Bruto anual: "+categoriaSalarioBase.get(trabajador.getCategoria().getNombreCategoria())));
             cell2.add(new Paragraph("Categoría: "+trabajador.getCategoria().getNombreCategoria()));
-            cell2.add(new Paragraph("Fecha de alta: "+trabajador.getFechaAlta()));
+            cell2.add(new Paragraph("Fecha de alta: "+trabajador.getFechaAlta().getDay()+"/"+(trabajador.getFechaAlta().getMonth()+1)+"/"+(trabajador.getFechaAlta().getYear()+1900)));
+            cell2.add(new Paragraph("Nómina: "+getMesString(fechaActual.getMonth())+" de "+ (fechaActual.getYear()+1900)));
             tabla1.addCell(cell2);
 
             //SEGUNDA TABLA
@@ -154,15 +155,16 @@ public class PDFManager {
             Image img = new Image(ImageDataFactory.create(imagen));
             img.setBorder(null);
             img.setPadding(10);
+            img.scaleToFit(200, 200);
 
             Cell cell3 = new Cell();
-            //cell3.add(img);
+            cell3.add(img);
             cell3.setBorder(null);
 
             cell3.setPaddingLeft(23);
             cell3.setPaddingTop(20);
 
-            cell3.setWidth(250);
+            cell3.setWidth(150);
             tabla2.addCell(cell3);
 
             Cell cellD = new Cell();
